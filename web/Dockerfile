@@ -1,18 +1,20 @@
-FROM python:3.8
+# Grab Python 3.x image
+FROM python:3
+
+# Let Python output be sent to the host computer
 ENV PYTHONUNBUFFERED 1
 
-# If using Bjoern webserver, please uncomment these two lines
-RUN apt-get update
-RUN apt-get install libev-dev -y
-
-COPY ./src/requirements.txt /tmp
-RUN pip install -r /tmp/requirements.txt
-
+# Define/create a working directory for the RUN/CMD/COPY commands
 WORKDIR /app
 
-EXPOSE 6000
+# Copy the contents of the "src" folder to the container
+COPY ./src .
 
-CMD python server.py
-# Uncomment if you wish to use bjoern or waitress web servers instead of the default
-# CMD python server_bjoern.py
-# CMD python server_waitress.py
+# Install the required dependencies
+RUN pip install -r requirements.txt
+
+# Tell Docker to listen to traffic on this port inside the container
+EXPOSE 6543
+
+# Start the Pyramid web server
+CMD ["python", "server.py"]
