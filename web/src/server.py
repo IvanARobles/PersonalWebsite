@@ -13,5 +13,4 @@ if __name__ == '__main__':
     app = config.make_wsgi_app()
 
   server = make_server('0.0.0.0', 6543, app)
-  print('Web server started on: http://0.0.0.0:6543')
   server.serve_forever()
