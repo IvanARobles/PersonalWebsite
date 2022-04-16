@@ -9,3 +9,4 @@ services:
       - 6543:6543 # host : container
     volumes: # Map hard drive from host (computer) to drive in container
       - ./src:/app
+    container_name: agile-web
