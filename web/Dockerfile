@@ -17,4 +17,5 @@ RUN pip install -r requirements.txt
 EXPOSE 6543
 
 # Start the Pyramid web server
-CMD ["python", "server.py"]
+CMD python server.py
+# CMD python server.py &
