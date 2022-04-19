@@ -69,6 +69,42 @@ p, ol li, ul li {
   margin: 0px;
 }
 
+.left-hero {
+  display: flex;
+  align-items: end;
+}
+
+
+.chore-words {
+  width: calc(10rem + 10vw);
+}
+
+.chore-logo {
+  width: calc(1.45rem + 2.9vw);
+  height: calc(1rem + 2vw);
+  margin: 0 var(--padding-xl);
+}
+
+.landing {
+  background-image: url("../images/LandingChore.png");
+  background-position: right;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+}
+
+/*MOVE THIS*/
+@media screen and (max-width: 1200px) {
+  .landing {
+    background-image: url("../images/LandingChore-med.png");
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .landing {
+    background-image: url("../images/LandingChore-sm.png");
+  }
+}
+
 
 h2 {
   font-size: calc(1rem + 2.7vw);
@@ -128,6 +164,24 @@ a:hover {
   background: var(--white-transparent);
 }
 
+.landing-card {
+  padding: calc(1rem + 0.25vw);
+  margin: var(--margin-lg) auto;
+  background: var(--transparent);
+  color: var(--light-color);
+  width: 100%;
+  font-size: calc(1.5rem + 1vw)
+}
+
+.landing-card li {
+  font-size: calc(1rem + 1vw);
+  color: var(--medium-color);
+}
+
+.landing-card li:hover {
+  color: white;
+}
+
 .names {
   text-align: center;
 }
@@ -145,6 +199,14 @@ a:hover {
   border: 1px solid var(--medium-color);
   border-radius: var(--border-radius);
   color: var(--medium-color);
+}
+
+.empty-card {
+  padding: var(--padding-lg);
+  margin: var(--margin-med) auto;
+  background: var(--transparent);
+  width: 100%;
+  color: var(--transparent);
 }
 
 .in-line {
@@ -179,9 +241,7 @@ a:hover {
 }
 
 .sub-topic-p:hover {
-  font-size: calc(1rem + 0.6vw);
-  padding: calc(0.5rem + 0.4vw);
-  color: var(--light-color);
+  color: white;
 }
 
 .item-header {

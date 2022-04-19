@@ -13,20 +13,35 @@
 
     <link rel="stylesheet" type="text/css" href="css/agile.css">
     <script src="https://kit.fontawesome.com/06c5daf794.js" crossorigin="anonymous"></script>
+
+    <!-- Add favicon -->
+    <link rel="icon" type="image/png" href="images/ChoreTrackerFav.png">
   </head>
 
   <body>
 
     <!-- Header of Page -->
     <div class='hero'>
-        <h1> ChoreTracker </h1>
+      <div class="left-hero">
+        <a href="/">
+          <img class="chore-logo" src="images/ChoreTracker_Logo.png" alt="ChoreTracker Logo"
+            href="/">
+        </a>
+        <a href="/">
+          <img class="chore-words" src="images/ChoreTracker_W.png" alt="ChoreTracker"
+            href="/">
+        </a>
+      </div>
+      <div class="right-hero">
         <button id="menu-btn" title="Menu" class="btn">
           <i class="fas fa-bars fa-x"></i>
         </button>
+      </div>
     </div>
     <hr class="hero-line">
     <!-- End of Header -->
 
+    <!-- -->
     <div class="pages-bar">
       <h6> The easiest and safest way to get your kids to do their chores. </h6>
       <div class="pages">
@@ -35,11 +50,10 @@
       </div>
     </div>
 
-    <section class='padding-responsive'>  
-      <div class='separator'>Our Product</div>
+    <section class='padding-responsive landing'> 
 
       <section class='responsive_grid'>
-        <div class='card bordered margin-none'> 
+        <div class='landing-card margin-none'> 
           The ChoreTracker is a collection of sensors that work together with our app
           to make organizing, assigning, and tracking chores easy.
           <ul>
@@ -58,9 +72,7 @@
             </li>
           </ul> 
         </div>
-        <div class='floating_image margin-none'>
-          <img src="images/ChoreTrackerImage.jpg" alt="Chore Tracker Image">
-        </div>
+        <div class='empty-card'></div>
       </section>
     </section>
 
