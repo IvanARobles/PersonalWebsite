@@ -210,6 +210,19 @@ a:hover {
   border: 1px solid var(--medium-color);
   border-radius: var(--border-radius);
   color: var(--medium-color);
+  text-align: center;
+}
+
+.floating_image_alone {
+  padding: var(--padding-lg);
+  margin: var(--margin-med) auto;
+  background: var(--transparent);
+  border: 1px solid var(--medium-color);
+  border-radius: var(--border-radius);
+  color: var(--medium-color);
+  max-height: 75vh;
+  width: auto;
+  text-align: center;
 }
 
 .empty-card {
