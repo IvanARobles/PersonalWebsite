@@ -3,13 +3,16 @@ from pyramid.config import Configurator
 from pyramid.response import FileResponse
 
 def get_home(req):
-  return FileResponse("index.html")
+  return FileResponse("pages/index.html")
 
 def get_kvp(req):
-  return FileResponse("kvp.html")
+  return FileResponse("pages/kvp.html")
 
 def get_team(req):
-  return FileResponse("team.html")
+  return FileResponse("pages/team.html")
+
+def get_product_page(req):
+  return FileResponse("pages/product.html")
 
 if __name__ == '__main__':
   with Configurator() as config:
@@ -27,6 +30,11 @@ if __name__ == '__main__':
     config.add_route('team', '/team')
     # Directs the route to the function that can generate the view
     config.add_view(get_team, route_name='team')
+
+    # Adds key value proposition route in the website
+    config.add_route('product', '/product')
+    # Directs the route to the function that can generate the view
+    config.add_view(get_product_page, route_name='product')
 
     config.add_static_view(name='/', path='./public', cache_max_age=3600)
     app = config.make_wsgi_app()
