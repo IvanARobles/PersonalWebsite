@@ -1,4 +1,5 @@
 //import { TimerContainer } from "./timerContainer.js";
+const CONSOLE_BOOL = true;
 
 /**
  * Class representing an Event Hub to centralize all event logic
@@ -57,6 +58,9 @@ class EventBus {
         //     this.o_instructions.closeInstructions();
         // }
         this.o_menu_list.showMenuList();
+        if (CONSOLE_BOOL) {
+            console.log("eventBus.js - handleShowMenu");
+        }
     }
 
     

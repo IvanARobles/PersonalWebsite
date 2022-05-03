@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Page Info -->
-    <title>ChoreTracker - Home</title>
+    <title>ChoreTracker - Login</title>
     <meta name="author" content="Ivan Robles">
     <meta name="description" content="Chore Tracker Product">
 
@@ -36,10 +36,10 @@
       <div class="right-hero">
         <button id="start-btn" class="custom-btn">Get Started</button>
         <a href="login">
-          <button id="user-btn" title="Login" class="btn">
-            <i class="fas fa-user fa-x"></i>
-          </button>
-        </a>
+            <button id="user-btn" title="Login" class="btn">
+              <i class="fas fa-user fa-x"></i>
+            </button>
+          </a>
         <button id="menu-btn" title="Menu" class="btn">
           <i class="fas fa-bars fa-x"></i>
         </button>
@@ -61,29 +61,37 @@
     <!-- Contains the slide-out menu -->
     <menu-list></menu-list>
 
-    <section class='padding-responsive landing'> 
+    <section class='padding-responsive full_height'> 
 
       <section class='responsive_grid'>
-        <div class='landing-card margin-none'> 
-          The ChoreTracker is a collection of sensors that work together with our app
-          to make organizing, assigning, and tracking chores easy.
-          <ul>
-            <li>
-              Create recurring or one-time chores
-            </li>
-          </ul>
-          <ul>
-            <li>
-              Monitor chores and receive real-time updates
-            </li>
-          </ul>
-          <ul>
-            <li>
-              Reward your kids for a job well done
-            </li>
-          </ul> 
+        <div class='centered_card bordered_stable margin-none' id="login_card"> 
+          <h3>Create Account</h3>
+          <label class="small_message" for="email_box">Email:</label>
+          <div class="centered">
+            <input type="email" placeholder="Enter email..." id="email_box">
+          </div>
+          <label class="small_message" for="pass_box">Password:</label>
+          <div class="centered">
+            <input type="password" placeholder="Enter password..." id="pass_box">
+          </div>
+          <div class="centered">
+            <input type="password" placeholder="Confirm password...">
+          </div>
+          <div class="centered">
+            <p class="small-message">Note: this is the password ALL family members will use to sign in.</p>
+          </div>
+
+          <div class="centered">
+            <input type="submit" value="Create Account" class="custom-btn">
+          </div>
         </div>
-        <div class='empty-card'></div>
+      </section>
+
+      <section class='responsive_grid'>
+        <div class='centered_card margin-none centered'>
+          Already a User? 
+          <a href="login">Sign In Here.</a>
+        </div>
       </section>
     </section>
 

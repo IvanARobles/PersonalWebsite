@@ -1,6 +1,7 @@
 import { MenuList } from "./menuList.js";
 import { EventBus } from "./eventBus.js";
 
+const CONSOLE_BOOL = true;
 
 // /**
 //  * Event handler function to change the theme
@@ -35,6 +36,11 @@ document.addEventListener("DOMContentLoaded", () => {
     // Code for showing / hiding MenuList functionality
     let o_menu_btn = document.getElementById("menu-btn");
     o_menu_btn.addEventListener("click", showMenuList);
+
+    
+    if (CONSOLE_BOOL) {
+        console.log("main.js - DOM loaded");
+    }
 
     // initialize Event Bus instance
     document.EventBus = new EventBus();

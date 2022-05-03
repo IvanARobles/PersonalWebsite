@@ -1,17 +1,19 @@
 :root {
   --primary-color: #07f;
-  --accent-color: rgba(231, 109, 90, 1);
-  --accent-color-dark: rgba(226, 77, 54, 1);
-  --accent-color: rgb(227, 42, 42);
+  /* --accent-color: rgb(227, 42, 42);
   --accent-color-dark: rgb(109, 18, 18);
-  --accent-color-darkest: rgb(88, 12, 12);
+  --accent-color-darkest: rgb(88, 12, 12); */
+  --accent-color: rgb(92, 159, 201);
+  --accent-color-dark: rgb(69, 124, 184);
+  --accent-color-darkest: rgb(50, 74, 144);
   --darker-color: rgb(83, 83, 83);
   --dark-color: rgb(126, 126, 126);
   --medium-color: #bbb;
   --light-color: #eee;
   /*--page-color: rgb(16, 15, 15);*/
   --page-color: rgb(6, 6, 6);
-  --page-color-light: rgb(44, 44, 44);
+  --page-color-light: rgb(24, 24, 24);
+  --page-color-lighter: rgb(44, 44, 44);
   --soft-color: rgba(221, 214, 212, 1);
   --white-transparent: rgba(255, 255, 255, 0.047);
   --dark-transparent: rgba(0, 0, 0, 0.5);
@@ -42,7 +44,7 @@ body {
   font-family: var(--font);
   color: white;
 }
-p, ol li, ul li {
+p, ol li, ul li, blockquote {
   font-size: calc(1rem + 0.5vw);
 }
 /* -- ELEMENTS -- */
@@ -175,6 +177,36 @@ a:hover {
   background: var(--white-transparent);
 }
 
+.centered {
+  text-align: center;
+}
+
+.centered_card {
+  padding: var(--padding-lg);
+  margin: var(--margin-med) auto;
+  background: var(--transparent);
+  color: var(--light-color);
+  width: 100%;
+  font-size: calc(1rem + 1vw);
+  display: block;
+}
+
+#login_card {
+  max-width: 50vw;
+}
+
+input[type="email"], input[type="password"]{
+  height: 3rem;
+  margin: var(--margin-med);
+  background-color: var(--transparent);
+  outline: none; 
+  border: 1px solid var(--dark-color);
+  border-radius: var(--border-radius);
+  width: 90%;
+  color: var(--light-color);
+  padding: var(--padding-med);
+}
+
 .landing-card {
   padding: calc(1rem + 0.25vw);
   margin: var(--margin-lg) auto;
@@ -217,12 +249,15 @@ a:hover {
   padding: var(--padding-lg);
   margin: var(--margin-med) auto;
   background: var(--transparent);
-  border: 1px solid var(--medium-color);
-  border-radius: var(--border-radius);
   color: var(--medium-color);
   max-height: 75vh;
   width: auto;
   text-align: center;
+}
+
+.half_page_image {
+  max-width: 40vw;
+  max-height: 70vh;
 }
 
 .empty-card {
@@ -268,6 +303,14 @@ a:hover {
   color: white;
 }
 
+.small-message {
+  font-size: calc(0.5rem + 0.5vw);
+}
+
+label {
+  font-size: calc(0.5rem + 0.5vw);
+}
+
 .item-header {
   color: var(--accent-color);
 }
@@ -309,22 +352,20 @@ a:hover {
   text-align: center;
   margin: 0px auto calc(1rem + 2vw);
 }
-.separator::before {
+
+/* .separator::before {
+  margin-right: 1rem;
   content: "";
   flex: 1;
   border-bottom: 2px solid var(--medium-color);
 }
 .separator::after {
+  margin-left: 1rem;
   content: "";
   flex: 50;
   border-bottom: 2px solid var(--medium-color);
-}
-.separator::before {
-  margin-right: 1rem;
-} 
-.separator::after {
-  margin-left: 1rem;
-}
+} */
+
 
 
 /* -- GRID -- */
@@ -340,6 +381,12 @@ a:hover {
   padding: 0px;
   grid-gap: 1rem;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+}
+
+@media screen and (max-width: 750px) {
+  .half_page_image {
+    max-width: 80vw;
+  }
 }
 
 
@@ -363,7 +410,7 @@ a:hover {
   border-radius: var(--rounded-radius);
 
 }
-.bordered {
+.bordered, .bordered_stable {
   border: 1px solid var(--dark-color);
   border-radius: var(--border-radius);
 }
@@ -390,7 +437,7 @@ a:hover {
   color: var(--accent-color);
 }
 
-.full-height {
+.full_height {
   height: 100vh;
 }
 
@@ -430,7 +477,7 @@ a:hover {
   top: 0;
   right: 0;
   /*box-shadow: -5px 5px 10px rgb(255, 255, 255);*/
-  box-shadow: -0.1rem 0px rgb(255, 255, 255);
+  box-shadow: -0.1rem 0px 10px var(--light-color);
   transition: 0.3s;
   border: 1px;
 }
@@ -471,4 +518,13 @@ a:hover {
   background-color: var(--page-color-light);
   border-color: var(--light-color);
   color: white;
+}
+
+.menu_list_links {
+  display: block;
+}
+
+.menu_list_links a {
+  display: block;
+  color: var(--light-color);
 }
