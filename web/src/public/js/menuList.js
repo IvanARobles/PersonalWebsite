@@ -57,6 +57,10 @@ class MenuList extends HTMLElement {
         let o_link_five = document.createElement("a");
         o_link_five.setAttribute('href', "UIinfo");
         o_link_five.innerHTML = "UI - Info";
+ 
+        let o_link_six = document.createElement("a");
+        o_link_six.setAttribute('href', "IAinfo");
+        o_link_six.innerHTML = "IA - Info";
 
         // footer link at bottom of menu
         let o_menu_footer = document.createElement("footer");
@@ -64,7 +68,7 @@ class MenuList extends HTMLElement {
 
         
 
-        o_nav_list.append(o_link_one, o_link_two, o_link_three, o_link_four, o_link_five);
+        o_nav_list.append(o_link_one, o_link_two, o_link_three, o_link_four, o_link_five, o_link_six);
         o_wrapper_obj.append(o_close_button, o_nav_list);
         this.append(o_wrapper_obj_back);
         this.append(o_wrapper_obj);

@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Page Info -->
-    <title>ChoreTracker - Sign Up</title>
+    <title>ChoreTracker - Main</title>
     <meta name="author" content="Ivan Robles">
     <meta name="description" content="Chore Tracker Product">
 
@@ -34,12 +34,6 @@
         </a>
       </div>
       <div class="right-hero">
-        <button id="start-btn" class="custom-btn">Get Started</button>
-        <a href="login">
-            <button id="user-btn" title="Login" class="btn">
-              <i class="fas fa-user fa-x"></i>
-            </button>
-          </a>
         <button id="menu-btn" title="Menu" class="btn">
           <i class="fas fa-bars fa-x"></i>
         </button>
@@ -48,15 +42,24 @@
     <hr class="hero-line">
     <!-- End of Header -->
 
-    <!-- 
+     
     <div class="pages-bar">
-      <h6> The easiest and safest way to get your kids to do their chores. </h6>
       <div class="pages">
-        <a href="kvp" >Key Value Proposition</a>
-        <a href="team" >Meet the Team</a>
-        <a href="product">Product</a>
+        <a href="kvp" >Children</a>
+        <a href="team" >Chores</a>
       </div>
-    </div>  -->
+      <div>
+        <button id="add-chore-btn" title="Add Chore" class="btn">
+          <i class="fas fa-plus-square fa-x"></i>
+        </button>
+        <button id="add-child-btn" title="Add Child" class="btn">
+          <i class="fas fa-user-plus fa-x"></i>
+        </button>
+        <button id="menu-btn" title="Settings" class="btn">
+          <i class="fas fa-cogs fa-x"></i>
+        </button>
+      </div>
+    </div>
 
     <!-- Contains the slide-out menu -->
     <menu-list></menu-list>
@@ -64,34 +67,8 @@
     <section class='padding-responsive full_height'> 
 
       <section class='responsive_grid'>
-        <div class='centered_card bordered_stable margin-none' id="login_card"> 
-          <h3>Create Account</h3>
-          <label class="small_message" for="email_box">Email:</label>
-          <div class="centered">
-            <input type="email" placeholder="Enter email..." id="email_box">
-          </div>
-          <label class="small_message" for="pass_box">Password:</label>
-          <div class="centered">
-            <input type="password" placeholder="Enter password..." id="pass_box">
-          </div>
-          <div class="centered">
-            <input type="password" placeholder="Confirm password...">
-          </div>
-          <div class="centered">
-            <p class="small-message">Note: this is the password ALL family members will use to sign in.</p>
-          </div>
-
-          <div class="centered">
-            <input type="submit" value="Create Account" class="custom-btn">
-          </div>
-        </div>
-      </section>
-
-      <section class='responsive_grid'>
-        <div class='centered_card margin-none centered'>
-          Already a User? 
-          <a href="login">Sign In Here.</a>
-        </div>
+        <tbody id ="children_table"></tbody>
+        <tbody id ="chores_table"></tbody>
       </section>
     </section>
 

@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Page Info -->
-    <title>ChoreTracker - UI info</title>
+    <title>ChoreTracker - IA info</title>
     <meta name="author" content="Ivan Robles">
     <meta name="description" content="Chore Tracker Product">
 
@@ -65,31 +65,65 @@
     <menu-list></menu-list>
 
     <section class='padding-responsive'>  
-      <div class='separator'>UI Mock-Up</div>
+      <div class='separator'>Basic Information Architecture</div>
 
-      <section class='responsive_grid'>
-        <div class='card bordered margin-none'> 
-            <!--
-          Here you see a mock-up of the user page, which parents will see once they have logged in. In this example, the parent
-          user has two children users in their family account and has already assigned them chores.-->
-          Here you can see a mock up of the physical device we want to use. This is a camera sensor and 
-          a 3D printed shell to hold it. The idea is to use this to monitor dirty dishes in the sink. We are
-          undecided if we want to give parents the ability to view it live, but it's likely. In addition, it
-          will take periodic images and attempt to detect change in dish levels in the sink and let parents know
-          if they are not done when they should have been.
-        </div>
-        <div class='floating_image_alone margin-none'>
-          <img src="images/sensorMockUp.jpg" alt="Sensor Mock-Up Image" class="half_page_image">
-        </div>
-      </section>
+      <div class="center-box">
+        <div class="sub-topic">Parents</div>
+        <p class="sub-topic-p">Parents need to create chores and assign them to kids</p>
+        <p class="sub-topic-p">Parents need to see live updates on the chores</p>
+        <p class="sub-topic-p">Parents need to have control over the points the kids earn</p>
+        <div class="sub-topic">Kids</div>
+        <p class="sub-topic-p">Kids need to see their chores and be able to mark them done</p>
+        <p class="sub-topic-p">Kids need to be able to see their points and try to redeem them</p>
+      </div>
+      
+      <div class='separator'>Design Principles</div>
+
+      <div class="center-box">
+        <div class="sub-topic">Principle of Objects</div>
+        <p class="sub-topic-p">
+            To make it easy to navigate, similar objects will keep consistent structures. We will use this 
+            by making Children users appear the same as each other, as well as different tasks, just with different 
+            labels and possibly different colors.
+        </p>
+        <div class="sub-topic">Principle of Disclosure</div>
+        <p class="sub-topic-p">
+            We essentially want to make organizing chores as easy as possible. Therefore we will limit the input 
+            that users have to provide as much as possible, and present it to them in layers to make only one decision at a time.
+        </p>
+        <div class="sub-topic">Principle of Multiple Classifications</div>
+        <p class="sub-topic-p">
+            Parents will be given two different views of the upcoming tasks, all with the push of a button. One option is presenting
+            the information divided by children, each with their chores, to make it easy to check on specific children. The other view 
+            being a chronological one to display the upcoming chores sequentially, in case parents care more about things getting done
+            on time, rather than by whom.
+        </p>
+      </div>
+
+      <div class='separator'>Structural Organizational Principles</div>
+
+      <div class="center-box">
+        <div class="sub-topic">Topological</div>
+        <p class="sub-topic-p">
+            The first organization involes topics, namely the children. This will make it easy to navigate the potentially
+            many chores created and see who they are assigned to.
+        </p>
+        <div class="sub-topic">Chronological</div>
+        <p class="sub-topic-p">
+            The second organization involves time, namely upcoming days that have chores assigned in them. This makes it
+            easy to ensure chores are being handled in a timely manner.
+        </p>
+      </div>
+      
     </section>
-
+<!--
     <section class='padding-responsive'>  
-      <div class='separator'>Laws of Design</div>
+      <div class='separator'>Principles of Visual Hierarchy</div>
 
+      
       <section class='responsive_grid'>
         <div class='card bordered margin-none'> 
-          1. Hick's Law
+          1. Color and Contrast
           <p>
             Decision-making time increases with the number/complexity of options
           </p>
@@ -132,7 +166,7 @@
           <img src="images/LawThree.png" alt="Law Three Image" class="half_page_image">
         </div>
       </section>
-    </section>
+    </section> -->
 
     <!-- Bar to Scroll Back to Top of Current Page -->
     <hr class="hero-line">

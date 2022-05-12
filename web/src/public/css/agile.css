@@ -3,6 +3,7 @@
   /* --accent-color: rgb(227, 42, 42);
   --accent-color-dark: rgb(109, 18, 18);
   --accent-color-darkest: rgb(88, 12, 12); */
+  --para-start-color: rgb(197, 233, 255);
   --accent-color: rgb(92, 159, 201);
   --accent-color-dark: rgb(69, 124, 184);
   --accent-color-darkest: rgb(50, 74, 144);
@@ -312,7 +313,7 @@ label {
 }
 
 .item-header {
-  color: var(--accent-color);
+  color: var(--para-start-color);
 }
 
 .custom-btn {
@@ -387,6 +388,11 @@ label {
   .half_page_image {
     max-width: 80vw;
   }
+}
+
+.pages-bar a {
+  margin: var(--margin-med);
+  
 }
 
 
