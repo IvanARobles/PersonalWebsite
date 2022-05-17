@@ -1,4 +1,3 @@
-//import { TimerContainer } from "./timerContainer.js";
 const CONSOLE_BOOL = true;
 
 /**
@@ -54,9 +53,6 @@ class EventBus {
      * Event Handler function for the 'showMenu' event
      */
     handleShowMenu() {
-        // if (this.o_instructions.getIsShown()) {
-        //     this.o_instructions.closeInstructions();
-        // }
         this.o_menu_list.showMenuList();
         if (CONSOLE_BOOL) {
             console.log("eventBus.js - handleShowMenu");

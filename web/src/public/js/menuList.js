@@ -1,4 +1,3 @@
-
 const CONSOLE_BOOL = true;
 
 /**
@@ -27,7 +26,8 @@ class MenuList extends HTMLElement {
 
         // close button
         let o_close_button = document.createElement("a");
-        o_close_button.classList.add("close", "btn", "hidden");
+        o_close_button.classList.add("close-side", "btn", "hidden");
+        o_close_button.title = "Close Menu";
         o_close_button.id = "close-menu";
         o_close_button.innerHTML = "&times;";
         // event to close the menu if you click the x
@@ -48,7 +48,7 @@ class MenuList extends HTMLElement {
 
         let o_link_three = document.createElement("a");
         o_link_three.setAttribute('href', "kvp");
-        o_link_three.innerHTML = "Key Value Proposition";
+        o_link_three.innerHTML = "KVP";
 
         let o_link_four = document.createElement("a");
         o_link_four.setAttribute('href', "team");
@@ -61,14 +61,12 @@ class MenuList extends HTMLElement {
         let o_link_six = document.createElement("a");
         o_link_six.setAttribute('href', "IAinfo");
         o_link_six.innerHTML = "IA - Info";
+ 
+        let o_link_seven = document.createElement("a");
+        o_link_seven.setAttribute('href', "features");
+        o_link_seven.innerHTML = "Features";
 
-        // footer link at bottom of menu
-        let o_menu_footer = document.createElement("footer");
-        o_menu_footer.classList.add("menu_footer");
-
-        
-
-        o_nav_list.append(o_link_one, o_link_two, o_link_three, o_link_four, o_link_five, o_link_six);
+        o_nav_list.append(o_link_one, o_link_two, o_link_three, o_link_four, o_link_five, o_link_six, o_link_seven);
         o_wrapper_obj.append(o_close_button, o_nav_list);
         this.append(o_wrapper_obj_back);
         this.append(o_wrapper_obj);
@@ -79,35 +77,24 @@ class MenuList extends HTMLElement {
      * Function to show menu list display from the main user screen
      */
     showMenuList() {
-        //document.addEventListener("DOMContentLoaded", () => {
-            if (CONSOLE_BOOL) {
-                console.log("menuList.js - showMenuList");
-            }
+        if (CONSOLE_BOOL) {
+            console.log("menuList.js - showMenuList");
+        }
 
+        // Don't show the text in the menu right away
+        this.querySelector("#nav_list").style.display = "none";
+        let o_menu = this.querySelector("#side-menu");
+        o_menu.style.display = "block";
+        this.querySelector("#side-menu-blocker").style.display = "block";
+
+        o_menu.classList.add("sidenav-open");
+
+        // Show text after animation to prevent sandwiching
+        setTimeout(() => {
+            this.querySelector("#nav_list").style.display = "block";
             this.querySelector("#close-menu").style.display = "block";
-            // Don't show the text in the menu right away
-            this.querySelector("#nav_list").style.display = "none";
-            let o_menu = this.querySelector("#side-menu");
-            o_menu.style.display = "block";
+        }, 290);
 
-            if (window.screen.width <= 500) {
-                o_menu.classList.add("sidenav-small");
-            } else {
-                o_menu.classList.add("sidenav-open");
-            }
-
-            // Show text after animation to prevent sandwiching
-            setTimeout(() => {
-                //this.querySelector("#menu-title").style.display = "block";
-                //this.querySelector("#all-menu").style.display = "block";
-                //this.querySelector("input").focus();
-                this.querySelector("#nav_list").style.display = "block";
-            }, 200);
-
-            this.querySelector("#side-menu-blocker").style.display = "block";
-
-        //});
-        
     }
 
     /**
@@ -117,10 +104,7 @@ class MenuList extends HTMLElement {
         this.querySelector("#close-menu").style.display = "none";
         let o_menu = this.querySelector("#side-menu");
 
-        o_menu.classList.remove("sidenav-small");
         o_menu.classList.remove("sidenav-open");
-        //this.querySelector("#menu-title").style.display = "none";
-        //this.querySelector("#all-menu").style.display = "none";
         this.querySelector("#side-menu-blocker").style.display = "none";
         this.querySelector("#nav_list").style.display = "none";
     }
