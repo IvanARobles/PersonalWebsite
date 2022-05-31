@@ -65,8 +65,17 @@ class MenuList extends HTMLElement {
         let o_link_seven = document.createElement("a");
         o_link_seven.setAttribute('href', "features");
         o_link_seven.innerHTML = "Features";
+ 
+        let o_link_eight = document.createElement("a");
+        o_link_eight.setAttribute('href', "costs");
+        o_link_eight.innerHTML = "Costs";
+ 
+        let o_link_nine = document.createElement("a");
+        o_link_nine.setAttribute('href', "pivots");
+        o_link_nine.innerHTML = "Pivots";
 
-        o_nav_list.append(o_link_one, o_link_two, o_link_three, o_link_four, o_link_five, o_link_six, o_link_seven);
+        o_nav_list.append(o_link_one, o_link_two, o_link_three, o_link_four, o_link_five);
+        o_nav_list.append(o_link_six, o_link_seven, o_link_eight, o_link_nine);
         o_wrapper_obj.append(o_close_button, o_nav_list);
         this.append(o_wrapper_obj_back);
         this.append(o_wrapper_obj);

@@ -22,6 +22,12 @@ def get_ia_page(req):
     
 def get_features(req):
   return FileResponse("pages/features.html")
+    
+def get_costs(req):
+  return FileResponse("pages/costs.html")
+    
+def get_pivots(req):
+  return FileResponse("pages/pivots.html")
 
 if __name__ == '__main__':
   with Configurator() as config:
@@ -59,6 +65,16 @@ if __name__ == '__main__':
     config.add_route('features', '/features')
     # Directs the route to the function that can generate the view
     config.add_view(get_features, route_name='features')
+
+    # Adds key value proposition route in the website
+    config.add_route('costs', '/costs')
+    # Directs the route to the function that can generate the view
+    config.add_view(get_costs, route_name='costs')
+
+    # Adds key value proposition route in the website
+    config.add_route('pivots', '/pivots')
+    # Directs the route to the function that can generate the view
+    config.add_view(get_pivots, route_name='pivots')
 
     config.add_static_view(name='/', path='./public', cache_max_age=3600)
     app = config.make_wsgi_app()
