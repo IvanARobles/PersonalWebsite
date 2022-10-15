@@ -11,7 +11,7 @@ class EventBus {
      */
     constructor() {
         this.o_bus = document.createElement("div");
-        this.o_menu_list = document.querySelector("menu-list");
+        this.o_welcome = document.querySelector("welcome-box");
         this.registerEvents();
     }
 
@@ -20,7 +20,7 @@ class EventBus {
      */
     registerEvents() {
         this.registerEvent("closeWindows", this.handleCloseWindows.bind(this));
-        this.registerEvent("showMenu", this.handleShowMenu.bind(this));
+        this.registerEvent("showWelcome", this.handleShowWelcome.bind(this));
     }
 
 
@@ -46,20 +46,19 @@ class EventBus {
      * Event Handler function for the 'closeWindows' event
      */
     handleCloseWindows() {
-        this.o_menu_list.closeMenuList();
+        this.o_welcome.closeWelcome();
     }
 
     /**
-     * Event Handler function for the 'showMenu' event
+     * Event Handler function for the 'showTasks' event
      */
-    handleShowMenu() {
-        this.o_menu_list.showMenuList();
+    handleShowWelcome() {
+        this.o_welcome.showWelcomeBox();
         if (CONSOLE_BOOL) {
-            console.log("eventBus.js - handleShowMenu");
+            console.log("eventBus.js - handleShowWelcome");
         }
     }
 
-    
 }
 
 export { EventBus };

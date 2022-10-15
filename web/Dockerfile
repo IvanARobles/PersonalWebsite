@@ -14,7 +14,7 @@ COPY ./src .
 RUN pip install -r requirements.txt
 
 # Tell Docker to listen to traffic on this port inside the container
-EXPOSE 6543
+EXPOSE 6544
 
 # Start the Pyramid web server
 CMD python server.py

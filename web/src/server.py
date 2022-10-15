@@ -5,29 +5,20 @@ from pyramid.response import FileResponse
 def get_home(req):
   return FileResponse("pages/index.html")
 
-def get_kvp(req):
-  return FileResponse("pages/kvp.html")
+def get_visual_resume(req):
+  return FileResponse("pages/visual-resume.html")
 
-def get_team(req):
-  return FileResponse("pages/team.html")
+def get_art(req):
+  return FileResponse("pages/art.html")
 
-def get_product_page(req):
-  return FileResponse("pages/product.html")
+def get_projects(req):
+  return FileResponse("pages/projects.html")
 
-def get_ui_page(req):
-  return FileResponse("pages/UIinfo.html")
-    
-def get_ia_page(req):
-  return FileResponse("pages/IAinfo.html")
-    
-def get_features(req):
-  return FileResponse("pages/features.html")
-    
-def get_costs(req):
-  return FileResponse("pages/costs.html")
-    
-def get_pivots(req):
-  return FileResponse("pages/pivots.html")
+def get_about(req):
+  return FileResponse("pages/about.html")
+
+def get_contact(req):
+  return FileResponse("pages/contact.html")
 
 if __name__ == '__main__':
   with Configurator() as config:
@@ -37,47 +28,32 @@ if __name__ == '__main__':
     config.add_view(get_home, route_name='home')
 
     # Adds key value proposition route in the website
-    config.add_route('kvp', '/kvp')
+    config.add_route('visual-resume', '/visual-resume')
     # Directs the route to the function that can generate the view
-    config.add_view(get_kvp, route_name='kvp')
+    config.add_view(get_visual_resume, route_name='visual-resume')
 
     # Adds key value proposition route in the website
-    config.add_route('team', '/team')
+    config.add_route('art', '/art')
     # Directs the route to the function that can generate the view
-    config.add_view(get_team, route_name='team')
+    config.add_view(get_art, route_name='art')
 
     # Adds key value proposition route in the website
-    config.add_route('product', '/product')
+    config.add_route('projects', '/projects')
     # Directs the route to the function that can generate the view
-    config.add_view(get_product_page, route_name='product')
+    config.add_view(get_projects, route_name='projects')
 
     # Adds key value proposition route in the website
-    config.add_route('UIinfo', '/UIinfo')
+    config.add_route('about', '/about')
     # Directs the route to the function that can generate the view
-    config.add_view(get_ui_page, route_name='UIinfo')
+    config.add_view(get_about, route_name='about')
 
     # Adds key value proposition route in the website
-    config.add_route('IAinfo', '/IAinfo')
+    config.add_route('contact', '/contact')
     # Directs the route to the function that can generate the view
-    config.add_view(get_ia_page, route_name='IAinfo')
-
-    # Adds key value proposition route in the website
-    config.add_route('features', '/features')
-    # Directs the route to the function that can generate the view
-    config.add_view(get_features, route_name='features')
-
-    # Adds key value proposition route in the website
-    config.add_route('costs', '/costs')
-    # Directs the route to the function that can generate the view
-    config.add_view(get_costs, route_name='costs')
-
-    # Adds key value proposition route in the website
-    config.add_route('pivots', '/pivots')
-    # Directs the route to the function that can generate the view
-    config.add_view(get_pivots, route_name='pivots')
+    config.add_view(get_contact, route_name='contact')
 
     config.add_static_view(name='/', path='./public', cache_max_age=3600)
     app = config.make_wsgi_app()
 
-  server = make_server('0.0.0.0', 6543, app)
+  server = make_server('0.0.0.0', 6544, app)
   server.serve_forever()
