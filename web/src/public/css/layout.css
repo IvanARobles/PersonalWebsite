@@ -64,10 +64,13 @@
   --scroll-text-hue: 0;
 
   
-  --resume-ground-height: 100px;
-  --resume-jump-height: 200px;
-  --resume-character-height: 200px;
+  --resume-ground-height: 80px;
+  --resume-jump-height: 170px;
+  --resume-character-height: 170px;
   --resume-block-height: calc(var(--resume-character-height) + var(--resume-ground-height) + var(--resume-jump-height));
+  --resume-jump-one: calc(var(--resume-jump-height)*.8 + var(--resume-ground-height));
+  --resume-jump-two: calc(var(--resume-jump-height)*.9 + var(--resume-ground-height));
+  --resume-jump-three: calc(var(--resume-jump-height) + var(--resume-ground-height));
 }
 
 *, *::before, *::after {
@@ -1383,7 +1386,7 @@ label {
   cursor: pointer;
 }
 
-@media (max-width: 400px) {
+@media (max-width: 500px) {
   .hero {
     --hero-btn-width: 50px;
   }
@@ -2060,7 +2063,7 @@ label {
   position: fixed;
   bottom: var(--resume-ground-height);
   height: var(--resume-character-height);
-  width: 100px;
+  aspect-ratio: 1/2;
   left: 50%;
   transform: translateX(-50%);
   z-index: 10;
@@ -2087,22 +2090,22 @@ label {
 
 @keyframes character-jump {
   0%, 100% {
-    bottom: 100px;
+    bottom: var(--resume-ground-height);
   }
   30% {
-    bottom: 260px;
+    bottom: var(--resume-jump-one);
   }
   40% {
-    bottom: 280px;
+    bottom: var(--resume-jump-two);
   }
   47%, 53% {
-    bottom: 300px;
+    bottom: var(--resume-jump-three);
   }
   60% {
-    bottom: 280px;
+    bottom: var(--resume-jump-two);
   }
   70% {
-    bottom: 260px;
+    bottom: var(--resume-jump-one);
   }
 
 }
@@ -2113,16 +2116,21 @@ label {
   height: var(--resume-ground-height);
   width: 100vw;
   left: 0;
-  background-color: rgb(122, 78, 46);
+  background-image: url("../images/resume/ground.png");
+  background-size: cover;
+  justify-content: center;
   text-align: center;
   align-items: center;
+  display: flex;
+  z-index: 10;
 }
-.resume-ground-instructions {
-  color: black;
-  text-shadow: 0 0 5px white, 0 0 5px white, 0 0 5px white;
-  animation: pulsing 1s infinite;
 
+.resume-ground-instructions {
+  color: var(--light-color);
+  text-shadow: 0 0 5px black, 0 0 5px black, 0 0 5px black;
+  animation: pulsing 1.5s infinite;
 }
+
 .resume-ground-instructions.large {
   font-size: 2rem;
 }
@@ -2141,7 +2149,7 @@ label {
 }
 
 @keyframes pulsing {
-  0%, 10%, 90%, 100% {
+  0%, 15%, 85%, 100% {
     opacity: 1;
   }
   50% {
@@ -2154,8 +2162,17 @@ label {
   transform: translateX(50%) translateY(-200%) translateZ(-1px) scale(2);
   height: 100px;
   width: 150px;
-  background-color: white;
+  background-image: url("../images/resume/cloud.png");
+  background-size: cover;
   top: 0;
+  z-index: 1;
+}
+
+.cloud.far {
+  height: 80px;
+  width: 120px;
+  background-image: url("../images/resume/cloud-far.png");
+  transform: translateX(50%) translateY(-100%) translateZ(-1px) scale(2);
 }
 
 .ground.spacer {
@@ -2196,6 +2213,7 @@ label {
   display: flex;
   font-size: var(--resume-header-size);
   font-family: var(--resume-header-font);
+  z-index: 10;
 }
 
 .resume-header-word {
@@ -2208,16 +2226,27 @@ label {
   align-items: center;
   display: flex;
   border-radius: var(--border-radius);
-  border: 2px solid rgb(59, 44, 0);
+  border: 1px solid rgb(59, 44, 0);
+  border-bottom: 3px solid rgb(59, 44, 0);
+  border-left: 3px solid rgb(59, 44, 0);
   width: 300px;
   height: 100px;
-  z-index: 10;
 }
 
-@media (max-width: 400px) {
+@media (max-width: 500px) {
   .resume-header-word {
     width: 200px;
     height: 70px;
+  }
+
+  :root {
+    --resume-ground-height: 60px;
+    --resume-jump-height: 150px;
+    --resume-character-height: 150px;
+    --resume-block-height: calc(var(--resume-character-height) + var(--resume-ground-height) + var(--resume-jump-height));
+    --resume-jump-one: calc(var(--resume-jump-height)*.8 + var(--resume-ground-height));
+    --resume-jump-two: calc(var(--resume-jump-height)*.9 + var(--resume-ground-height));
+    --resume-jump-three: calc(var(--resume-jump-height) + var(--resume-ground-height));
   }
 }
 
@@ -2229,6 +2258,7 @@ label {
   top: 0;
   width: 100%;
   height: 75%;
+  z-index: 10;
 }
 
 .resume-title {
@@ -2237,10 +2267,11 @@ label {
   width: 85%;
   max-width: 1000px;
   aspect-ratio: 5/2;
-  background-color: purple;
+  background-image: url("../images/resume/resume-title.png");
+  background-size: cover;
 }
 
-@media (max-width: 400px) {
+@media (max-width: 500px) {
   .resume-title {
     width: 97.5%;
   }
@@ -2249,24 +2280,86 @@ label {
 .resume-content-page {
   top: 0;
   width: 100%;
-  height: 75%;
+  height: 70%;
   justify-content: center;
   text-align: center;
   align-items: center;
   position: absolute;
   display: flex;
-  background-color: wheat;
-  transform: translateZ(-0.25px) scale(1.25);
+  z-index: 5;
 }
 
 .resume-content-wrapper {
   position: relative;
-  width: 70%;
+  width: 60%;
   max-width: 1000px;
-  height: 300px;
-  background-color: purple;
+  aspect-ratio: 2;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  place-items: center;
+  border-radius: calc(var(--border-radius)*2);
+  border: 1px solid black;
+  border-bottom: 3px solid black;
+  border-left: 3px solid black;
+  padding: 5px;
 }
 
+.resume-content-wrapper.pink {
+  background-color: rgb(208, 123, 123);
+  box-shadow: inset 5px -5px 5px rgb(112, 43, 59), inset -5px 5px 5px rgb(255, 197, 197);
+}
+
+.resume-content-wrapper.green {
+  background-color: rgb(103, 149, 79);
+  box-shadow: inset 5px -5px 5px rgb(19, 71, 62), inset -5px 5px 5px rgb(229, 234, 137);
+}
+
+.resume-content-wrapper::before, 
+.resume-content-wrapper::after {
+  --bolt-gap: 10px;
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  aspect-ratio: 1;
+  width: 20px;
+  background-color: grey;
+  box-shadow: inset 2px -2px 2px rgb(51, 51, 51), inset -5px 5px 5px rgb(203, 203, 203);
+  border: 1px solid black;
+  top: var(--bolt-gap);
+}
+
+.resume-content-wrapper::before {
+  left: var(--bolt-gap);
+}
+
+.resume-content-wrapper::after {
+  right: var(--bolt-gap);
+}
+
+@media (max-width: 500px) {
+  .resume-content-wrapper {
+    width: 97.5%;
+  }
+}
+
+.resume-content-image {
+  width: 90%;
+  height: 80%;
+  border-radius: var(--rounded-radius);
+  border: 1px solid black;
+  background: no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  overflow: hidden;
+}
+
+.resume-content-text {
+  width: 80%;
+  height: 70%;
+  color: black;
+}
 
 .rock {
   position: absolute;
