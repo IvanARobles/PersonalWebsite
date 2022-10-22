@@ -956,15 +956,6 @@ p, ol li, ul li, blockquote {
   color: black;
 }
 
-@keyframes colorchange {
-  0% {
-    color: red;
-  }
-  100% {
-    color: blue;
-  }
-}
-
 .btn-scroll.prev {
   left: 5px;
 }
@@ -2042,21 +2033,28 @@ label {
   transform-style: preserve-3d;
 }
 
-.home-btn {
+.resume-home-btn {
   position: absolute;
-  top: 10px;
-  left: 10px;
-  height: 50px;
-  width: 50px;
-  background-color: yellow;
-  color: red;
+  top: 0;
+  left: 0;
+  padding: 0 var(--padding-med);
+  background-color: black;
+  border-bottom-left-radius: var(--border-radius);
+  box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.5);
+  font-size: var(--resume-header-size);
+  transform: scaleX(-100%);
+  color: white;
   z-index: 900;
+  text-decoration: none;
+  transition: all 200ms ease-in-out;
 }
 
-.home-btn:hover {
-  background-color: orange;
+.resume-home-btn:hover,
+.resume-home-btn:focus {
   cursor: pointer;
-  color: white;
+  color: orange;
+  text-decoration: none;
+  font-size: calc(var(--resume-header-size)*1.25);
 }
 
 .character {
@@ -2076,15 +2074,15 @@ label {
 }
 
 .character.right {
-  background-image: url("../images/resume/character_right.png");
+  background-image: url("../images/resume/character-right.png");
 }
 
 .character.left {
-  background-image: url("../images/resume/character_left.png");
+  background-image: url("../images/resume/character-left.png");
 }
 
 .character.right.jump {
-  background-image: url("../images/resume/character_right_jump.jpg");
+  background-image: url("../images/resume/character-jump-right.png");
   animation: character-jump 750ms forwards linear;
 }
 
