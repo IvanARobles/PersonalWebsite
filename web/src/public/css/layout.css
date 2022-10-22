@@ -2091,6 +2091,32 @@ label {
   animation: character-jump 750ms forwards linear;
 }
 
+.character.right.walk {
+  animation: character-walk-right 300ms infinite linear;
+}
+
+.character.left.walk {
+  animation: character-walk-left 300ms infinite linear;
+}
+
+@keyframes character-walk-right {
+  0%, 49.9%, 100% {
+    background-image: url("../images/resume/character-right-walking.png");
+  }
+  50%, 99.9% {
+    background-image: url("../images/resume/character-right.png");
+  }
+}
+
+@keyframes character-walk-left {
+  0%, 49.9%, 100% {
+    background-image: url("../images/resume/character-left-walking.png");
+  }
+  50%, 99.9% {
+    background-image: url("../images/resume/character-left.png");
+  }
+}
+
 @keyframes character-jump {
   0%, 100% {
     bottom: var(--resume-ground-height);
@@ -2110,7 +2136,6 @@ label {
   70% {
     bottom: var(--resume-jump-one);
   }
-
 }
 
 .ground {

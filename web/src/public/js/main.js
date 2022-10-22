@@ -3,6 +3,7 @@ import { EventBus } from "./eventBus.js";
 
 const CONSOLE_BOOL = true;
 let characterJumpingBoolean = false;
+let scrollTimer = -1;
 
 
 function showDropdown() {
@@ -374,27 +375,36 @@ function resumeLoaded() {
     window.addEventListener("keyup", userKeyResume);
     let character = document.querySelector(".character");
     character.addEventListener("click", characterJump);
-    // let parallax = document.getElementById("parallax-id");
     document.addEventListener("wheel", parallaxScroll);
 }
 
 function parallaxScroll(event) {
-    console.log("deltaY is ", event.deltaY);
-    console.log("deltaX is ", event.deltaX);
+    // console.log("deltaY is ", event.deltaY);
+    // console.log("deltaX is ", event.deltaX);
+    let parallax = document.querySelector(".parallax-wrapper");
+    parallax.scrollLeft += event.deltaY;
     let character = document.querySelector(".character");
-    if (event.deltaX < 0 && character.classList.contains("right")) {
+    if ((event.deltaY < 0 || event.deltaX < 0) && character.classList.contains("right")) {
         character.classList.remove("right");
         character.classList.add("left");
     }
-    else if (event.deltaX > 0 && character.classList.contains("left")) {
+    else if ((event.deltaY > 0 || event.deltaX > 0) && character.classList.contains("left")) {
         character.classList.remove("left");
         character.classList.add("right");
     }
+    if (character.classList.contains("jump")) return;
+    character.classList.add("walk");
+    if (scrollTimer != -1) { clearTimeout(scrollTimer); }
+    scrollTimer = window.setTimeout(function() {
+        character.classList.remove("walk");
+        console.log("done scrolling")
+    }, 500);
 }
 
 function userKeyResume(event) {
     if(event.key == " ") {
         if (CONSOLE_BOOL) {console.log("space pressed");}
+        if (scrollTimer != -1) { clearTimeout(scrollTimer); }
         characterJump();
     }
 }
@@ -404,6 +414,9 @@ function characterJump() {
     if (characterJumpingBoolean) return;
     characterJumpingBoolean = true;
     let character = document.querySelector(".character");
+    if (character.classList.contains("walk")) {
+        character.classList.remove("walk");
+    }
     character.classList.add("jump");
     setTimeout(function() {
         //Reset to be ready to jump again
