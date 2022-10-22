@@ -345,6 +345,7 @@ function homePageStarter(event) {
     setTimeout(function() {
         loadingResumeShrink();
     }, 4000);
+    
 }
 
 
@@ -365,11 +366,30 @@ function loadingResumeDisappear() {
     document.body.classList.remove("loading-open");
     //After the loading section rows have appeared plus a pause
     setTimeout(function() {
-        window.addEventListener("keyup", userKeyResume);
-        let character = document.querySelector(".character");
-        character.addEventListener("click", characterJump);
-        // loadingResumeDisappear();
+        resumeLoaded();
     }, 800);
+}
+
+function resumeLoaded() {
+    window.addEventListener("keyup", userKeyResume);
+    let character = document.querySelector(".character");
+    character.addEventListener("click", characterJump);
+    // let parallax = document.getElementById("parallax-id");
+    document.addEventListener("wheel", parallaxScroll);
+}
+
+function parallaxScroll(event) {
+    console.log("deltaY is ", event.deltaY);
+    console.log("deltaX is ", event.deltaX);
+    let character = document.querySelector(".character");
+    if (event.deltaX < 0 && character.classList.contains("right")) {
+        character.classList.remove("right");
+        character.classList.add("left");
+    }
+    else if (event.deltaX > 0 && character.classList.contains("left")) {
+        character.classList.remove("left");
+        character.classList.add("right");
+    }
 }
 
 function userKeyResume(event) {

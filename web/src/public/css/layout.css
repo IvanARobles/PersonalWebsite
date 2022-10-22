@@ -2086,6 +2086,11 @@ label {
   animation: character-jump 750ms forwards linear;
 }
 
+.character.left.jump {
+  background-image: url("../images/resume/character-jump-left.png");
+  animation: character-jump 750ms forwards linear;
+}
+
 @keyframes character-jump {
   0%, 100% {
     bottom: var(--resume-ground-height);
