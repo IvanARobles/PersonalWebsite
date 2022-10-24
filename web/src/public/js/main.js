@@ -398,7 +398,7 @@ function parallaxScroll(event) {
     scrollTimer = window.setTimeout(function() {
         character.classList.remove("walk");
         console.log("done scrolling")
-    }, 500);
+    }, 300);
 }
 
 function userKeyResume(event) {
