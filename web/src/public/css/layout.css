@@ -2112,6 +2112,10 @@ label {
   z-index: 10;
 }
 
+.ground.bridge {
+  background-image: url("../images/resume/ground-bridge.png");
+}
+
 .resume-ground-instructions {
   color: var(--light-color);
   text-shadow: 0 0 5px black, 0 0 5px black, 0 0 5px black;
@@ -2229,6 +2233,64 @@ label {
   transform: translateX(50%) translateY(-100%) translateZ(-1px) scale(2);
 }
 
+.tree {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 400px;
+  aspect-ratio: 1/1.5;
+  background-size: cover;
+}
+
+.tree.close {
+  transform: translateX(20vw) translateY(-30px) translateZ(-0.2px) scale(1.2);
+  background-image: url("../images/resume/tree-close.png");
+  z-index: 3;
+  height: 450px;
+}
+
+.tree.close.two {
+  transform: translateX(60vw) translateY(-20px) translateZ(-0.2px) scale(1.2);
+}
+
+.tree.far {
+  transform: translateX(-10vw) translateY(-20px) translateZ(-0.3px) scale(1.3);
+  background-image: url("../images/resume/tree-far.png");
+  z-index: 2;
+}
+
+.tree.far.two {
+  transform: translateX(100vw) translateY(-20px) translateZ(-0.3px) scale(1.3);
+}
+
+.tree.farthest {
+  transform: translateX(50vw) translateY(-20px) translateZ(-0.4px) scale(1.4);
+  background-image: url("../images/resume/tree-farthest.png");
+  z-index: 1;
+}
+
+@media (max-width: 400px) {
+  .tree.close {
+    transform: translateX(20vw) translateY(0px) translateZ(-0.2px) scale(1.2);
+  }
+
+  .tree.far {
+    transform: translateX(-10vw) translateY(10px) translateZ(-0.3px) scale(1.3);
+  }
+
+  .tree.farthest {
+    transform: translateX(50vw) translateY(20px) translateZ(-0.4px) scale(1.4);
+    display: none;
+  }
+
+  .tree.close.two {
+    display: none;
+  }
+  .tree.far.two {
+    display: none;
+  }
+}
+
 .resume-two { left: 100vw;}
 .resume-three { left: 200vw;}
 .resume-four { left: 300vw;}
@@ -2286,7 +2348,7 @@ label {
   }
 
   :root {
-    --resume-ground-height: 60px;
+    --resume-ground-height: 70px;
     --resume-jump-height: 150px;
     --resume-character-height: 170px;
     --resume-block-height: calc(var(--resume-character-height) + var(--resume-ground-height) + var(--resume-jump-height));
@@ -2412,8 +2474,9 @@ label {
   transform: translateX(25vw);
   z-index: 10;
   bottom: var(--resume-ground-height);
-  width: 20px;
-  height: 20px;
+  border: 1px solid black;
+  width: 40px;
+  aspect-ratio: 1;
   background-color: grey;
 }
 
