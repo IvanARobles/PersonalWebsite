@@ -384,20 +384,21 @@ function parallaxScroll(event) {
     let parallax = document.querySelector(".parallax-wrapper");
     parallax.scrollLeft += event.deltaY;
     let character = document.querySelector(".character");
-    if ((event.deltaY < 0 || event.deltaX < 0) && character.classList.contains("right")) {
+    if ((event.deltaY < 0) && character.classList.contains("right")) {
         character.classList.remove("right");
         character.classList.add("left");
     }
-    else if ((event.deltaY > 0 || event.deltaX > 0) && character.classList.contains("left")) {
+    else if ((event.deltaY > 0) && character.classList.contains("left")) {
         character.classList.remove("left");
         character.classList.add("right");
     }
     if (character.classList.contains("jump")) return;
+    if (event.deltaY == 0) return;
     character.classList.add("walk");
     if (scrollTimer != -1) { clearTimeout(scrollTimer); }
     scrollTimer = window.setTimeout(function() {
         character.classList.remove("walk");
-        console.log("done scrolling")
+        if (CONSOLE_BOOL) { console.log("done scrolling"); }
     }, 300);
 }
 
