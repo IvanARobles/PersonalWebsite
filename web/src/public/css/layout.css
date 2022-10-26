@@ -64,7 +64,7 @@
 
   
   --resume-header-size: calc(2.25rem + 1vw);
-  --resume-content-size: calc(1.5rem + 1.5vw);
+  --resume-content-size: calc(1.5rem + 1.55vw);
   --resume-ground-height: 80px;
   --resume-jump-height: 170px;
   --resume-character-height: 200px;
@@ -2417,6 +2417,11 @@ label {
   border-right: 3px solid black;
   padding: calc(var(--bolt-gap)*3);
   gap: calc(var(--bolt-gap)*2);
+}
+
+.resume-content-wrapper:hover,
+.resume-content-wrapper:focus {
+  text-decoration: none;
 }
 
 .resume-content-wrapper.pink {
