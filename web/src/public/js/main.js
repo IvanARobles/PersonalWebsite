@@ -418,10 +418,18 @@ function characterJump() {
     if (character.classList.contains("walk")) {
         character.classList.remove("walk");
     }
+    let dogs = document.querySelectorAll(".dog");
+    dogs.forEach(dog => {
+        dog.classList.add("jump");
+    });
+    
     character.classList.add("jump");
     setTimeout(function() {
         //Reset to be ready to jump again
         character.classList.remove("jump");
+        dogs.forEach(dog => {
+            dog.classList.remove("jump");
+        });
         characterJumpingBoolean = false;
     }, 750);
 }
