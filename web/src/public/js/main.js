@@ -276,6 +276,7 @@ function homePageStarter(event) {
         threshold: .95,
         rootMargin: "-5%",
     });
+
     let slides = document.querySelectorAll(".slide-in");
     slides.forEach(slide => {
         display_observer.observe(slide);
@@ -376,6 +377,21 @@ function resumeLoaded() {
     let character = document.querySelector(".character");
     character.addEventListener("click", characterJump);
     document.addEventListener("wheel", parallaxScroll);
+
+    // Intersection Observer for classes that need to add display
+    let content_observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            entry.target.classList.toggle("displayed", entry.isIntersecting);
+            if (entry.isIntersecting) content_observer.unobserve(entry.target);
+        });
+    }, {
+        threshold: .2
+    });
+    
+    let contents = document.querySelectorAll(".resume-content-wrapper");
+    contents.forEach(content => {
+        content_observer.observe(content);
+    });
 }
 
 function parallaxScroll(event) {
