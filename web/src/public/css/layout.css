@@ -2127,6 +2127,14 @@ label {
   background-image: url("../images/resume/ground-bridge.png");
 }
 
+.ground.fall {
+  background-image: url("../images/resume/ground-fall.png");
+}
+
+.ground.winter {
+  background-image: url("../images/resume/ground-winter.png");
+}
+
 .ground-instructions-wrapper {
   position: absolute;
   bottom: 0;
@@ -2313,6 +2321,31 @@ label {
   z-index: 1;
 }
 
+
+.tree.close.fall {
+  background-image: url("../images/resume/tree-close-fall.png");
+}
+
+.tree.far.fall {
+  background-image: url("../images/resume/tree-far-fall.png");
+}
+
+.tree.farthest.fall {
+  background-image: url("../images/resume/tree-farthest-fall.png");
+}
+
+.tree.close.winter {
+  background-image: url("../images/resume/tree-close-winter.png");
+}
+
+.tree.far.winter {
+  background-image: url("../images/resume/tree-far-winter.png");
+}
+
+.tree.farthest.winter {
+  background-image: url("../images/resume/tree-farthest-winter.png");
+}
+
 @media (max-width: 500px) {
   .tree.close {
     transform: translateX(20vw) translateY(0px) translateZ(-0.2px) scale(1.2);
@@ -2345,16 +2378,16 @@ label {
 .resume-eight { left: calc(var(--resume-section-width)*7);}
 .resume-nine { left: calc(var(--resume-section-width)*8);}
 .resume-ten { left: calc(var(--resume-section-width)*9);}
-.resume-eleven { left: 1000vw;}
-.resume-twelve { left: 1100vw;}
-.resume-thirteen { left: 1200vw;}
-.resume-fourteen { left: 1300vw;}
-.resume-fifteen { left: 1400vw;}
-.resume-sixteen { left: 1500vw;}
-.resume-seventeen { left: 1600vw;}
-.resume-eighteen { left: 1700vw;}
-.resume-nineteen { left: 1800vw;}
-.resume-twenty { left: 1900vw;}
+.resume-eleven { left: calc(var(--resume-section-width)*10);}
+.resume-twelve { left:  calc(var(--resume-section-width)*11);}
+.resume-thirteen { left: calc(var(--resume-section-width)*12);}
+.resume-fourteen { left: calc(var(--resume-section-width)*13);}
+.resume-fifteen { left: calc(var(--resume-section-width)*14);}
+.resume-sixteen { left: calc(var(--resume-section-width)*15);}
+.resume-seventeen { left: calc(var(--resume-section-width)*16);}
+.resume-eighteen { left: calc(var(--resume-section-width)*17);}
+.resume-nineteen { left: calc(var(--resume-section-width)*18);}
+.resume-twenty { left: calc(var(--resume-section-width)*19);}
 
 @media (max-width: 800px) {
   :root {
@@ -2582,7 +2615,7 @@ label {
 }
 
 .resume-content-wrapper.displayed .propeller {
-  animation: content-propeller-leave var(--content-propeller-time) forwards ease-in, content-propeller 150ms infinite linear;
+  animation: content-propeller-leave var(--content-propeller-time) forwards ease-in, content-propeller 200ms infinite linear;
 }
 
 @keyframes content-propeller-leave {
