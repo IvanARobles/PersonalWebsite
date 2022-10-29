@@ -2127,6 +2127,19 @@ label {
   background-image: url("../images/resume/ground-bridge.png");
 }
 
+.ground-instructions-wrapper {
+  position: absolute;
+  bottom: 0;
+  height: var(--resume-ground-height);
+  width: 100vw;
+  left: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}
+
 .resume-ground-instructions {
   color: var(--light-color);
   text-shadow: 0 0 5px black, 0 0 5px black, 0 0 5px black;
@@ -2512,7 +2525,7 @@ label {
 
 .resume-content-wrapper.blue {
   background-color: rgb(97, 131, 162);
-  box-shadow: inset -5px -5px 5px rgb(74, 75, 148), inset 5px 5px 5px rgb(128, 152, 189);
+  box-shadow: inset -5px -5px 5px rgb(29, 41, 65), inset 5px 5px 5px rgb(186, 206, 237);
 }
 
 .resume-content-wrapper.pink {
@@ -2600,6 +2613,7 @@ label {
 }
 
 .resume-content-image {
+  height: 100%;
   width: 100%;
   border-radius: var(--border-radius);
   box-shadow: 5px 5px 5px var(--dark-transparent);
@@ -2609,6 +2623,27 @@ label {
   -o-background-size: cover;
   background-size: cover;
   overflow: hidden;
+  background-image: url("../images/resume/ucsd.jpg");
+}
+
+#resume-image-powelldoro {
+  background: no-repeat center top;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  overflow: hidden;
+  background-image: url("../images/projects/project1-1.png");
+}
+
+#resume-image-choretracker {
+  background: no-repeat left top;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  overflow: hidden;
+  background-image: url("../images/projects/project2-1.png");
 }
 
 .resume-content-text {
@@ -2623,9 +2658,9 @@ label {
   display: grid;
   place-items: center;
   grid-template-rows: 1fr 1fr 1fr;
-  padding: 15% 0;
+  /* padding: 15% 0; */
 }
-
+/* 
 @media (max-width: 1000px) {
   .resume-education-grid {
     padding: 7.5% 0;
@@ -2636,7 +2671,7 @@ label {
   .resume-education-grid {
     padding: 0;
   }
-}
+} */
 
 .resume-education-grid > h1,
 .resume-education-grid > h2,
@@ -2644,13 +2679,38 @@ label {
   font-size: calc(var(--resume-content-size)/1.75);
   color: var(--dark-less-transparent);
   margin: 0;
-  padding: 0 1px;
+  padding: 10px 1px;
 }
 
 .resume-education-grid > h2 {
   font-size: calc(var(--resume-content-size)/2.5);
+  margin-top: 10px;
 }
 .resume-education-grid > h3 {
+  font-size: calc(var(--resume-content-size)/3);
+  margin-bottom: 10px;
+}
+
+.resume-project-grid {
+  display: grid;
+  place-items: center;
+  grid-template-rows: 1fr 1fr 1fr;
+  /* padding: 15% 0; */
+}
+
+.resume-project-grid > h1,
+.resume-project-grid > h2,
+.resume-project-grid > h3 {
+  font-size: calc(var(--resume-content-size)/1.75);
+  color: var(--dark-less-transparent);
+  margin: 0;
+  padding: 5px 1px;
+}
+
+.resume-project-grid > h2 {
+  font-size: calc(var(--resume-content-size)/2.5);
+}
+.resume-project-grid > h3 {
   font-size: calc(var(--resume-content-size)/3);
 }
 
