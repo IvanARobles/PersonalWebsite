@@ -2006,17 +2006,25 @@ label {
 .resume-home-btn {
   position: absolute;
   top: 0;
-  left: 0;
   padding: 0 var(--padding-med);
   background-color: black;
   border-bottom-left-radius: var(--border-radius);
   box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.5);
   font-size: var(--resume-header-size);
-  transform: scaleX(-100%);
   color: white;
   z-index: 900;
   text-decoration: none;
   transition: all 200ms ease-in-out;
+}
+
+
+.resume-home-btn.start {
+  left: 0;
+  transform: scaleX(-100%);
+}
+
+.resume-home-btn.end {
+  transform: translateX(calc(100vw - 100%));
 }
 
 .resume-home-btn:hover,
@@ -2121,6 +2129,10 @@ label {
   align-items: center;
   display: flex;
   z-index: 10;
+}
+
+.ground.end {
+  width: 100vw;
 }
 
 .ground.bridge {
@@ -2487,6 +2499,10 @@ label {
   z-index: 5;
   --content-animation-time: 2000ms;
   --content-propeller-time: calc(var(--content-animation-time)*2);
+}
+
+.resume-content-page.end {
+  width: 100vw;
 }
 
 .resume-content-wrapper {
