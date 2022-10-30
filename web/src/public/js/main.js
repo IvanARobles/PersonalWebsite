@@ -4,6 +4,7 @@ import { EventBus } from "./eventBus.js";
 const CONSOLE_BOOL = true;
 let characterJumpingBoolean = false;
 let scrollTimer = -1;
+const characterOutfits = ["education", "projects", "skills", "contact"];
 
 
 function showDropdown() {
@@ -438,8 +439,11 @@ function characterJump() {
     dogs.forEach(dog => {
         dog.classList.add("jump");
     });
-    
     character.classList.add("jump");
+    //Checks halfway through jump at the heighest point because all blocks are that high up
+    setTimeout(function() {
+        checkBlockHit();
+    }, 375); //MUST be half of jump animation duration
     setTimeout(function() {
         //Reset to be ready to jump again
         character.classList.remove("jump");
@@ -447,9 +451,39 @@ function characterJump() {
             dog.classList.remove("jump");
         });
         characterJumpingBoolean = false;
-    }, 750);
+    }, 750); //SHOULD match jump animation duration
 }
 
+
+
+function checkBlockHit() {
+    if (CONSOLE_BOOL) {console.log("...Checking If Block Hit...");}
+    let blocks = document.querySelectorAll(".resume-header-block");
+    let character = document.querySelector(".character");
+    let characterRect = character.getBoundingClientRect();
+    blocks.forEach(block => {
+        if (!block.classList.contains("active")) {
+            let blockRect = block.getBoundingClientRect();
+            //Check if character is in the bounds of the block when he's at the top of his jump
+            if ((characterRect.right - 20 > blockRect.left) && (characterRect.left + 20 < blockRect.right)) {
+                if (CONSOLE_BOOL) {console.log("BLOCK HIT!!!");}
+                //Make all blocks not be hit
+                blocks.forEach(block => { 
+                    block.classList.remove("active");
+                })
+                //Make this block be hit
+                block.classList.add("active");
+                let new_outfit = block.id.split("-")[0];
+                //Remove classes for all outfits
+                characterOutfits.forEach(outfit => {
+                    character.classList.remove(outfit);
+                })
+                //Add class for new outfit
+                character.classList.add(new_outfit);
+            }
+        }
+    })
+}
 
 /**
  * Functions specific for initializing the projects page
