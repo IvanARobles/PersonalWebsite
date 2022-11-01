@@ -2147,6 +2147,44 @@ label {
   background-image: url("../images/resume/ground-winter.png");
 }
 
+.bridge-post {
+  position: relative;
+  z-index: 10;
+  bottom: 115%;
+  border: 5px solid rgb(101, 61, 40);
+  height: 130%;
+  aspect-ratio: 1/5;
+  background-color: rgb(190, 168, 96);
+  z-index: 5;
+}
+
+.bridge-post.start {
+  transform: translateX(calc(var(--resume-section-width)/-2));
+}
+
+.bridge-post.end {
+  transform: translateX(calc(var(--resume-section-width)/2));
+}
+
+.bridge-post.start::before,
+.bridge-post.end::before {
+  position: absolute;
+  content: "";
+  height: 100%;
+  width: 75%;
+  border: 2px solid rgb(101, 61, 40);
+  background-color: rgb(190, 168, 96);
+  z-index: 4;
+}
+
+.bridge-post.start::before {
+  transform: rotateZ(-45deg) translateX(-50%) translateY(50%);
+}
+
+.bridge-post.end::before {
+  transform: rotateZ(45deg) translateX(-50%) translateY(50%);
+}
+
 .ground-instructions-wrapper {
   position: absolute;
   bottom: 0;
@@ -2208,41 +2246,29 @@ label {
 .sign {
   position: relative;
   height: auto;
-  width: 250px;
+  width: 280px;
   background-color: rgb(114, 74, 56);
   box-shadow:  inset -5px -5px 5px rgb(42, 26, 18), inset 5px 5px 5px rgb(209, 170, 129);
   justify-content: center;
   text-align: center;
   align-items: center;
   display: flex;
-  padding: 5px 25px;
+  padding: 5px 20px;
   transform: rotateZ(5deg);
   opacity: 1;
 }
 
-.sign.displayed {
-  animation: sign-pop-up 500ms linear forwards;
-}
-
-@keyframes sign-pop-up {
-  0% {
-    opacity: 0;
-    transform: translateY(var(--sign-height)) rotateZ(5deg);
+@media (max-width: 800px) {
+  .sign {
+    padding: 5px 10px;
+    width: 240px;
   }
-  1% {
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(0) rotateZ(5deg);
-    opacity: 1;
-  }
-
 }
 
 @media (max-width: 500px) {
   .sign {
     padding: 5px;
-    width: 180px;
+    width: 190px;
   }
 }
 
@@ -2277,6 +2303,43 @@ label {
   .resume-sign-instructions.small {
     font-size: 1.25rem;
   }
+}
+
+.ground-section-title-wrapper {
+  position: absolute;
+  bottom: 0;
+  height: var(--resume-ground-height);
+  width: var(--resume-section-width);
+  left: 0;
+  z-index: 15;
+}
+
+.ground-section-title-wrapper.two {
+  width: calc(var(--resume-section-width)*2);
+}
+
+.ground-section-title-wrapper.three {
+  width: calc(var(--resume-section-width)*3);
+}
+
+.ground-section-title-wrapper.four {
+  width: calc(var(--resume-section-width)*4);
+}
+
+.ground-section-title {
+  position: sticky;
+  color: var(--light-color);
+  left: 0;
+  text-shadow: 0 0 5px black, 0 0 5px black, 0 0 5px black;
+  text-transform: capitalize;
+  height: var(--resume-ground-height);
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  animation: pulsing 1.5s infinite;
 }
 
 .cloud {
@@ -2581,7 +2644,7 @@ label {
 .resume-content-page {
   top: 0;
   width: var(--resume-section-width);
-  height: 85%;
+  height: 80%;
   justify-content: center;
   text-align: center;
   align-items: center;
