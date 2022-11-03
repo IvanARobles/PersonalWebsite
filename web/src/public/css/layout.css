@@ -2147,6 +2147,39 @@ label {
   background-image: url("../images/resume/ground-winter.png");
 }
 
+.flower-wrapper {
+  position: absolute;
+  bottom: calc(var(--resume-ground-height)/1.25);
+  height: calc(var(--resume-ground-height)/1);
+  width: var(--resume-section-width);
+  left: 0;
+  z-index: 9;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.flower-wrapper.end {
+  width: 100vw;
+}
+
+.flower {
+  position: relative;
+  height: 100%;
+  aspect-ratio: 1/2;
+  background-image: url("../images/resume/flower-plant.png");
+  background-size: cover;
+  z-index: 9;
+}
+
+.flower:nth-child(2n) {
+  bottom: calc(var(--resume-ground-height) - var(--resume-ground-height)/1.25);
+  transform: scaleX(-100%);
+}
+
+.flower.space {
+  opacity: 0;
+}
+
 .bridge-post {
   position: relative;
   z-index: 10;
@@ -2418,6 +2451,18 @@ label {
 
 .tree.farthest.winter {
   background-image: url("../images/resume/tree-farthest-winter.png");
+}
+
+.tree.close.spring {
+  background-image: url("../images/resume/tree-close-spring.png");
+}
+
+.tree.far.spring {
+  background-image: url("../images/resume/tree-far-spring.png");
+}
+
+.tree.farthest.spring {
+  background-image: url("../images/resume/tree-farthest-spring.png");
 }
 
 @media (max-width: 700px) {
@@ -2990,6 +3035,12 @@ label {
   animation: blinking-eyes-dog infinite 5s linear;
 }
 
+.dog.simba {
+  --dog-height: calc(var(--resume-character-height)/2);
+  --dog-url: url("../images/resume/dog-simba-eyes.png");
+  --dog-blink-url: url("../images/resume/dog-simba-blink.png");
+}
+
 .dog.luna {
   --dog-height: calc(var(--resume-character-height)/1.5);
   --dog-url: url("../images/resume/dog-luna-eyes.png");
@@ -3027,11 +3078,11 @@ label {
 }
 
 @keyframes shaking {
-  0%, 49%, 100% {
+  0%, 100% {
     left: 0px;
   }
-  50%, 99% {
-    left: 1px;
+  50% {
+    left: 1.5px;
   }
 }
 
