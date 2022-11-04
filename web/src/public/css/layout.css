@@ -2137,7 +2137,6 @@ label {
   --left-jump-url: url("../images/resume/character-left-jump-projects.png");
 }
 
-/* Classes to update the outfits of the character */
 .character.skills {
   --right-url: url("../images/resume/character-right-skills.png");
   --right-walk-url: url("../images/resume/character-right-walk-skills.png");
@@ -2145,6 +2144,15 @@ label {
   --left-url: url("../images/resume/character-left-skills.png");
   --left-walk-url: url("../images/resume/character-left-walk-skills.png");
   --left-jump-url: url("../images/resume/character-left-jump-skills.png");
+}
+
+.character.contact {
+  --right-url: url("../images/resume/character-right-contact.png");
+  --right-walk-url: url("../images/resume/character-right-walk-contact.png");
+  --right-jump-url: url("../images/resume/character-right-jump-contact.png");
+  --left-url: url("../images/resume/character-left-contact.png");
+  --left-walk-url: url("../images/resume/character-left-walk-contact.png");
+  --left-jump-url: url("../images/resume/character-left-jump-contact.png");
 }
 
 @keyframes change_outfit {
@@ -2682,6 +2690,10 @@ label {
 
 #skills-block::before {
   --pickup-url: url("../images/resume/pickup-skills.png");
+}
+
+#contact-block::before {
+  --pickup-url: url("../images/resume/pickup-contact.png");
 }
 
 .resume-header-block.active::before {
