@@ -2049,52 +2049,53 @@ label {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  --right-url: url("../images/resume/character-right.png");
+  --right-walk-url: url("../images/resume/character-right-walk.png");
+  --right-jump-url: url("../images/resume/character-right-jump.png");
+  --left-url: url("../images/resume/character-left.png");
+  --left-walk-url: url("../images/resume/character-left-walk.png");
+  --left-jump-url: url("../images/resume/character-left-jump.png");
 }
 
-.character.right {
-  background-image: url("../images/resume/character-right.png");
-}
-
-.character.left {
-  background-image: url("../images/resume/character-left.png");
-}
-
-.character.right.jump {
-  background-image: url("../images/resume/character-right-jumping.png");
-  animation: character-jump var(--resume-jump-time) forwards linear;
-}
-
-.character.left.jump {
-  background-image: url("../images/resume/character-left-jumping.png");
-  animation: character-jump var(--resume-jump-time) forwards linear;
-}
-
+/* Classes that give the direction of the character and the walk/jump animations*/
+.character.right {  background-image: var(--right-url);}
+.character.left {  background-image: var(--left-url);}
 .character.right.walk {
   animation: character-walk-right 300ms infinite linear;
 }
-
 .character.left.walk {
   animation: character-walk-left 300ms infinite linear;
 }
+.character.right.jump {
+  background-image: var(--right-jump-url);
+  animation: character-jump var(--resume-jump-time) forwards linear;
+}
+.character.left.jump {
+  background-image: var(--left-jump-url);
+  animation: character-jump var(--resume-jump-time) forwards linear;
+}
 
+/* Animation to make the character appear to be walking to the RIGHT */
 @keyframes character-walk-right {
   0%, 49.9%, 100% {
-    background-image: url("../images/resume/character-right-walk.png");
+    background-image: var(--right-walk-url);
   }
   50%, 99.9% {
-    background-image: url("../images/resume/character-right.png");
+    background-image: var(--right-url);
   }
 }
 
+/* Animation to make the character appear to be walking to the LEFT */
 @keyframes character-walk-left {
   0%, 49.9%, 100% {
-    background-image: url("../images/resume/character-left-walk.png");
+    background-image: var(--left-walk-url);
   }
   50%, 99.9% {
-    background-image: url("../images/resume/character-left.png");
+    background-image: var(--left-url);
   }
 }
 
+/* Animation to make the character JUMP up */
 @keyframes character-jump {
   0%, 100% {
     bottom: var(--resume-ground-height);
@@ -2115,6 +2116,36 @@ label {
     bottom: var(--resume-jump-one);
   }
 }
+
+/* Classes to update the outfits of the character */
+.character.education {
+  --right-url: url("../images/resume/character-right-education.png");
+  --right-walk-url: url("../images/resume/character-right-walk-education.png");
+  --right-jump-url: url("../images/resume/character-right-jump-education.png");
+  --left-url: url("../images/resume/character-left-education.png");
+  --left-walk-url: url("../images/resume/character-left-walk-education.png");
+  --left-jump-url: url("../images/resume/character-left-jump-education.png");
+}
+
+/* Classes to update the outfits of the character */
+.character.projects {
+  --right-url: url("../images/resume/character-right-projects.png");
+  --right-walk-url: url("../images/resume/character-right-walk-projects.png");
+  --right-jump-url: url("../images/resume/character-right-jump-projects.png");
+  --left-url: url("../images/resume/character-left-projects.png");
+  --left-walk-url: url("../images/resume/character-left-walk-projects.png");
+  --left-jump-url: url("../images/resume/character-left-jump-projects.png");
+}
+
+@keyframes change_outfit {
+  0%, 40%, 80% {
+    --right-url: url("../images/resume/character-right.png");
+  }
+  20%, 60%, 100% {
+    --right-url: url("../images/resume/character-right-education.png");
+  }
+}
+
 
 .ground {
   position: absolute;
@@ -2620,6 +2651,7 @@ label {
 }
 
 .resume-header-block::before {
+  --pickup-url: url("../images/resume/pickup-education.png");
   position: absolute;
   content: "";
   height: 80%;
@@ -2629,9 +2661,13 @@ label {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  background-image: url("../images/resume/dog-bandit-eyes.png");
+  background-image: var(--pickup-url);
   bottom: 0;
   z-index: -1;
+}
+
+#projects-block::before {
+  --pickup-url: url("../images/resume/pickup-projects.png");
 }
 
 .resume-header-block.active::before {
