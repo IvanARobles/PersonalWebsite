@@ -347,7 +347,7 @@ function homePageStarter(event) {
     //Making the loading animation grid disappear
     setTimeout(function() {
         loadingResumeShrink();
-    }, 4000);
+    }, 3200);
     
 }
 

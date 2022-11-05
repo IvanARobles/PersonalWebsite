@@ -352,13 +352,12 @@ p, ol li, ul li, blockquote {
 .header-wave.colored {
   color: var(--accent-color-light);
   text-shadow: 0px 0px 5px var(--accent-color-light);
-  /* font-size: calc(calc(1rem + 1vw)*1.15); */
 }
 
-.header-wave:hover {
+.header-wave:hover,
+.header-wave:focus {
   color: var(--accent-color-light);
   text-shadow: 0px 0px 5px var(--accent-color-light);
-  /* font-size: calc(calc(1rem + 1vw)*1.15); */
 }
 
 .landing-card{
@@ -1935,7 +1934,7 @@ label {
 }
 
 .resume-load-cell {
-  --resume-load-duration: 2000ms;
+  --resume-load-duration: 2200ms;
   background-color: white;
   border-radius: var(--border-radius);
   display: flex;
@@ -1950,21 +1949,18 @@ label {
   animation: none;
 }
 
-.resume-load-cell:nth-child(2) { animation-delay: calc(var(--resume-load-duration)/8*1);}
-.resume-load-cell:nth-child(3) { animation-delay: calc(var(--resume-load-duration)/8*2);}
-.resume-load-cell:nth-child(6) { animation-delay: calc(var(--resume-load-duration)/8*3);}
-.resume-load-cell:nth-child(9) { animation-delay: calc(var(--resume-load-duration)/8*4);}
-.resume-load-cell:nth-child(8) { animation-delay: calc(var(--resume-load-duration)/8*5);}
-.resume-load-cell:nth-child(7) { animation-delay: calc(var(--resume-load-duration)/8*6);}
-.resume-load-cell:nth-child(4) { animation-delay: calc(var(--resume-load-duration)/8*7);}
+.resume-load-cell:nth-child(2) { animation-delay: calc((var(--resume-load-duration)/8)*1);}
+.resume-load-cell:nth-child(3) { animation-delay: calc((var(--resume-load-duration)/8)*2);}
+.resume-load-cell:nth-child(6) { animation-delay: calc((var(--resume-load-duration)/8)*3);}
+.resume-load-cell:nth-child(9) { animation-delay: calc((var(--resume-load-duration)/8)*4);}
+.resume-load-cell:nth-child(8) { animation-delay: calc((var(--resume-load-duration)/8)*5);}
+.resume-load-cell:nth-child(7) { animation-delay: calc((var(--resume-load-duration)/8)*6);}
+.resume-load-cell:nth-child(4) { animation-delay: calc((var(--resume-load-duration)/8)*7);}
 
 @keyframes square-load-animation {
-  0%, 100% {
+  0%, 10%{
     scale: .9;
-    background-color: red;
-  }
-  10% {
-    scale: .9;
+    background-color: #c47582;
   }
   20% {
     scale: .6;
@@ -1973,12 +1969,9 @@ label {
   80% {
     scale: 0;
   }
-  90% {
+  100% {
     scale: 0;
-    background-color: white;
-  }
-  91% {
-    background-color: red;
+    background-color: #c47582;
   }
 }
 
@@ -2496,10 +2489,11 @@ label {
 
 .ground-section-title {
   position: sticky;
-  color: var(--light-color);
+  color: white;
   left: 0;
   text-shadow: 0 0 5px black, 0 0 5px black, 0 0 5px black;
-  text-transform: capitalize;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
   height: var(--resume-ground-height);
   width: 100vw;
   display: flex;
@@ -3051,6 +3045,17 @@ label {
   overflow: hidden;
   background-image: url("../images/resume/ucsd.jpg");
 }
+#resume-image-ucsd {
+  aspect-ratio: 1.85;
+  width: 100%;
+  height: auto;
+}
+
+@media (max-width: 500px) {
+  #resume-image-ucsd {
+    aspect-ratio: 1.5;
+  }
+}
 
 #resume-image-powelldoro {
   background: no-repeat center top;
@@ -3102,22 +3107,20 @@ label {
   font-size: calc(var(--resume-content-size)/1.75);
   color: var(--dark-less-transparent);
   margin: 0;
-  padding: 10px 1px;
+  padding: 0px 1px;
 }
-
+.resume-education-grid > h1 {
+  color: black;
+}
 .resume-education-grid > h2 {
   font-size: calc(var(--resume-content-size)/2.5);
-  margin-top: 10px;
 }
 .resume-education-grid > h3 {
   font-size: calc(var(--resume-content-size)/3);
-  margin-bottom: 10px;
 }
 
 .resume-project-grid {
   display: grid;
-  /* place-items: center; */
-  /* grid-template-rows: 1fr 1fr 1fr 1fr; */
 }
 
 .resume-project-grid > h1,
