@@ -2085,9 +2085,9 @@ label {
   z-index: 10;
   cursor: pointer;
   background: no-repeat center center;
-  -webkit-background-size: cover;
+  /* -webkit-background-size: cover;
   -moz-background-size: cover;
-  -o-background-size: cover;
+  -o-background-size: cover; */
   background-size: cover;
   --right-url: url("../images/resume/cover-right.png");
   --right-walk-url: url("../images/resume/cover-right-walk.png");
@@ -2095,6 +2095,9 @@ label {
   --left-url: url("../images/resume/cover-left.png");
   --left-walk-url: url("../images/resume/cover-left-walk.png");
   --left-jump-url: url("../images/resume/cover-left-jump.png");
+  /*IMPORTANT - Load all images needed for character-cover and stack them
+   * Display only the background image corresponding to the current action */
+  background-image: var(--right-url), var(--right-walk-url), var(--right-jump-url), var(--left-url), var(--left-walk-url), var(--left-jump-url);
   opacity: 0;
   transform: translateX(-50%);
   transition: opacity 200ms ease-in-out, transform 200ms ease-in-out;
@@ -2110,9 +2113,9 @@ label {
   z-index: 10;
   cursor: pointer;
   background: no-repeat center center;
-  -webkit-background-size: cover;
+  /* -webkit-background-size: cover;
   -moz-background-size: cover;
-  -o-background-size: cover;
+  -o-background-size: cover; */
   background-size: cover;
   --right-url: url("../images/resume/character-right.png");
   --right-walk-url: url("../images/resume/character-right-walk.png");
@@ -2120,16 +2123,20 @@ label {
   --left-url: url("../images/resume/character-left.png");
   --left-walk-url: url("../images/resume/character-left-walk.png");
   --left-jump-url: url("../images/resume/character-left-jump.png");
+  /*IMPORTANT - Load all images needed for character and stack them
+   * Display only the background image corresponding to the current action */
+  background-image: var(--right-url), var(--right-walk-url), var(--right-jump-url), var(--left-url), var(--left-walk-url), var(--left-jump-url);
 }
 
-/* Classes that give the direction of the character and the walk/jump animations*/
+/* Classes that give the direction of the character and the walk/jump animations
+ * Only display the background image corresponding to the current action */
 .character.right,
 .character-cover.right {
-  background-image: var(--right-url);
+  background-size: cover, 0 0, 0 0, 0 0, 0 0, 0 0;
 }
 .character.left,
 .character-cover.left {
-  background-image: var(--left-url);
+  background-size: 0 0, 0 0, 0 0, cover, 0 0, 0 0;
 }
 .character.right.walk,
 .character-cover.right.walk {
@@ -2141,37 +2148,36 @@ label {
 }
 .character.right.jump,
 .character-cover.right.jump {
-  background-image: var(--right-jump-url);
+  background-size: 0 0, 0 0, cover, 0 0, 0 0, 0 0;
   animation: character-jump var(--resume-jump-time) forwards linear;
 }
 .character.left.jump,
 .character-cover.left.jump {
-  background-image: var(--left-jump-url);
+  background-size: 0 0, 0 0, 0 0, 0 0, 0 0, cover;
   animation: character-jump var(--resume-jump-time) forwards linear;
 }
 
 .character-cover.changing {
   opacity: 1;
-  transform: translateX(-50%) scale(1);
 }
 
 /* Animation to make the character appear to be walking to the RIGHT */
 @keyframes character-walk-right {
   0%, 49.9%, 100% {
-    background-image: var(--right-walk-url);
+    background-size: 0 0, cover, 0 0, 0 0, 0 0, 0 0;
   }
   50%, 99.9% {
-    background-image: var(--right-url);
+    background-size: cover, 0 0, 0 0, 0 0, 0 0, 0 0;
   }
 }
 
 /* Animation to make the character appear to be walking to the LEFT */
 @keyframes character-walk-left {
   0%, 49.9%, 100% {
-    background-image: var(--left-walk-url);
+    background-size: 0 0, 0 0, 0 0, 0 0, cover, 0 0;
   }
   50%, 99.9% {
-    background-image: var(--left-url);
+    background-size: 0 0, 0 0, 0 0, cover, 0 0, 0 0;
   }
 }
 
