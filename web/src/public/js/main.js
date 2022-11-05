@@ -1,7 +1,7 @@
 import { WelcomeBox } from "./welcomeBox.js";
 import { EventBus } from "./eventBus.js";
 
-const CONSOLE_BOOL = true;
+const CONSOLE_BOOL = false;
 let characterJumpingBoolean = false;
 let scrollTimer = -1;
 const characterOutfits = ["education", "projects", "skills", "contact"];
@@ -375,9 +375,11 @@ function loadingResumeDisappear() {
 
 function resumeLoaded() {
     window.addEventListener("keyup", userKeyResume);
-    let character = document.querySelector(".character");
-    character.addEventListener("click", characterJump);
+    let character_cover = document.querySelector(".character-cover");
+    character_cover.addEventListener("click", characterJump);
     document.addEventListener("wheel", parallaxScroll);
+    let remove_outfits_btn = document.querySelector(".resume-outfit-btn");
+    remove_outfits_btn.addEventListener("click", removeOutfits);
 
     // Intersection Observer for classes that need to add display
     let content_observer = new IntersectionObserver(entries => {
@@ -396,25 +398,30 @@ function resumeLoaded() {
 }
 
 function parallaxScroll(event) {
-    // console.log("deltaY is ", event.deltaY);
-    // console.log("deltaX is ", event.deltaX);
     let parallax = document.querySelector(".parallax-wrapper");
     parallax.scrollLeft += event.deltaY;
     let character = document.querySelector(".character");
+    let character_cover = document.querySelector(".character-cover");
     if ((event.deltaY < 0) && character.classList.contains("right")) {
         character.classList.remove("right");
         character.classList.add("left");
+        character_cover.classList.remove("right");
+        character_cover.classList.add("left");
     }
     else if ((event.deltaY > 0) && character.classList.contains("left")) {
         character.classList.remove("left");
         character.classList.add("right");
+        character_cover.classList.remove("left");
+        character_cover.classList.add("right");
     }
     if (character.classList.contains("jump")) return;
     if (event.deltaY == 0) return;
     character.classList.add("walk");
+    character_cover.classList.add("walk");
     if (scrollTimer != -1) { clearTimeout(scrollTimer); }
     scrollTimer = window.setTimeout(function() {
         character.classList.remove("walk");
+        character_cover.classList.remove("walk");
         if (CONSOLE_BOOL) { console.log("done scrolling"); }
     }, 300);
 }
@@ -432,20 +439,24 @@ function characterJump() {
     if (characterJumpingBoolean) return;
     characterJumpingBoolean = true;
     let character = document.querySelector(".character");
+    let character_cover = document.querySelector(".character-cover");
     if (character.classList.contains("walk")) {
         character.classList.remove("walk");
+        character_cover.classList.remove("walk");
     }
     let dogs = document.querySelectorAll(".dog");
     dogs.forEach(dog => {
         dog.classList.add("jump");
     });
     character.classList.add("jump");
+    character_cover.classList.add("jump");
     //Checks halfway through jump at the heighest point because all blocks are that high up
     setTimeout(function() {
         checkBlockHit();
     }, 375); //MUST be half of jump animation duration
     setTimeout(function() {
         //Reset to be ready to jump again
+        character_cover.classList.remove("jump");
         character.classList.remove("jump");
         dogs.forEach(dog => {
             dog.classList.remove("jump");
@@ -459,6 +470,7 @@ function characterJump() {
 function checkBlockHit() {
     if (CONSOLE_BOOL) {console.log("...Checking If Block Hit...");}
     let blocks = document.querySelectorAll(".resume-header-block");
+    let character_cover = document.querySelector(".character-cover");
     let character = document.querySelector(".character");
     let characterRect = character.getBoundingClientRect();
     blocks.forEach(block => {
@@ -470,19 +482,57 @@ function checkBlockHit() {
                 //Make all blocks not be hit
                 blocks.forEach(block => { 
                     block.classList.remove("active");
-                })
+                });
                 //Make this block be hit
                 block.classList.add("active");
+                //Activate remove outfit button once a block has been hit
+                let remove_outfits_btn = document.querySelector(".resume-outfit-btn");
+                remove_outfits_btn.classList.remove("disabled");
                 let new_outfit = block.id.split("-")[0];
-                //Remove classes for all outfits
-                characterOutfits.forEach(outfit => {
-                    character.classList.remove(outfit);
-                })
-                //Add class for new outfit
-                character.classList.add(new_outfit);
+                //Make the cover appear over the character
+                character_cover.classList.add("changing");
+                //Function to make the character change outfit once it is covered
+                setTimeout(function() {
+                    //Remove classes for all outfits
+                    characterOutfits.forEach(outfit => {
+                        character.classList.remove(outfit);
+                    })
+                    //Add class for new outfit
+                    character.classList.add(new_outfit);
+                }, 300); //MUST be greater than change outfit animation delay
+                //Function for removing change outfit animation
+                setTimeout(function() {
+                    character_cover.classList.remove("changing");
+                }, 1200); //Matches the pickup icon (resume-header-block::before) animation duration
             }
         }
-    })
+    });
+}
+
+function removeOutfits() {
+    let blocks = document.querySelectorAll(".resume-header-block");
+    let character = document.querySelector(".character");
+    let character_cover = document.querySelector(".character-cover");
+    let remove_outfits_btn = document.querySelector(".resume-outfit-btn");
+    remove_outfits_btn.classList.add("disabled");
+    //Make the cover appear over the character
+    character_cover.classList.add("changing");
+    //Make all blocks not be hit
+    blocks.forEach(block => { 
+        block.classList.remove("active");
+    });
+    //Function to make the character remove outfits once it is covered
+    setTimeout(function() {
+        //Remove classes for all outfits
+        characterOutfits.forEach(outfit => {
+            character.classList.remove(outfit);
+        })
+    }, 300); //MUST be greater than change outfit animation delay
+    //Function for removing change outfit animation
+    setTimeout(function() {
+        character_cover.classList.remove("changing");
+    }, 600); //Matches the pickup icon (resume-header-block::before) animation duration
+
 }
 
 /**
