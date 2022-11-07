@@ -510,10 +510,11 @@ function checkBlockHit() {
 }
 
 function removeOutfits() {
+    let remove_outfits_btn = document.querySelector(".resume-outfit-btn");
+    if (remove_outfits_btn.classList.contains("disabled")) return;
     let blocks = document.querySelectorAll(".resume-header-block");
     let character = document.querySelector(".character");
     let character_cover = document.querySelector(".character-cover");
-    let remove_outfits_btn = document.querySelector(".resume-outfit-btn");
     remove_outfits_btn.classList.add("disabled");
     //Make the cover appear over the character
     character_cover.classList.add("changing");

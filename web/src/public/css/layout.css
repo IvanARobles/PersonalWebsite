@@ -2000,15 +2000,18 @@ label {
 .resume-home-btn {
   position: absolute;
   top: 0;
-  padding: 0 var(--padding-med);
-  background-color: black;
+  padding: var(--padding-sm);
   border-bottom-left-radius: var(--border-radius);
   box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.5);
-  font-size: var(--resume-header-size);
-  color: white;
+  height: calc(var(--resume-ground-height)*0.9);
+  aspect-ratio: 1;
   z-index: 900;
   text-decoration: none;
   transition: all 200ms ease-in-out;
+  background: no-repeat center center;
+  background-size: cover, 0 0;
+  background-image: url("../images/resume/home-btn.png"), url("../images/resume/home-btn-hover.png");
+  background-color: black;
 }
 
 
@@ -2024,23 +2027,26 @@ label {
 .resume-home-btn:hover,
 .resume-home-btn:focus {
   cursor: pointer;
-  color: orange;
+  background-size: 0 0, cover;
+  height: var(--resume-ground-height);
   text-decoration: none;
-  font-size: calc(var(--resume-header-size)*1.25);
 }
 
 .resume-outfit-btn {
   position: absolute;
   bottom: 0;
-  padding: 0 var(--padding-med);
-  background-color: black;
+  padding: var(--padding-sm);
   border-top-left-radius: var(--border-radius);
   box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.5);
-  font-size: var(--resume-header-size);
-  color: white;
+  height: calc(var(--resume-ground-height)*0.9);
+  aspect-ratio: 1;
   z-index: 900;
   text-decoration: none;
   transition: all 200ms ease-in-out;
+  background: no-repeat center center;
+  background-size: cover, 0 0, 0 0;
+  background-image: url("../images/resume/outfit-btn.png"), url("../images/resume/outfit-btn-hover.png"), url("../images/resume/outfit-btn-disabled.png");
+  background-color: black;
 }
 
 .resume-outfit-btn.end {
@@ -2050,22 +2056,14 @@ label {
 .resume-outfit-btn:hover,
 .resume-outfit-btn:focus {
   cursor: pointer;
-  color: orange;
-  text-decoration: none;
-  font-size: calc(var(--resume-header-size)*1.25);
+  height: var(--resume-ground-height);
+  background-size: 0 0, cover, 0 0;
 }
 
 .resume-outfit-btn.disabled {
-  color: grey;
-  pointer-events: none;
-}
-
-.resume-outfit-btn.disabled:hover,
-.resume-outfit-btn.disabled:focus {
-  cursor: default;
-  color: grey;
-  text-decoration: none;
-  font-size: var(--resume-header-size);
+  cursor: not-allowed;
+  height: calc(var(--resume-ground-height)*0.9);
+  background-size: 0 0, 0 0, cover;
 }
 
 .character-cover {
@@ -2501,7 +2499,6 @@ label {
   text-align: center;
   justify-content: center;
   font-size: 1.5rem;
-  /* animation: pulsing 1.5s infinite; */
 }
 
 .cloud {
