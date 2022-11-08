@@ -2864,6 +2864,11 @@ label {
   opacity: 0;
 }
 
+.resume-content-wrapper.single {
+  grid-template-columns: 1fr;
+  grid-column-gap: 0;
+}
+
 .resume-content-header {
   grid-area: header;
   width: 100%;
@@ -3141,6 +3146,33 @@ label {
   text-transform: uppercase;
   color: black;
   text-decoration: underline;
+}
+
+.resume-skills-grid {
+  display: grid;
+  place-items: start;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+.resume-skills-grid > h1 {
+  font-size: calc(var(--resume-content-size)/2);
+  color: black;
+  padding: 5px;
+  margin: 0;
+}
+.resume-skills-grid > ul {
+  color: var(--dark-less-transparent);
+  padding-left: 30px;
+  padding-bottom: 10px;
+  text-align: left;
+}
+.resume-skills-grid > ul > li {
+  font-size: calc(var(--resume-content-size)/2.25);
+}
+
+@media (max-width: 500px) { 
+  .resume-skills-grid > ul {
+    padding-left: 20px;
+  }
 }
 
 .rock {
