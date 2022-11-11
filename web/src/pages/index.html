@@ -473,11 +473,12 @@
     <div class="dropdown">
       <nav class="menu-list">
         <!-- <a href="" class="menu-clicked">home.</a> -->
-        <a href="/visual-resume">interactive-resume.</a>
-        <a href="/projects">projects.</a>
-        <a href="/art">art.</a>
-        <a href="/about">about.</a>
-        <a href="/contact">contact.</a>
+        <a href="/visual-resume" title="Open Interactive Resume">interactive-resume.</a>
+        <a href="/projects" title="Open Projects Page">projects.</a>
+        <a href="/art" title="Open Art Page">art.</a>
+        <a href="/about" title="Open About Page">about.</a>
+        <a title="Scroll to Contact"
+        onclick="document.getElementById('contact-section-header').scrollIntoView({behavior: 'smooth', block: 'start'});" >contact.</a>
       </nav>
     </div>
 
@@ -689,35 +690,27 @@
 
     <!-- Empty Space Separator -->
     <section class="empty-landing-space-small"></section>
+    <section class="empty-landing-space-small" id="contact-section-header"></section>
 
     <div class="page-center">
       <h1 class='section-title'>Contact</h1>
     </div>
 
-    <!-- Empty Space Separator -->
-    <section class="empty-landing-space-small"></section>
+    <div class="contact-section">
+      <div class="page-center full">
+        <a href="mailto:ivanroblesmvp@gmail.com" target="_blank" 
+        title="Email Me" class="accented-text-light">ivanroblesmvp@gmail.com</a>
+      </div>
+      
+      <div class="page-center full">
+        <a href="https://powelldoro.web.app" class="icon-img-btn" id="github-icon" target="_blank" 
+        title="Visit My Github"></a>     
+        <a href="https://powelldoro.web.app" class="icon-img-btn" id="linkedin-icon" target="_blank" 
+        title="Visit My LinkedIn"></a>
+      </div>
 
-    <div class="page-center">
-      <a href="mailto:ivanroblesmvp@gmail.com" target="_blank" 
-      title="Email Me" class="accented-text-light">
-        ivanroblesmvp@gmail.com
-      </a>
+      <div class="page-center full"></div>
     </div>
-    
-    <div class="page-center">
-      <a href="https://powelldoro.web.app" class="icon-btn" target="_blank" 
-      title="Visit My Github">
-        <img src="images/Github_Logo.png" class="icon-btn" alt="Github Button">
-      </a>
-          
-      <a href="https://powelldoro.web.app" class="icon-btn" target="_blank" 
-      title="Visit My LinkedIn">
-        <img src="images/LinkedIn_Logo.png" class="icon-btn" alt="LinkedIn Button">
-      </a>
-    </div>
-    
-    <!-- Empty Space Separator -->
-    <section class="empty-landing-space"></section>
 
     <!-- Bar to Scroll Back to Top of Current Page -->
     <div class="page-center">

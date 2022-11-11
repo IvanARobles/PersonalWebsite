@@ -222,7 +222,6 @@ function loadingFinish() {
 }
 
 function welcomeStart() {
-    console.log("in welcome start")
     let welcome = document.querySelector("welcome-box");
     let welcomeBoolean = localStorage.getItem("welcomeBoolean");
     // Show welcome box if user has not selected to never see it again
