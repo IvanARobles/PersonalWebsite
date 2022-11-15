@@ -1455,7 +1455,7 @@ label {
   color: white;
   padding: var(--padding-lg);
   position: absolute;
-  z-index: 1;
+  z-index: 3;
   right: 0;
   left: 0;
   transition: all 400ms ease-in-out;
@@ -1931,6 +1931,7 @@ label {
   padding-top: 20vh;
   padding-bottom: 5vh;
   border-top: 2px solid var(--page-color-lighter);
+  margin: 0;
 }
 
 .resume-load-wrapper {
@@ -3332,4 +3333,214 @@ label {
   70% {
     bottom: var(--resume-dog-jump-one);
   }
+}
+
+.project-tab-bubble-wrapper {
+  width: 100vw;
+  position: sticky;
+  height: 10vh;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--page-color-light);
+  box-shadow: 0 0 35px black;
+  padding: 10px;
+  z-index: 2;
+  transition: margin-top 400ms ease-in-out
+}
+
+.project-tab-bubble-wrapper.menu-open {
+  margin-top: 69px;
+}  
+
+@media (max-width: 600px) {
+  .project-tab-bubble-wrapper.menu-open {
+    margin-top: 155px;
+  }  
+}
+.project-tab-bubble {
+  padding: 8px;
+  background-color: transparent;
+  border-radius: 1000px;
+  border: 1px solid grey;
+  height: auto;
+  margin: 0 5px;
+  cursor: default;
+  font-size: calc(var(--btn-font-size)*0.5);
+  z-index: 2;
+  transition: background-color 200ms ease-in-out, padding 200ms ease-in-out, margin 200ms ease-in-out;
+  cursor: pointer;
+}
+
+.project-tab-bubble:hover,
+.project-tab-bubble:focus {
+  background-color: var(--page-color-lightest);
+}
+
+.project-tab-bubble.displayed {
+  background-color: grey;
+  padding: 10px;
+  margin: 0 3px;
+  pointer-events: none;
+}
+
+.entire-projects-page {
+  background-color: var(--page-color-light);
+  height: 80vh;
+  width: 100vw;
+  top: 10vh;
+  overflow-y: hidden;
+  overflow-x: hidden;
+  z-index: 0;
+}
+
+.entire-projects-page.displayed {
+  overflow-y: auto;
+}
+
+.project-tab-wrapper {
+  position: relative;
+  background: repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-image: url("../images/projects-back-waves.png");
+  width: 100vw;
+  height: 150%;
+}
+
+.project-tab {
+  position: sticky;
+  top: 0;
+  bottom: 0;
+  height: 66.67%;
+  width: 90%;
+  transform: translateX(15%);
+  z-index: 1;
+  opacity: 0;
+  transition: all 400ms ease-in-out;
+  padding: 10px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: "image titles" "content content";
+  place-items: center;
+}
+
+@media (max-width: 800px) {
+  .project-tab {
+    grid-template-areas: "titles titles" "image image" "content content";
+    padding: 0;
+  }
+}
+
+.project-tab > ul {
+  grid-area: content;
+  width: 100%;
+  padding-left: 30px;
+  color: var(--medium-color);
+}
+
+.project-tab > ul > li {
+  margin-bottom: 10px;
+  font-size: calc(1rem + 0.5vw);
+}
+
+@media (max-width: 800px) {
+  .project-tab > ul{
+    padding-left: 15px;
+  }
+
+  .project-tab > ul > li {
+    margin-bottom: 6px;
+    font-size: calc(0.9rem + 0.4vw);
+  }
+  
+}
+
+.project-tab-wrapper.displayed .project-tab {
+  opacity: 1;
+  transform: translateX(5.55%); /* 100x(1/width)x((1-width)/2) */
+}
+
+.project-tab-space {
+  height: 20%;
+}
+
+.project-tab-img {
+  background-color: blue;
+  width: 85%;
+  aspect-ratio: 2;
+  grid-area: image;
+  border-radius: calc(var(--border-radius)*1.5);
+}
+
+@media (max-width: 800px) {
+  .project-tab-img {
+    width: 75%;
+  }
+}
+
+@media (max-width: 600px) {
+  .project-tab-img {
+    width: 95%;
+  }
+}
+
+.project-tab-titles {
+  grid-area: titles;
+  font-size: var(--btn-font-size);
+  padding: 10px;
+}
+
+.project-tab-titles > h1 {
+  font-size: var(--btn-font-size);
+  margin: 0;
+  padding: 0;
+  color: white;
+}
+
+.project-tab-titles > h2 {
+  font-size: calc(var(--btn-font-size)*.9);
+  margin: 0;
+  padding: 0;
+  color: var(--medium-color);
+  margin-top: 10px;
+}
+
+@media (max-width: 800px) {
+  .project-tab-titles > h2 {
+    margin-top: 12px;
+  }
+}
+
+#project-tab-image-powelldoro {
+  background: no-repeat center top;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  overflow: hidden;
+  background-image: url("../images/projects/project1-1.png");
+}
+
+#project-tab-image-choretracker {
+  background: no-repeat left top;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  overflow: hidden;
+  background-image: url("../images/projects/project2-1.png");
+}
+
+#project-tab-image-portfolio {
+  background: no-repeat left top;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  overflow: hidden;
+  background-image: url("../images/projects/project3-2.png");
 }

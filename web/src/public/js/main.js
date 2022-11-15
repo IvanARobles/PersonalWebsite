@@ -541,8 +541,54 @@ function removeOutfits() {
  function projectsPageStarter(event) {
     // Code for showing / hiding menu functionality
     let o_menu_btn = document.querySelector(".menu-btn");
-    o_menu_btn.addEventListener("click", showDropdown);
+    o_menu_btn.addEventListener("click", showDropdownProjects);
+
+    
+    // Intersection Observer for classes that need to add display
+    let display_observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            entry.target.classList.toggle("displayed", entry.isIntersecting);
+            console.log(entry.target.id);
+            console.log(entry.target.id.split("-").pop());
+            let bubble_id = "project-tab-bubble-" + entry.target.id.split("-").pop();
+            console.log(bubble_id)
+            let bubble = document.getElementById(bubble_id);
+            bubble.classList.toggle("displayed", entry.isIntersecting);
+        });
+    }, {
+        threshold: .4,
+    });
+
+    let wrappers = document.querySelectorAll(".project-tab-wrapper");
+    wrappers.forEach(wrapper => {
+        display_observer.observe(wrapper);
+    });
  }
+
+ function showDropdownProjects() {
+    let dropdown = document.querySelector(".dropdown");
+    let menu_list = document.querySelector(".menu-list");
+    let menu_button = document.querySelector(".menu-btn");
+    let bubble_wrapper = document.querySelector(".project-tab-bubble-wrapper");
+    if (dropdown.classList.contains("displayed")) {
+        menu_list.classList.remove("displayed");        
+        setTimeout(function() {
+            menu_button.classList.remove("clicked");
+            menu_button.title = "Show Menu";
+            dropdown.classList.remove("displayed");
+            bubble_wrapper.classList.remove("menu-open");
+        }, 200);
+    }
+    else {
+        menu_button.classList.add("clicked");
+        menu_button.title = "Hide Menu";
+        dropdown.classList.add("displayed");
+        bubble_wrapper.classList.add("menu-open");
+        setTimeout(function() {
+            menu_list.classList.add("displayed");
+        }, 400);
+    }
+}
 
 
 /**

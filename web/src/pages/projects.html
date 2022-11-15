@@ -57,16 +57,65 @@
       </nav>
     </div>
 
-    <!-- Empty Space Separator -->
-    <section class="empty-landing-space"></section>
-
-    <!-- Bar to Scroll Back to Top of Current Page -->
-    <div class="page-center">
-      <span class="btn-text displayed btn-up" title="Scroll Back to Top" 
-        onclick="document.getElementById('hero-id').scrollIntoView({behavior: 'smooth', block: 'start'});" >
-        Back to Top
-      </span>
+    <div class="project-tab-bubble-wrapper">
+      <div class="project-tab-bubble" id="project-tab-bubble-powelldoro" title="Jump to Project"
+      onclick="document.getElementById('project-tab-wrapper-powelldoro').scrollIntoView({behavior: 'smooth', block: 'end'});"></div>
+      <div class="project-tab-bubble" id="project-tab-bubble-choretracker" title="Jump to Project"
+      onclick="document.getElementById('project-tab-wrapper-choretracker').scrollIntoView({behavior: 'smooth', block: 'end'});"></div>
+      <div class="project-tab-bubble" id="project-tab-bubble-portfolio" title="Jump to Project"
+      onclick="document.getElementById('project-tab-wrapper-portfolio').scrollIntoView({behavior: 'smooth', block: 'end'});"></div>
     </div>
+    <div class="entire-projects-page displayed">
+      <div class="project-tab-wrapper" id="project-tab-wrapper-powelldoro">
+        <div class="project-tab">
+          <!-- content -->
+          <a class="project-tab-img" id="project-tab-image-powelldoro" href="https://powelldoro.web.app" target="_blank" title="Open Powelldoro Website"></a>
+          <div class="project-tab-titles">
+            <h1>Powelldoro - Pomodoro Timer</h1>
+            <h2>Role: UI/UX Designer</h2>
+          </div>
+          <ul>
+            <li>Created a fully responsive user interface for a website (HTML, CSS) that helps individuals focus on their work with a to-do list and a pomodoro timer.</li>
+            <li>Built features using a modular structure (Javascript) centered on an eventbus that made it simple to add or remove features without affecting other pieces of code.</li>
+            <li>Collaborated with a team of 9 using the AGILE practices of daily stand-ups, weekly sprints, peer-reviewed PRs, and a CI/CD pipeline.</li>
+            <li>Utilized real user feedback to iteratively improve the website by modifying existing features and creating new ones.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="project-tab-space"></div>
+      <div class="project-tab-wrapper" id="project-tab-wrapper-choretracker">
+        <div class="project-tab">
+          <!-- content -->
+          <a class="project-tab-img" id="project-tab-image-choretracker" href="https://powelldoro.web.app" target="_blank" title="Open ChoreTracker Prototype"></a>
+          <div class="project-tab-titles">
+            <h1>ChoreTracker - Prototype</h1>
+            <h2>Role: Full Stack Developer</h2>
+          </div>
+          <ul>
+            <li>Collaborated with a team of 4 to create a product that has both hardware and software components.</li>
+            <li>Built the entirety of a website (HTML, CSS, Javascript) that allows parents to assign their children chores and monitor the progress of those chores through various internet-enabled sensors.</li>
+            <li>Utilized Python to run servers, make server requests to load different pages and generate SQL queries from a database server.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="project-tab-space"></div>
+      <div class="project-tab-wrapper" id="project-tab-wrapper-portfolio">
+        <div class="project-tab">
+          <!-- content -->
+          <a class="project-tab-img" id="project-tab-image-portfolio" href="/visual-resume" target="_blank" title="Open Interactive Resume"></a>
+          <div class="project-tab-titles">
+            <h1>Personal Website - Interactive Resume</h1>
+            <h2>Role: Front-End Developer</h2>
+          </div>
+          <ul>
+            <li>Single-handledly built and hosted a website introducing myself as a software engineer and designer.</li>
+            <li>Created custom effects triggered by scrolling through pages and hovering and clicking on elements.</li>
+            <li>Designed and programmed a video-game-style resume using HTML, CSS, Javascript, and Photoshop.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
 
     <!-- Contains the footer : Copyright for app name -->
   <footer>
