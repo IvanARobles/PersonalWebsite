@@ -3233,7 +3233,7 @@ label {
   }
 }
 
-/*grid-areas that make it easy to rearrange the grid*/
+/* grid-areas that make it easy to rearrange the grid */
 .resume-contact-grid > h1:nth-child(1) { grid-area: header1;}
 .resume-contact-grid > h1:nth-child(2) { grid-area: header2;}
 .resume-contact-grid > h1:nth-child(3) { grid-area: header3;}
