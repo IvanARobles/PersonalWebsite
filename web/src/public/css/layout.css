@@ -3216,6 +3216,42 @@ label {
   }
 }
 
+.resume-contact-grid {
+  display: grid;
+  place-items: center;
+  grid-template-columns: 1fr 1.5fr 1fr;
+  grid-template-areas: "header1 header2 header3" "link1 link2 link3";
+  width: 100%;
+  padding: 10px;
+}
+
+@media (max-width: 600px) { 
+  .resume-contact-grid {
+    grid-template-areas: "header1 link1" "header2 link2" "header3 link3";
+    grid-template-columns: 1fr 1.5fr;
+    place-items: start;
+  }
+}
+
+/*grid-areas that make it easy to rearrange the grid*/
+.resume-contact-grid > h1:nth-child(1) { grid-area: header1;}
+.resume-contact-grid > h1:nth-child(2) { grid-area: header2;}
+.resume-contact-grid > h1:nth-child(3) { grid-area: header3;}
+.resume-contact-grid > a:nth-child(1) { grid-area: link1;}
+.resume-contact-grid > a:nth-child(2) { grid-area: link2;}
+.resume-contact-grid > a:nth-child(3) { grid-area: link3;}
+
+.resume-contact-grid > h1 {
+  font-size: calc(var(--resume-content-size)/2);
+  color: black;
+  margin: 5px 0;
+}
+
+.resume-contact-grid > a {
+  font-size: calc(var(--resume-content-size)/2.25);
+  color: var(--dark-less-transparent);
+  margin: 5px 0;
+}
 .rock {
   position: absolute;
   transform: translateX(25vw);
