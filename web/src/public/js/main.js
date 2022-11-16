@@ -5,6 +5,12 @@ const CONSOLE_BOOL = false;
 let characterJumpingBoolean = false;
 let scrollTimer = -1;
 const characterOutfits = ["education", "projects", "skills", "contact"];
+let touchstartY = 0;
+let touchendY = 0;
+let touchstartX = 0;
+let touchendX = 0;
+let swipingBoolean = false;
+
 
 
 function showDropdown() {
@@ -369,7 +375,7 @@ function loadingResumeDisappear() {
     //After the loading section rows have appeared plus a pause
     setTimeout(function() {
         resumeLoaded();
-    }, 800);
+    }, 600);
 }
 
 function resumeLoaded() {
@@ -379,6 +385,7 @@ function resumeLoaded() {
     document.addEventListener("wheel", parallaxScroll);
     let remove_outfits_btn = document.querySelector(".resume-outfit-btn");
     remove_outfits_btn.addEventListener("click", removeOutfits);
+    document.addEventListener('touchmove', detectSwipe); 
 
     // Intersection Observer for classes that need to add display
     let content_observer = new IntersectionObserver(entries => {
@@ -394,6 +401,44 @@ function resumeLoaded() {
     contents.forEach(content => {
         content_observer.observe(content);
     });
+}
+
+function detectSwipe(event) {
+    touchstartX = event.changedTouches[0].screenX;
+    if (swipingBoolean) return;
+    swipingBoolean = true;
+    setTimeout(function() {
+        touchendX = event.changedTouches[0].screenX;
+        let distanceX = touchendX - touchstartX;
+        parallaxSwipe(distanceX);
+        swipingBoolean = false;
+    }, 10);
+}
+
+function parallaxSwipe(distance) {
+    let character = document.querySelector(".character");
+    let character_cover = document.querySelector(".character-cover");
+    if ((distance < 0) && character.classList.contains("right")) {
+        character.classList.remove("right");
+        character.classList.add("left");
+        character_cover.classList.remove("right");
+        character_cover.classList.add("left");
+    }
+    else if ((distance > 0) && character.classList.contains("left")) {
+        character.classList.remove("left");
+        character.classList.add("right");
+        character_cover.classList.remove("left");
+        character_cover.classList.add("right");
+    }
+    if (character.classList.contains("jump")) return;
+    character.classList.add("walk");
+    character_cover.classList.add("walk");
+    if (scrollTimer != -1) { clearTimeout(scrollTimer); }
+    scrollTimer = window.setTimeout(function() {
+        character.classList.remove("walk");
+        character_cover.classList.remove("walk");
+        if (CONSOLE_BOOL) { console.log("done scrolling"); }
+    }, 300);
 }
 
 function parallaxScroll(event) {
