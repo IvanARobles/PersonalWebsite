@@ -593,10 +593,7 @@ function removeOutfits() {
     let display_observer = new IntersectionObserver(entries => {
         entries.forEach(entry => {
             entry.target.classList.toggle("displayed", entry.isIntersecting);
-            console.log(entry.target.id);
-            console.log(entry.target.id.split("-").pop());
             let bubble_id = "project-tab-bubble-" + entry.target.id.split("-").pop();
-            console.log(bubble_id)
             let bubble = document.getElementById(bubble_id);
             bubble.classList.toggle("displayed", entry.isIntersecting);
         });

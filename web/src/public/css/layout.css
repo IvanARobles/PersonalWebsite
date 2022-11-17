@@ -563,6 +563,18 @@ p, ol li, ul li, blockquote {
   transition: transform 1000ms ease-in-out, opacity 2000ms ease-in-out;
 }
 
+@media (max-width: 800px) {
+  .slide-in {
+    transform: translateX(25px);
+  }
+}
+
+@media (max-width: 600px) {
+  .slide-in {
+    transform: translateX(10px);
+  }
+}
+
 .slide-in.displayed {
   opacity: 1;
   transform: translateX(0);
@@ -585,6 +597,24 @@ p, ol li, ul li, blockquote {
   /* height: 50vh; */
   width: 50vw;
   border: 1px solid var(--light-color);
+}
+
+@media (max-width: 1000px) {
+  .project-wrapper {
+    width: 65vw;
+  }
+}
+
+@media (max-width: 800px) {
+  .project-wrapper {
+    width: 75vw;
+  }
+}
+
+@media (max-width: 600px) {
+  .project-wrapper {
+    width: 100%;
+  }
 }
 
 .project-wrapper > img {
