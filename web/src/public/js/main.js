@@ -640,7 +640,74 @@ function removeOutfits() {
     // Code for showing / hiding menu functionality
     let o_menu_btn = document.querySelector(".menu-btn");
     o_menu_btn.addEventListener("click", showDropdown);
+    
+    // Code for closing dropdown to filter art
+    document.addEventListener("click", closeArtDropdown);
+    // Call function to create the dropdown to filter art
+    createArtDropdown();
+
  }
+
+function createArtDropdown() {
+    // Grab the custom dropdown menu
+    let dropdown_top = document.querySelector(".art-dropdown-top");
+    let dropdown_options_old = dropdown_top.getElementsByTagName("select")[0];
+    /* Create the selected option */
+    let dropdown_option_selected = document.createElement("div");
+    dropdown_option_selected.classList.add("option-selected");
+    dropdown_option_selected.innerHTML = dropdown_options_old.options[dropdown_options_old.selectedIndex].innerHTML;
+    dropdown_option_selected.id = dropdown_options_old.options[dropdown_options_old.selectedIndex].innerHTML.toLowerCase();
+    console.log(dropdown_option_selected.id)
+    dropdown_top.appendChild(dropdown_option_selected);
+    /* Create the options wrapper */
+    let dropdown_options_new = document.createElement("div");
+    dropdown_options_new.classList.add("art-dropdown", "hidden");
+    let new_option;
+    for (let j = 0; j < dropdown_options_old.length; j++) {
+        // Create each option
+        new_option = document.createElement("div");
+        new_option.innerHTML = dropdown_options_old.options[j].innerHTML;
+        // Make the first option start selected
+        if (j == 0) { new_option.classList.add("already-selected"); }
+        // Add eventlistener for clicking an option
+        new_option.addEventListener("click", function() {
+            // Update displayed selected option information
+            dropdown_option_selected.innerHTML = this.innerHTML;
+            dropdown_option_selected.id = this.innerHTML.toLowerCase();
+            console.log(dropdown_option_selected.id)
+            // Remove "already selected" class from other options
+            this.parentNode.getElementsByClassName("already-selected")[0].classList.remove("already-selected");
+            // Add "already selected" class to this option
+            this.classList.add("already-selected");
+            // Close the dropdown
+            dropdown_option_selected.click();
+        });
+        // Append each option to the options wrapper
+        dropdown_options_new.appendChild(new_option);
+    }
+    // Append options wrapper to the original dropdown menu
+    dropdown_top.appendChild(dropdown_options_new);
+    // Add eventlistener for opening/closing the art dropdown when clicking on the displayed selected option/arrow
+    dropdown_option_selected.addEventListener("click", function(e) {
+        // Prevent document from firing closeArtDropdown
+        e.stopPropagation();
+        // Open/Close Dropdown
+        this.nextSibling.classList.toggle("hidden");
+        // Indicate the dropdown is open/closed to alter down/up arrow
+        this.classList.toggle("open");
+    });
+}
+
+
+/* A function that will close all select boxes in the document,
+  except the current select box: */
+function closeArtDropdown() {
+  let dropdown_options_new = document.querySelector(".art-dropdown");
+  let dropdown_option_selected = document.querySelector(".option-selected");
+  dropdown_option_selected.classList.remove("open");
+  dropdown_options_new.classList.add("hidden");
+}
+
 
 /**
  * Functions specific for initializing the projects page

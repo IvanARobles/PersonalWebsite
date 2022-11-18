@@ -3401,6 +3401,8 @@ label {
   }
 }
 
+/* ---------- CSS specific to projects.html ---------- */
+
 .project-tab-bubble-wrapper {
   width: 100vw;
   position: sticky;
@@ -3609,4 +3611,112 @@ label {
   background-size: cover;
   overflow: hidden;
   background-image: url("../images/projects/project3-2.png");
+}
+
+/* ---------- CSS specific to art.html ---------- */
+
+.art-intro-wrapper {
+  padding: 175px 0;
+  background-color: var(--page-color-light);
+  display: flex;
+  justify-content: center;
+}
+
+.art-intro {
+  width: 50%;
+  text-align: center;
+}
+
+.art-previews-wrapper {
+  background-color: var(--page-color-light);
+  min-height: 100vh;
+}
+
+.art-dropdown-wrapper {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+}
+
+/* The container must be positioned relative: */
+.art-dropdown-top {
+  position: relative;
+  width: 180px;
+}
+
+/* Hide actual select element */
+.art-dropdown-top select {
+  display: none;
+}
+
+/* The option that will be displayed/selected in the dropdown bar */
+.option-selected {
+  color: #ffffff;
+  background-color: transparent;
+  border-radius: var(--border-radius);
+  border: 1px solid white;
+  font-size: var(--base-font-size);
+}
+
+.option-selected:hover,
+.option-selected:focus {
+  box-shadow: 0 0 10px var(--white-half-transparent);
+  background-color: var(--white-transparent);
+}
+
+/* The down arrow to indicate opening the art dropdown menu */
+.option-selected:after {
+  position: absolute;
+  content: "";
+  top: 50%;
+  right: 0;
+  transform: translateX(-100%) translateY(-25%);
+  width: 0;
+  height: 0;
+  border: 7.5px solid transparent;
+  border-color: #fff transparent transparent transparent;
+  transition: all 200ms;
+}
+
+/* The up arrow to indicate closing the art dropdown menu */
+.option-selected.open:after {
+  border-color: transparent transparent #fff transparent;
+  transform: translateX(-100%) translateY(-75%);
+}
+
+/* The option that it already selected */
+.already-selected {
+  color: white;
+  background-color: rgba(255, 255, 255, 0.15);
+  pointer-events: none;
+}
+
+/* All of the options */
+.art-dropdown {
+  position: absolute;
+  background-color: transparent;
+  border: 1px solid var(--white-less-transparent);
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 99;
+  color: rgb(196, 196, 196);
+  font-size: calc(var(--base-font-size)*.9);
+}
+
+/* Dropdown options that can still be selected */
+.art-dropdown div:hover {
+  background-color: rgba(255, 255, 255, 0.075);
+}
+
+/* Selected option and dropdown options */
+.option-selected,
+.art-dropdown div {
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+/* Hide the art dropdown when closed */
+.art-dropdown.hidden {
+  display: none;
 }
