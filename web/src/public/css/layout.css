@@ -3843,3 +3843,48 @@ label {
   transform: scale(1.1);
   filter: brightness(50%);
 }
+
+.art-full-wrapper {
+  position: sticky;
+  top: 0;
+  bottom: 0;
+  height: 100vh;
+  width: 100vw;
+  z-index: 100;
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.art-full-wrapper.displayed {
+  display: flex;
+}
+
+.art_full_wrapper_background {
+  background-color: var(--dark-less-transparent);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 101;
+  cursor: pointer;
+}
+
+.art-full-wrapper > img {
+  max-height: 90%;
+  max-width: 80%;
+  z-index: 102;
+}
+
+@media (max-width: 800px) {
+  .art-full-wrapper > img {
+    max-height: 80%;
+    max-width: 90%;
+  }
+}
+
+@media (max-width: 500px) {
+  .art-full-wrapper > img {
+    max-height: 65%;
+    max-width: 95%;
+  }
+}

@@ -1,12 +1,10 @@
 import { WelcomeBox } from "./welcomeBox.js";
 import { EventBus } from "./eventBus.js";
 
-const CONSOLE_BOOL = false;
+const CONSOLE_BOOL = true;
 let characterJumpingBoolean = false;
 let scrollTimer = -1;
 const characterOutfits = ["education", "projects", "skills", "contact"];
-let touchstartY = 0;
-let touchendY = 0;
 let touchstartX = 0;
 let touchendX = 0;
 let swipingBoolean = false;
@@ -634,7 +632,7 @@ function removeOutfits() {
 
 
 /**
- * Functions specific for initializing the projects page
+ * Functions specific for initializing the art page
  */
  function artPageStarter(event) {
     // Code for showing / hiding menu functionality
@@ -643,8 +641,18 @@ function removeOutfits() {
     
     // Code for closing dropdown to filter art
     document.addEventListener("click", closeArtDropdown);
-    // Call function to create the dropdown to filter art
+    // Call function to create the custom dropdown to filter art
     createArtDropdown();
+
+    let art_previews = document.querySelectorAll(".art-preview-wrapper");
+    art_previews.forEach(preview => {
+        preview.addEventListener("click", function(){ displayFullArt(preview)} );
+    });
+
+    let art_full_backs = document.querySelectorAll(".art_full_wrapper_background");
+    art_full_backs.forEach(art_full_back => {
+        art_full_back.addEventListener("click", function(){ closeFullArt(art_full_back)} );
+    });
 
  }
 
@@ -723,9 +731,22 @@ function updateArtDisplay() {
             art_prev_wrappers[i].classList.add("hidden");
         }
     }
-
-    
 }
+
+function displayFullArt(art_preview) {
+    let art_full_id = art_preview.id.split("-")[0] + "-full-wrapper";
+    // console.log("full: ", art_full_id)
+    let art_full_wrapper = document.getElementById(art_full_id);
+    art_full_wrapper.classList.add("displayed");
+}
+
+function closeFullArt(art_full_back) {
+    let art_full_wrapper_id = art_full_back.id.split("-")[0] + "-" + art_full_back.id.split("-")[1] + "-" + art_full_back.id.split("-")[2];
+    let art_full_wrapper = document.getElementById(art_full_wrapper_id);
+    art_full_wrapper.classList.remove("displayed");
+}
+
+
 /**
  * Functions specific for initializing the projects page
  */
