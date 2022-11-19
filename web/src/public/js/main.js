@@ -657,7 +657,6 @@ function createArtDropdown() {
     dropdown_option_selected.classList.add("option-selected");
     dropdown_option_selected.innerHTML = dropdown_options_old.options[dropdown_options_old.selectedIndex].innerHTML;
     dropdown_option_selected.id = dropdown_options_old.options[dropdown_options_old.selectedIndex].innerHTML.toLowerCase();
-    console.log(dropdown_option_selected.id)
     dropdown_top.appendChild(dropdown_option_selected);
     /* Create the options wrapper */
     let dropdown_options_new = document.createElement("div");
@@ -674,7 +673,8 @@ function createArtDropdown() {
             // Update displayed selected option information
             dropdown_option_selected.innerHTML = this.innerHTML;
             dropdown_option_selected.id = this.innerHTML.toLowerCase();
-            console.log(dropdown_option_selected.id)
+            // Function to filter the displayed artworks
+            updateArtDisplay();
             // Remove "already selected" class from other options
             this.parentNode.getElementsByClassName("already-selected")[0].classList.remove("already-selected");
             // Add "already selected" class to this option
@@ -708,7 +708,24 @@ function closeArtDropdown() {
   dropdown_options_new.classList.add("hidden");
 }
 
+function updateArtDisplay() {
+    let filter = document.querySelector(".option-selected").id;
+    let art_prev_wrappers = document.getElementsByClassName("art-preview-wrapper");
+    // Make all visible
+    for (let i = 0; i < art_prev_wrappers.length; i++) {
+        art_prev_wrappers[i].classList.remove("hidden");
+    }
+    // Stop if showing all artworks
+    if (filter == "all artworks") { return; }
+    // Hide the artworks not matching the filter
+    for (let i = 0; i < art_prev_wrappers.length; i++) {
+        if (!art_prev_wrappers[i].classList.contains(filter)) {
+            art_prev_wrappers[i].classList.add("hidden");
+        }
+    }
 
+    
+}
 /**
  * Functions specific for initializing the projects page
  */

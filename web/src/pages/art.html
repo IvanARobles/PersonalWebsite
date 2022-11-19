@@ -63,26 +63,146 @@
     
 
     <div class="art-intro-wrapper">
-      <div class="art-intro">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe illum eum odit. Possimus beatae eius tempore exercitationem! Dolorem delectus est ipsam autem doloribus labore, neque dolorum blanditiis facere perspiciatis, quos provident molestiae quam commodi eos dignissimos. Quod, dolores unde! Iste, recusandae. Placeat ad magnam eaque dolore nam maiores vitae aliquid?
+      <div class="art-intro">
+        I started with <span class="tooltip">traditional</span> art, namely black and white ink. In 2020, I purchased my first 
+        drawing tablet and began digital art. Nowadays, most art I create is digital. These aren't all of my artworks, but they
+        are some of my favorites.
       </div>
     </div>
 
     <div class="art-previews-wrapper">
+      <!-- Custom dropdown to filter artworks -->
       <div class="art-dropdown-wrapper">
         <div class="art-dropdown-top">
           <select>
-            <option value="1">All Artworks</option>
-            <option value="2">Portraits</option>
-            <option value="3">Cartoons</option>
-            <option value="4">Characters</option>
-            <option value="5">Logos</option>
+            <!-- Options to filter artworks by -->
+            <!-- NOTE: these must be added as classes to the art-preview-wrappers -->
+            <option value="0">All Artworks</option>
+            <option>Digital</option>
+            <option>Traditional</option>
+            <option>Portrait</option>
+            <option>Color</option>
+            <option>Ink</option>
           </select>
         </div>
       </div>
+      <!-- Start of art previews -->
+      <div class="art-preview-grid">
+        <!-- Match the first part of the id to the png name -->
+        <!-- ex: id="name-preview-wrapper", src="name-preview.png" -->
+        <div class="art-preview-wrapper digital color" 
+          id="allMight-preview-wrapper" title='"All Might"'>
+          <img src="../images/art/previews/allMight-preview.png" alt="allMight-preview image">
+          <div class="art-preview-hover">Click To View</div>
+        </div>
+        <div class="art-preview-wrapper traditional ink" 
+          id="balancingLifeAndDeath-preview-wrapper" title='"Balancing Life and Death"'>
+          <img src="../images/art/previews/balancingLifeAndDeath-preview.png" alt="balancingLifeAndDeath-preview image">
+          <div class="art-preview-hover">Click To View</div>
+        </div>
+        <div class="art-preview-wrapper digital portrait color" 
+          id="blondeWoman-preview-wrapper" title='"Blonde Woman"'>
+          <img src="../images/art/previews/blondeWoman-preview.png" alt="blondeWoman-preview image">
+          <div class="art-preview-hover">Click To View</div>
+        </div>
+        <div class="art-preview-wrapper digital ink" 
+          id="brolyTattoo-preview-wrapper" title='"Broly Tattoo"'>
+          <img src="../images/art/previews/brolyTattoo-preview.png" alt="brolyTattoo-preview image">
+          <div class="art-preview-hover">Click To View</div>
+        </div>
+        <div class="art-preview-wrapper digital color" 
+          id="courageAndDoodle-preview-wrapper" title='"Courage and Doodlebob"'>
+          <img src="../images/art/previews/courageAndDoodle-preview.png" alt="courageAndDoodle-preview image">
+          <div class="art-preview-hover">Click To View</div>
+        </div>
+        <div class="art-preview-wrapper digital portrait color" 
+          id="dogAndWoman-preview-wrapper" title='"Dog and Woman"'>
+          <img src="../images/art/previews/dogAndWoman-preview.png" alt="dogAndWoman-preview image">
+          <div class="art-preview-hover">Click To View</div>
+        </div>
+        <div class="art-preview-wrapper digital color" 
+          id="eri-preview-wrapper" title='"Eri"'>
+          <img src="../images/art/previews/eri-preview.png" alt="eri-preview image">
+          <div class="art-preview-hover">Click To View</div>
+        </div>
+        <div class="art-preview-wrapper digital color" 
+          id="greenLantern-preview-wrapper" title='"Green Lantern"'>
+          <img src="../images/art/previews/greenLantern-preview.png" alt="greenLantern-preview image">
+          <div class="art-preview-hover">Click To View</div>
+        </div>
+        <div class="art-preview-wrapper traditional portrait ink" 
+          id="harryPotter-preview-wrapper" title='"Harry Potter"'>
+          <img src="../images/art/previews/harryPotter-preview.png" alt="harryPotter-preview image">
+          <div class="art-preview-hover">Click To View</div>
+        </div>
+        <div class="art-preview-wrapper traditional ink" 
+          id="imAllEars-preview-wrapper" title='"I`m All Ears"'>
+          <img src="../images/art/previews/imAllEars-preview.png" alt="imAllEars-preview image">
+          <div class="art-preview-hover">Click To View</div>
+        </div>
+        <div class="art-preview-wrapper digital portrait color" 
+          id="motherAndDaughter-preview-wrapper" title='"Mother and Daughter"'>
+          <img src="../images/art/previews/motherAndDaughter-preview.png" alt="motherAndDaughter-preview image">
+          <div class="art-preview-hover">Click To View</div>
+        </div>
+        <div class="art-preview-wrapper traditional color" 
+          id="rainforest-preview-wrapper" title='"Rainforest"'>
+          <img src="../images/art/previews/rainforest-preview.png" alt="rainforest-preview image">
+          <div class="art-preview-hover">Click To View</div>
+        </div>
+        <div class="art-preview-wrapper traditional portrait ink" 
+          id="realisticWoman-preview-wrapper" title='"Realistic Woman"'>
+          <img src="../images/art/previews/realisticWoman-preview.png" alt="realisticWoman-preview image">
+          <div class="art-preview-hover">Click To View</div>
+        </div>
+        <div class="art-preview-wrapper digital portrait ink" 
+          id="scribbleWoman-preview-wrapper" title='"Scribble Woman"'>
+          <img src="../images/art/previews/scribbleWoman-preview.png" alt="scribbleWoman-preview image">
+          <div class="art-preview-hover">Click To View</div>
+        </div>
+        <div class="art-preview-wrapper traditional ink" 
+          id="stealingHisThunder-preview-wrapper" title='"Stealing His Number"'>
+          <img src="../images/art/previews/stealingHisThunder-preview.png" alt="stealingHisThunder-preview image">
+          <div class="art-preview-hover">Click To View</div>
+        </div>
+        <div class="art-preview-wrapper digital portrait color" 
+          id="stylizedMan-preview-wrapper" title='"Stylized Man"'>
+          <img src="../images/art/previews/stylizedMan-preview.png" alt="stylizedMan-preview image">
+          <div class="art-preview-hover">Click To View</div>
+        </div>
+        <div class="art-preview-wrapper traditional ink" 
+          id="swamp-preview-wrapper" title='"Swamp"'>
+          <img src="../images/art/previews/swamp-preview.png" alt="swamp-preview image">
+          <div class="art-preview-hover">Click To View</div>
+        </div>
+        <div class="art-preview-wrapper digital color" 
+          id="theStare-preview-wrapper" title='"The Stare"'>
+          <img src="../images/art/previews/theStare-preview.png" alt="theStare-preview image">
+          <div class="art-preview-hover">Click To View</div>
+        </div>
+        <div class="art-preview-wrapper traditional ink" 
+          id="thor-preview-wrapper" title='"Thor"'>
+          <img src="../images/art/previews/thor-preview.png" alt="thor-preview image">
+          <div class="art-preview-hover">Click To View</div>
+        </div>
+        <div class="art-preview-wrapper traditional portrait ink" 
+          id="weddingPortrait-preview-wrapper" title='"Wedding Portrait"'>
+          <img src="../images/art/previews/weddingPortrait-preview.png" alt="weddingPortrait-preview image">
+          <div class="art-preview-hover">Click To View</div>
+        </div>
+        <div class="art-preview-wrapper digital portrait color" 
+          id="wonderfulMother-preview-wrapper" title='"Wonderful Mother"'>
+          <img src="../images/art/previews/wonderfulMother-preview.png" alt="wonderfulMother-preview image">
+          <div class="art-preview-hover">Click To View</div>
+        </div>
+
+      </div>
+      <!-- End of art previews -->
+      <!-- Start of displays that pop up when artwork is clicked -->
 
     </div>
     <!-- Empty Space Separator -->
-    <section class="empty-landing-space"></section>
+    <section class="empty-landing-space-small"></section>
 
     <!-- Bar to Scroll Back to Top of Current Page -->
     <div class="page-center">
