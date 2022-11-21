@@ -738,12 +738,14 @@ function displayFullArt(art_preview) {
     // console.log("full: ", art_full_id)
     let art_full_wrapper = document.getElementById(art_full_id);
     art_full_wrapper.classList.add("displayed");
+    document.body.classList.add("art-display-open");
 }
 
 function closeFullArt(art_full_back) {
     let art_full_wrapper_id = art_full_back.id.split("-")[0] + "-" + art_full_back.id.split("-")[1] + "-" + art_full_back.id.split("-")[2];
     let art_full_wrapper = document.getElementById(art_full_wrapper_id);
     art_full_wrapper.classList.remove("displayed");
+    document.body.classList.remove("art-display-open");
 }
 
 
