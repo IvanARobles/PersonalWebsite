@@ -756,6 +756,9 @@ function closeFullArt(art_full_back) {
     // Code for showing / hiding menu functionality
     let o_menu_btn = document.querySelector(".menu-btn");
     o_menu_btn.addEventListener("click", showDropdown);
+    setInterval(function() { 
+        document.querySelector(".about-img-top").classList.toggle("disappear");
+    }, 7500);
  }
 
 /**
