@@ -3349,6 +3349,8 @@ label {
   --dog-height: calc(var(--resume-character-height)/2);
   --dog-url: url("../images/resume/dog-simba-eyes.png");
   --dog-blink-url: url("../images/resume/dog-simba-blink.png");
+  left: 0;
+  transform: translateX(calc(var(--resume-section-width)/-2.35 + 50%));
 }
 
 .dog.luna {
@@ -3836,7 +3838,7 @@ label {
 }
 
 .art-preview-grid {
-  margin: 5rem 1rem 1rem 1rem;
+  margin: 5rem 1rem 0 1rem;
   display: grid;
   grid-template-columns: repeat(auto-fill, 250px);
   place-items: center;
@@ -3857,7 +3859,7 @@ label {
 
 @media (max-width: 650px) {
   .art-preview-grid {
-    margin: 3rem 0.75rem 0.75rem 0.75rem;
+    margin: 3rem 0.75rem 0 0.75rem;
     grid-template-columns: repeat(auto-fill, 150px);
     row-gap: 1rem;
     column-gap: 0.25rem;
@@ -3866,7 +3868,7 @@ label {
 
 @media (max-width: 350px) {
   .art-preview-grid {
-    margin: 2.5rem 0.5rem 0.5rem 0.5rem;
+    margin: 2.5rem 0.5rem 0 0.5rem;
     grid-template-columns: repeat(auto-fill, 110px);
     column-gap: 0.1rem;
   }
@@ -4212,4 +4214,12 @@ label {
     margin: 3px;
     font-size: calc(var(--base-font-size)*0.8);
   }
+}
+
+.empty-space-line {
+  margin: 0;
+  padding: 0;
+  height: 1px;
+  background-color: var(--white-half-transparent);
+  border: none;
 }
