@@ -621,30 +621,55 @@
           it is a combination between software engineering and art. Here are some of my recent artworks.
         </div>
       </div>
-      <div class="scrolling-image-cards fade-in">
+      <div class="scrolling-image-cards fade-in" title="View Image">
         <button class="btn-scroll prev" title="Previous Image" id="scroll-prev">&#171;</button>
         <button class="btn-scroll next" title="Next Image" id="scroll-next">&#187;</button>
         <ul>
-          <li class="image-card displayed" src>
-            <img src="../images/art/previews/Fanart_1.png" alt="">
+          <li class="image-card displayed" id="blondeWoman-preview-card">
+            <img src="../images/art/previews/blondeWoman-preview.png" alt="">
           </li>
-          <li class="image-card">
-            <img src="../images/art/previews/Digital_Portrait_1.png" alt="">
+          <li class="image-card" id="eri-preview-card">
+            <img src="../images/art/previews/eri-preview.png" alt="">
           </li>
-          <li class="image-card">
-            <img src="../images/art/previews/Ink_Portrait_1.png" alt="">
+          <li class="image-card" id="theStare-preview-card">
+            <img src="../images/art/previews/theStare-preview.png" alt="">
           </li>
-          <li class="image-card">
-            <img src="../images/art/previews/Cartoon_Portrait_1.png" alt="">
+          <li class="image-card" id="stylizedMan-preview-card">
+            <img src="../images/art/previews/stylizedMan-preview.png" alt="">
           </li>
-          <li class="image-card image-card-cover" title="Open Image">
-            Click to Open
+          <li class="image-card" id="harryPotter-preview-card">
+            <img src="../images/art/previews/harryPotter-preview.png" alt="">
+          </li>
+          <li class="image-card image-card-cover">
+            <div>Click to View</div>
           </li>
         </ul>
       </div>
     </section>
     <div class="page-center">
       <a href="/art" class="btn-pop" title="Go to Art Portfolio">View More</a>
+    </div>
+
+    <!-- Start of displays that pop up when artwork is clicked -->
+    <div class="art-full-wrapper" id="blondeWoman-full-wrapper">
+      <div class="art_full_wrapper_background" id="blondeWoman-full-wrapper-background" title="Close Enlarged Image"></div>
+      <img src="../images/art/full/blondeWoman.png" alt="blondeWoman image" title='"Blonde Woman"'>
+    </div>
+    <div class="art-full-wrapper" id="eri-full-wrapper">
+      <div class="art_full_wrapper_background" id="eri-full-wrapper-background" title="Close Enlarged Image"></div>
+      <img src="../images/art/full/eri.png" alt="eri image" title='"Scribble Woman"'>
+    </div>
+    <div class="art-full-wrapper" id="theStare-full-wrapper">
+      <div class="art_full_wrapper_background" id="theStare-full-wrapper-background" title="Close Enlarged Image"></div>
+      <img src="../images/art/full/theStare.png" alt="theStare image" title='"The Stare"'>
+    </div>
+    <div class="art-full-wrapper" id="stylizedMan-full-wrapper">
+      <div class="art_full_wrapper_background" id="stylizedMan-full-wrapper-background" title="Close Enlarged Image"></div>
+      <img src="../images/art/full/stylizedMan.png" alt="stylizedMan image" title='"Stylized Man"'>
+    </div>
+    <div class="art-full-wrapper" id="harryPotter-full-wrapper">
+      <div class="art_full_wrapper_background" id="harryPotter-full-wrapper-background" title="Close Enlarged Image"></div>
+      <img src="../images/art/full/harryPotter.png" alt="harryPotter image" title='"Harry Potter"'>
     </div>
 
 
@@ -660,8 +685,8 @@
 
     <!-- Stackable cards-->
     <section class='responsive_grid div-center'> 
-      <div class="scrolling-image-cards  fade-in">
-        image of me
+      <div class="about-preview-wrapper">
+          <img src="../images/personal-img.jpg" alt="image of Ivan Robles">
       </div>
       <div class='text-card'>
         <div class='block-text'>

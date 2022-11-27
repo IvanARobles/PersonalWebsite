@@ -328,6 +328,16 @@ function homePageStarter(event) {
     o_scroll_prev.addEventListener("click", previousImage);
     o_scroll_next.addEventListener("click", nextImage);
 
+    
+    let image_card_cover = document.querySelector(".image-card-cover");
+    image_card_cover.addEventListener("click", function(){ displayScrollingImageArt()} );
+    
+    let art_full_backs = document.querySelectorAll(".art_full_wrapper_background");
+    art_full_backs.forEach(art_full_back => {
+        art_full_back.addEventListener("click", function(){ closeFullArt(art_full_back)} );
+    });
+
+
     // Code for automatically cycling through artworks
     //imageTransitions();
 
@@ -341,6 +351,20 @@ function homePageStarter(event) {
     
 }
 
+
+function displayScrollingImageArt() {
+    console.log("clicked");
+    let image_cards = document.querySelectorAll(".image-card");
+    image_cards.forEach(card => {
+        if (card.classList.contains("displayed")) {
+            let art_full_id = card.id.split("-")[0] + "-full-wrapper";
+            console.log(art_full_id)
+            let art_full_wrapper = document.getElementById(art_full_id);
+            art_full_wrapper.classList.add("displayed");
+            document.body.classList.add("art-display-open");
+        }
+    });
+}
 
 /**
  * Functions specific for initializing the home page
@@ -735,7 +759,6 @@ function updateArtDisplay() {
 
 function displayFullArt(art_preview) {
     let art_full_id = art_preview.id.split("-")[0] + "-full-wrapper";
-    // console.log("full: ", art_full_id)
     let art_full_wrapper = document.getElementById(art_full_id);
     art_full_wrapper.classList.add("displayed");
     document.body.classList.add("art-display-open");
@@ -762,17 +785,6 @@ function closeFullArt(art_full_back) {
  }
 
 /**
- * Functions specific for initializing the projects page
- */
- function contactPageStarter(event) {
-    // Code for showing / hiding menu functionality
-    let o_menu_btn = document.querySelector(".menu-btn");
-    o_menu_btn.addEventListener("click", showDropdown);
- }
-
-
-
-/**
  * This event listener is used for initializing anything that isn't associated with any specific webcomponent.
  */
 document.addEventListener("DOMContentLoaded", () => {
@@ -797,10 +809,7 @@ document.addEventListener("DOMContentLoaded", () => {
         artPageStarter();
     } else if ( html_page == "about") {
         aboutPageStarter();
-    } else if ( html_page == "contact") {
-        contactPageStarter();
     }
-    
     // initialize Event Bus instance
     document.EventBus = new EventBus();
 
