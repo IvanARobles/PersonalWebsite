@@ -245,12 +245,6 @@ function welcomeStart() {
  * Functions specific for initializing the home page
  */
 function homePageStarter(event) {
-    let loading_duration = 7500; //500 larger than "loading-row-animation" duration in CSS
-    document.body.classList.add("loading-open");
-    //Making the loading section rows appear
-    setTimeout(function() {
-        loadingFinish();
-    }, loading_duration);
 
     // Code to automatically open welcome message if it is the user's first time on the site
     let daysInMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
@@ -260,6 +254,21 @@ function homePageStarter(event) {
     let prevDate = localStorage.getItem("prevDate");
     // Set prevDate to know when user last visited the site
     localStorage.setItem("prevDate", currDate);
+
+    //Trigger loading animation only once per day
+    if (prevDate != currDate) {
+        let loading_duration = 7500; //500 larger than "loading-row-animation" duration in CSS
+        document.body.classList.add("loading-open");
+        setTimeout(function() {
+            loadingFinish();
+        }, loading_duration);
+    } 
+    // Don't trigger loading animation
+    else {
+        setTimeout(function() {
+            loadingFinish();
+        }, 100);
+    }
 
     //initialize scroll effect color to green
     document.body.style.setProperty("--scroll-text-hue", "120");
@@ -281,16 +290,18 @@ function homePageStarter(event) {
         rootMargin: "-5%",
     });
 
+    // Observe each element sliding in
     let slides = document.querySelectorAll(".slide-in");
     slides.forEach(slide => {
         display_observer.observe(slide);
     });
+    // Observe each element fading in
     let fades = document.querySelectorAll(".fade-in");
     fades.forEach(fade => {
         display_observer.observe(fade);
     })
 
-    //Intersection Observer for block appear effects
+    // Intersection Observer for block appear effects
     let block_observer = new IntersectionObserver(entries => {
         entries.forEach(entry => {
             entry.target.classList.toggle("covered", entry.isIntersecting);
@@ -306,6 +317,8 @@ function homePageStarter(event) {
         threshold: 1,
         rootMargin: "-2%",
     });
+
+    // Observe each element with the block-appear effect
     let blocks = document.querySelectorAll(".block-text");
     blocks.forEach(block => {
         block_observer.observe(block);
