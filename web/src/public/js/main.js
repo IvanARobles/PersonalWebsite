@@ -567,6 +567,7 @@ function checkBlockHit() {
                 //Activate remove outfit button once a block has been hit
                 let remove_outfits_btn = document.querySelector(".resume-outfit-btn");
                 remove_outfits_btn.classList.remove("disabled");
+                remove_outfits_btn.tabIndex = 0;
                 let new_outfit = block.id.split("-")[0];
                 //Make the cover appear over the character
                 character_cover.classList.add("changing");
@@ -595,6 +596,7 @@ function removeOutfits() {
     let character = document.querySelector(".character");
     let character_cover = document.querySelector(".character-cover");
     remove_outfits_btn.classList.add("disabled");
+    remove_outfits_btn.tabIndex = -1;
     //Make the cover appear over the character
     character_cover.classList.add("changing");
     //Make all blocks not be hit

@@ -1696,7 +1696,7 @@ label {
 }
 
 .btn-welcome {
-  padding: var(--padding-med) 0;
+  padding: var(--padding-med);
   font-size: var(--btn-font-size-sm);
   cursor: pointer;
   width: 100%;
@@ -2280,6 +2280,30 @@ label {
   background-size: 0 0, 0 0, cover;
 }
 
+.resume-download-btn {
+  position: absolute;
+  bottom: 0;
+  padding: var(--padding-sm);
+  border-top-right-radius: var(--border-radius);
+  box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.5);
+  height: calc(var(--resume-ground-height)*0.9);
+  aspect-ratio: 1;
+  z-index: 900;
+  text-decoration: none;
+  transition: all 200ms ease-in-out;
+  background: no-repeat center center;
+  background-size: cover, 0 0;
+  background-image: url("../images/resume/download-btn.png"), url("../images/resume/download-btn-hover.png");
+  background-color: black;
+}
+
+.resume-download-btn:hover,
+.resume-download-btn:focus {
+  cursor: pointer;
+  height: var(--resume-ground-height);
+  background-size: 0 0, cover;
+}
+
 .character-cover {
   position: fixed;
   bottom: var(--resume-ground-height);
@@ -2486,6 +2510,35 @@ label {
 .ground.winter {
   background-image: url("../images/resume/ground-winter.png");
 }
+
+.ground-btn-wrapper {
+  position: absolute;
+  bottom: 0;
+  height: var(--resume-ground-height);
+  width: 100vw;
+  left: 0;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  display: flex;
+  z-index: 10;
+}
+
+.ground-btn {
+  padding: 5px;
+  background-color: black;
+  border-radius: var(--border-radius);
+  color: white;
+  transition: all 200ms ease-in-out;
+  aspect-ratio: 1;
+}
+
+.ground-btn:hover {
+  color: orange;
+  transform: scale(1.1);
+  text-decoration: none;
+}
+
 
 .flower-wrapper {
   position: absolute;
