@@ -85,7 +85,7 @@
         let note_link = document.createElement("a");
         note_link.classList.add("underline-link-swipe");
         note_link.innerText = WelcomeBox.NOTE_MSG[1];
-        note_link.href = "/visual-resume";
+        note_link.href = "visual-resume.html";
         note_link.target = "_blank";
         note_link.title = "Open Interactive Resume"
         final_note.append(note_link);
@@ -203,7 +203,7 @@ WelcomeBox.S_WELC_MSG = ["I am a software engineer (namely UI/UX), and this webs
  * @static
  * @type {String}
  */
- WelcomeBox.NOTE_MSG = ["Note: I suggest checking out the ",
+ WelcomeBox.NOTE_MSG = ["P.S. I recommend checking out the ",
     "interactive\xa0resume!"];
 
 /**

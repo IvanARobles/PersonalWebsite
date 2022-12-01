@@ -11,10 +11,10 @@
     <meta name="author" content="Ivan Robles">
     <meta name="description" content="Ivan Robles Main Page">
 
-    <link rel="stylesheet" type="text/css" href="../public/css/layout.css">
+    <link rel="stylesheet" type="text/css" href="/web/src/public/css/layout.css">
 
     <!-- Add favicon -->
-    <link rel="icon" type="image/png" href="images/IvanRoblesFav.png">
+    <link rel="icon" type="image/png" href="../public/images/IvanRoblesFav.png">
 
     <!-- Scripts added at end of body -->
   </head>
@@ -481,10 +481,10 @@
     <!-- Header of Page -->
     <div class='hero' id="hero-id">
       <div class="left-hero">
-        <a href="/" title="Home Page">
-          <img class="logo" src="images/IvanRoblesLogoWhite.png" alt="IvanRobles Logo"
-          onmouseover="this.src='images/IvanRoblesLogoHover.png';" 
-          onmouseout="this.src='images/IvanRoblesLogoWhite.png';" href="/">
+        <a href="index.html" title="Home Page">
+          <img class="logo" src="../public/images/IvanRoblesLogoWhite.png" alt="IvanRobles Logo"
+          onmouseover="this.src='../public/images/IvanRoblesLogoHover.png';" 
+          onmouseout="this.src='../public/images/IvanRoblesLogoWhite.png';" href="/">
         </a>
       </div>
       <div class="header header-wave-wrapper" id="index-header">
@@ -507,10 +507,10 @@
     <div class="dropdown">
       <nav class="menu-list">
         <!-- <a href="" class="menu-clicked">home.</a> -->
-        <a href="/visual-resume" title="Open Interactive Resume" class="underline-link-swipe">interactive-resume</a>
-        <a href="/projects" title="Open Projects Page" class="underline-link-swipe">projects</a>
-        <a href="/art" title="Open Art Page" class="underline-link-swipe">art</a>
-        <a href="/about" title="Open About Me Page" class="underline-link-swipe">about</a>
+        <a href="visual-resume.html" title="Open Interactive Resume" class="underline-link-swipe">interactive-resume</a>
+        <a href="projects.html" title="Open Projects Page" class="underline-link-swipe">projects</a>
+        <a href="art.html" title="Open Art Page" class="underline-link-swipe">art</a>
+        <a href="about.html" title="Open About Me Page" class="underline-link-swipe">about</a>
         <a title="Scroll to Contact" class="underline-link-swipe"
           onclick="document.getElementById('contact-section-header').scrollIntoView({behavior: 'smooth', block: 'start'});" >contact</a>
       </nav>
@@ -557,7 +557,7 @@
     <!-- Stackable cards-->
     <section class='responsive_grid div-center'> 
       <div class="div-center">
-        <a href="/visual-resume" class="btn-pop"  target="_blank"
+        <a href="visual-resume.html" class="btn-pop"  target="_blank"
         title="Launch Interactive Resume">Launch Resume</a>
       </div>
       <div class='text-card'>
@@ -565,7 +565,7 @@
           This is a fun and interactive resume to give you a first-hand experience of some of my
           UI/UX skills, while giving you a bit more information than you'd get from a normal,
           static resume. Looking for a simple pdf instead? Click 
-          <a href="../files/IvanRoblesResume.pdf" download="IvanRoblesResume" class="underline-link-swipe">here</a>
+          <a href="../public/files/IvanRoblesResume.pdf" download="IvanRoblesResume" class="underline-link-swipe">here</a>
           to download my resume.
         </div>
       </div>
@@ -583,7 +583,7 @@
 
     <div class="page-center">
       <a href="https://powelldoro.web.app" class="project-wrapper slide-in">
-        <img src="../images/projects/project1-1.png">
+        <img src="../public/images/projects/project1-1.png">
         <div class="project-hover" target="_blank" title="Open Project Website">
           <h6>Powelldoro Timer Website</h6>
           <p>A website made to help students and workers more productive by using the Pomodoro Technique.</p>
@@ -597,7 +597,7 @@
           title="Open Project Website">Demo</a>
         <a href="https://github.com/yitianwang18/cse112-s22-group14" class="btn-vertical-select" target="_blank" 
           title="Open Project Github">Code</a>
-        <a href="/projects#project-tab-wrapper-powelldoro" class="btn-vertical-select" target="_blank" 
+        <a href="projects.html#project-tab-wrapper-powelldoro" class="btn-vertical-select" target="_blank" 
           title="Learn More About Project">More</a>
       </div>
     </div>
@@ -607,7 +607,7 @@
 
     <div class="page-center">
       <div class="project-wrapper slide-in" tabindex="0">
-        <img src="../images/projects/project2-1.png">
+        <img src="../public/images/projects/project2-1.png">
         <div class="project-hover no-click" title="Website Offline">
           <h6>ChoreTracker Prototype</h6>
           <p>A product that uses small, internet-enabled sensors to track the completion of chores around a household</p>
@@ -620,7 +620,7 @@
       <div class="button-wrapper slide-in">
         <a href="https://github.com/i1robles/ChoreTracker" class="btn-vertical-select" target="_blank" 
           title="Open Project Github">Code</a>
-        <a href="/projects#project-tab-wrapper-choretracker" class="btn-vertical-select" target="_blank" 
+        <a href="projects.html#project-tab-wrapper-choretracker" class="btn-vertical-select" target="_blank" 
           title="Learn More About Project">More</a>
       </div>
     </div>
@@ -629,7 +629,7 @@
     <section class="empty-landing-space-small"></section>
 
     <div class="page-center">
-      <a href="/projects" class="btn-pop" title="Go to Projects">All Projects</a>
+      <a href="projects.html" class="btn-pop" title="Go to Projects">All Projects</a>
     </div>
 
 
@@ -657,19 +657,19 @@
         <button class="btn-scroll next" title="Next Image" id="scroll-next">&#187;</button>
         <ul>
           <li class="image-card displayed" id="blondeWoman-preview-card">
-            <img src="../images/art/previews/blondeWoman-preview.png" alt="">
+            <img src="../public/images/art/previews/blondeWoman-preview.png" alt="">
           </li>
           <li class="image-card" id="eri-preview-card">
-            <img src="../images/art/previews/eri-preview.png" alt="">
+            <img src="../public/images/art/previews/eri-preview.png" alt="">
           </li>
           <li class="image-card" id="theStare-preview-card">
-            <img src="../images/art/previews/theStare-preview.png" alt="">
+            <img src="../public/images/art/previews/theStare-preview.png" alt="">
           </li>
           <li class="image-card" id="stylizedMan-preview-card">
-            <img src="../images/art/previews/stylizedMan-preview.png" alt="">
+            <img src="../public/images/art/previews/stylizedMan-preview.png" alt="">
           </li>
           <li class="image-card" id="harryPotter-preview-card">
-            <img src="../images/art/previews/harryPotter-preview.png" alt="">
+            <img src="../public/images/art/previews/harryPotter-preview.png" alt="">
           </li>
           <li class="image-card image-card-cover" tabindex="0">
             <div>Click to View</div>
@@ -678,29 +678,29 @@
       </div>
     </section>
     <div class="page-center">
-      <a href="/art" class="btn-pop" title="Go to Art Portfolio">View More</a>
+      <a href="art.html" class="btn-pop" title="Go to Art Portfolio">View More</a>
     </div>
 
     <!-- Start of displays that pop up when artwork is clicked -->
     <div class="art-full-wrapper" id="blondeWoman-full-wrapper">
       <div class="art_full_wrapper_background" id="blondeWoman-full-wrapper-background" title="Close Enlarged Image"></div>
-      <img src="../images/art/full/blondeWoman.png" alt="blondeWoman image" title='"Blonde Woman"'>
+      <img src="../public/images/art/full/blondeWoman.png" alt="blondeWoman image" title='"Blonde Woman"'>
     </div>
     <div class="art-full-wrapper" id="eri-full-wrapper">
       <div class="art_full_wrapper_background" id="eri-full-wrapper-background" title="Close Enlarged Image"></div>
-      <img src="../images/art/full/eri.png" alt="eri image" title='"Scribble Woman"'>
+      <img src="../public/images/art/full/eri.png" alt="eri image" title='"Scribble Woman"'>
     </div>
     <div class="art-full-wrapper" id="theStare-full-wrapper">
       <div class="art_full_wrapper_background" id="theStare-full-wrapper-background" title="Close Enlarged Image"></div>
-      <img src="../images/art/full/theStare.png" alt="theStare image" title='"The Stare"'>
+      <img src="../public/images/art/full/theStare.png" alt="theStare image" title='"The Stare"'>
     </div>
     <div class="art-full-wrapper" id="stylizedMan-full-wrapper">
       <div class="art_full_wrapper_background" id="stylizedMan-full-wrapper-background" title="Close Enlarged Image"></div>
-      <img src="../images/art/full/stylizedMan.png" alt="stylizedMan image" title='"Stylized Man"'>
+      <img src="../public/images/art/full/stylizedMan.png" alt="stylizedMan image" title='"Stylized Man"'>
     </div>
     <div class="art-full-wrapper" id="harryPotter-full-wrapper">
       <div class="art_full_wrapper_background" id="harryPotter-full-wrapper-background" title="Close Enlarged Image"></div>
-      <img src="../images/art/full/harryPotter.png" alt="harryPotter image" title='"Harry Potter"'>
+      <img src="../public/images/art/full/harryPotter.png" alt="harryPotter image" title='"Harry Potter"'>
     </div>
 
 
@@ -717,7 +717,7 @@
     <!-- Stackable cards-->
     <section class='responsive_grid div-center'> 
       <div class="about-preview-wrapper fade-in">
-          <img src="../images/personal-img.jpg" alt="image of Ivan Robles" tabindex="0">
+          <img src="../public/images/personal-img.jpg" alt="image of Ivan Robles" tabindex="0">
       </div>
       <div class='text-card'>
         <div class='block-text'>
@@ -735,7 +735,7 @@
     </section>
 
     <div class="page-center">
-      <a href="/about" class="btn-pop" title="Go to About Me">Read More</a>
+      <a href="about.html" class="btn-pop" title="Go to About Me">Read More</a>
     </div>
 
     <!-- Empty Space Separator -->
@@ -776,7 +776,7 @@
   </footer>
 
   <!-- Import JS source files -->
-  <script type="module" src="js/main.js" defer></script>
+    <script type="module" src="/web/src/public/js/main.js" defer></script>
 
   <!-- No Script for when JS is not supported or disabled -->
   <noscript>

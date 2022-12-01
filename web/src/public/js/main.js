@@ -1,12 +1,12 @@
 import { WelcomeBox } from "./welcomeBox.js";
 import { EventBus } from "./eventBus.js";
 
-const CONSOLE_BOOL = true;
+const CONSOLE_BOOL = false;
 let characterJumpingBoolean = false;
 let scrollTimer = -1;
 const characterOutfits = ["education", "projects", "skills", "contact"];
-let touchstartX = 0;
-let touchendX = 0;
+let swipingStartingX = 0;
+let swipingEndingX = 0;
 let swipingBoolean = false;
 
 
@@ -455,12 +455,12 @@ function resumeLoaded() {
 }
 
 function detectSwipe(event) {
-    touchstartX = event.changedTouches[0].screenX;
+    swipingStartingX = event.changedTouches[0].screenX;
     if (swipingBoolean) return;
     swipingBoolean = true;
     setTimeout(function() {
-        touchendX = event.changedTouches[0].screenX;
-        let distanceX = touchendX - touchstartX;
+        swipingEndingX = event.changedTouches[0].screenX;
+        let distanceX = swipingEndingX - swipingStartingX;
         parallaxSwipe(distanceX);
         swipingBoolean = false;
     }, 10);
@@ -856,19 +856,18 @@ document.addEventListener("DOMContentLoaded", () => {
     //Grab the current html page name
     let html_page = window.location.pathname.split("/").pop();
     if (CONSOLE_BOOL) {
-        if (html_page == "") console.log("current page: home page");
-        else console.log("current page: ", html_page);
+        console.log("current page: ", html_page);
     }
     //Only for the main landing page
-    if (html_page == "") {
+    if (html_page == "index.html") {
         homePageStarter();
-    } else if ( html_page == "visual-resume") {
+    } else if ( html_page == "visual-resume.html") {
         resumePageStarter();
-    } else if ( html_page == "projects") {
+    } else if ( html_page == "projects.html") {
         projectsPageStarter();
-    } else if ( html_page == "art") {
+    } else if ( html_page == "art.html") {
         artPageStarter();
-    } else if ( html_page == "about") {
+    } else if ( html_page == "about.html") {
         aboutPageStarter();
     }
     // initialize Event Bus instance
