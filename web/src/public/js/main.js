@@ -1,7 +1,7 @@
 import { WelcomeBox } from "./welcomeBox.js";
 import { EventBus } from "./eventBus.js";
 
-const CONSOLE_BOOL = true;
+const CONSOLE_BOOL = false;
 let characterJumpingBoolean = false;
 let scrollTimer = -1;
 const characterOutfits = ["education", "projects", "skills", "contact"];
@@ -382,12 +382,10 @@ function homePageStarter(event) {
 
 
 function displayScrollingImageArt() {
-    console.log("clicked");
     let image_cards = document.querySelectorAll(".image-card");
     image_cards.forEach(card => {
         if (card.classList.contains("displayed")) {
             let art_full_id = card.id.split("-")[0] + "-full-wrapper";
-            console.log(art_full_id)
             let art_full_wrapper = document.getElementById(art_full_id);
             art_full_wrapper.classList.add("displayed");
             document.body.classList.add("art-display-open");
