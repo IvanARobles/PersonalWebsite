@@ -85,7 +85,7 @@
         let note_link = document.createElement("a");
         note_link.classList.add("underline-link-swipe");
         note_link.innerText = WelcomeBox.NOTE_MSG[1];
-        note_link.href = "visual-resume.html";
+        note_link.href = "pages/visual-resume.html";
         note_link.target = "_blank";
         note_link.title = "Open Interactive Resume"
         final_note.append(note_link);
