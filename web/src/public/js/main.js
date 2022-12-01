@@ -859,7 +859,7 @@ document.addEventListener("DOMContentLoaded", () => {
         console.log("current page: ", html_page);
     }
     //Only for the main landing page
-    if (html_page == "index.html") {
+    if (html_page == "") {
         homePageStarter();
     } else if ( html_page == "visual-resume.html") {
         resumePageStarter();
