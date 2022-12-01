@@ -1,7 +1,7 @@
 import { WelcomeBox } from "./welcomeBox.js";
 import { EventBus } from "./eventBus.js";
 
-const CONSOLE_BOOL = false;
+const CONSOLE_BOOL = true;
 let characterJumpingBoolean = false;
 let scrollTimer = -1;
 const characterOutfits = ["education", "projects", "skills", "contact"];
