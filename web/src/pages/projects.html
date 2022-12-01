@@ -26,7 +26,7 @@
       <div class="left-hero">
         <a href="/" title="Home Page">
           <img class="logo" src="images/IvanRoblesLogoWhite.png" alt="IvanRobles Logo"
-          onmouseover="this.src='images/IvanRoblesLogoAccent.png';" 
+          onmouseover="this.src='images/IvanRoblesLogoHover.png';" 
           onmouseout="this.src='images/IvanRoblesLogoWhite.png';" href="/">
         </a>
       </div>
@@ -41,7 +41,7 @@
         <span class="header-wave">s</span>
       </div>
       <div class="right-hero">
-        <div title="Show Menu" class="menu-btn"></div>
+        <div title="Show Menu" class="menu-btn" tabindex="0"></div>
       </div>
     </div>
     <!-- End of Header -->
@@ -49,11 +49,11 @@
     <!-- Contains the dropdown menu -->
     <div class="dropdown">
       <nav class="menu-list">
-        <a href="/" title="Home Page">home.</a>
-        <a href="/visual-resume" title="Open Interactive Resume">interactive-resume.</a>
-        <a href="/art" title="Open Art Page">art.</a>
-        <a href="/about" title="Open About Me Page">about.</a>
-        <a href="/#contact-section-header" title="Open Contact Section">contact.</a>
+        <a href="/" title="Home Page" class="underline-link-swipe">home</a>
+        <a href="/visual-resume" title="Open Interactive Resume" class="underline-link-swipe">interactive-resume</a>
+        <a href="/art" title="Open Art Page" class="underline-link-swipe">art</a>
+        <a href="/about" title="Open About Me Page" class="underline-link-swipe">about</a>
+        <a href="/#contact-section-header" title="Open Contact Section" class="underline-link-swipe">contact</a>
       </nav>
     </div>
 
@@ -124,7 +124,7 @@
 
     <div class="page-center">
       <p class="footer-link">Want to learn a little about me?  
-        <a href="/about" alt="Link to About Me Page" title="Open About Me Page">Click here.</a>
+        <a href="/about" alt="Link to About Me Page" title="Open About Me Page" class="underline-link-swipe">Click&nbsp;here.</a>
       </p>
     </div>
     
@@ -136,11 +136,8 @@
     <p class="copy-right">© Ivan Robles 2022</p>
   </footer>
 
-  <!-- Import icons for buttons -->
-  <script src="https://kit.fontawesome.com/06c5daf794.js" crossorigin="anonymous"></script>
-
   <!-- Import JS source files -->
-  <script type="module" src="js/main.js"></script>
+  <script type="module" src="js/main.js" defer></script>
 
   <!-- No Script for when JS is not supported or disabled -->
   <noscript>

@@ -41,7 +41,7 @@
 
         let o_welc_greet_1 = document.createElement("span");
         o_welc_greet_1.innerText = WelcomeBox.S_WELC_MSG[1];
-        o_welc_greet_1.classList.add("accented-text-light", "italicized-text");
+        o_welc_greet_1.classList.add("text-medium", "italicized-text");
 
         let o_welc_greet_2 = document.createElement("span");
         o_welc_greet_2.innerText = WelcomeBox.S_WELC_MSG[2];
@@ -60,6 +60,7 @@
         o_welc_greet_5.classList.add("welcome-hover-effect");
         o_welc_greet_5.id = "welcome-hover-id";
         o_welc_greet_5.title = "Hover or Focus on Me!";
+        o_welc_greet_5.tabIndex = "0";
 
         let o_welc_greet_6 = document.createElement("span");
         o_welc_greet_6.innerText = WelcomeBox.S_WELC_MSG[6];
@@ -70,6 +71,7 @@
         o_welc_greet_7.id = "welcome-click-id";
         o_welc_greet_7.title = "Click on Me!";
         o_welc_greet_7.addEventListener("click", this.addClicked.bind(o_welc_greet_7));
+        o_welc_greet_7.tabIndex = "0";
 
         let o_welc_greet_8 = document.createElement("span");
         o_welc_greet_8.innerText = WelcomeBox.S_WELC_MSG[8];
@@ -77,9 +79,20 @@
         o_welc_greet.append(o_welc_greet_0, o_welc_greet_1, o_welc_greet_2, o_welc_greet_3, o_welc_greet_4);
         o_welc_greet.append(o_welc_greet_5, o_welc_greet_6, o_welc_greet_7, o_welc_greet_8);
 
+        let final_note = document.createElement("p");
+        final_note.classList.add("welcome-note");
+        final_note.innerText = WelcomeBox.NOTE_MSG[0];
+        let note_link = document.createElement("a");
+        note_link.classList.add("underline-link-swipe");
+        note_link.innerText = WelcomeBox.NOTE_MSG[1];
+        note_link.href = "/visual-resume";
+        note_link.target = "_blank";
+        note_link.title = "Open Interactive Resume"
+        final_note.append(note_link);
+
         //Buttons
         let button_wrapper = document.createElement("div");
-        button_wrapper.classList.add("button-wrapper", "page-center", "responsive_grid");
+        button_wrapper.classList.add("welcome-button-wrapper");
         button_wrapper.id = "welcome-buttons";
 
         //Don't show welcome box again option
@@ -94,6 +107,7 @@
         o_welc_label.innerText = WelcomeBox.CHECKBOX_MSG;
         o_welc_label.classList.add("btn-welcome", "displayed");
         o_welc_label.id = "welcome-label";
+        o_welc_label.tabIndex = 0;
         first_button.append(o_welc_checkbox, o_welc_label);
 
         //The close "button"
@@ -103,13 +117,14 @@
         o_welc_close_text.innerText = WelcomeBox.CLOSE_MSG;
         o_welc_close_text.classList.add("btn-welcome", "displayed");
         o_welc_close_text.id = "close-welcome";
+        o_welc_close_text.tabIndex = 0;
         o_welc_close_text.addEventListener("click", this.closeWelcome.bind(this));
         second_button.append(o_welc_close_text);
 
     
         button_wrapper.append(first_button, second_button);
         o_welc_title_wrapper.append(o_welc_title);
-        o_welc_text.append(o_welc_greet, button_wrapper);
+        o_welc_text.append(o_welc_greet, final_note, button_wrapper);
         o_wrapper_obj.append(o_welc_title_wrapper, o_welc_text);
         this.append(o_wrapper_obj_back);
         this.append(o_wrapper_obj);
@@ -172,26 +187,34 @@
  * @static
  * @type {string[]}
  */
-WelcomeBox.S_WELC_MSG = ["I am a UI/UX Designer, and this website was made so you can learn a little bit about me and my work. " +
+WelcomeBox.S_WELC_MSG = ["I am a software engineer (namely UI/UX), and this website was made so you can learn a little bit about me and my work. " +
     "I chose to hand-code this website using HTML5, CSS3, and JavaScript ", 
     "(i.e. no frameworks)", 
-    ". This means everything you see was custom-made. So please ", 
-    "scroll",
-    ", ", 
-    "hover",
-    ", and ", 
-    "click",
-    " around everything on the website; you might find some fun effects!"];
+    ". This means everything you see was custom-made. So please", 
+    "scroll,",
+    "", 
+    "\xa0hover,\xa0",
+    "and", 
+    "\xa0click\xa0",
+    "around everything on the website; you might find some fun effects!"];
 
 /**
- * String describing the final thoughts of the welcome box
+ * String describing the final note of the welcome box
+ * @static
+ * @type {String}
+ */
+ WelcomeBox.NOTE_MSG = ["Note: I suggest checking out the ",
+    "interactive\xa0resume!"];
+
+/**
+ * String describing the checkbox of the welcome box
  * @static
  * @type {String}
  */
  WelcomeBox.CHECKBOX_MSG = "Don't Show This Again";
 
 /**
- * String describing the final thoughts of the welcome box
+ * String describing the close button of the welcome box
  * @static
  * @type {String}
  */

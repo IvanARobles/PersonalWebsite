@@ -11,7 +11,9 @@ let swipingBoolean = false;
 
 
 
-function showDropdown() {
+function showDropdown(event) {
+    // Necessary for the document NOT to trigger closeMenu
+    event.stopPropagation();
     let dropdown = document.querySelector(".dropdown");
     let menu_list = document.querySelector(".menu-list");
     let menu_button = document.querySelector(".menu-btn")
@@ -33,6 +35,19 @@ function showDropdown() {
     }
 }
 
+function closeMenu() {
+    let dropdown = document.querySelector(".dropdown");
+    let menu_list = document.querySelector(".menu-list");
+    let menu_button = document.querySelector(".menu-btn")
+    if (dropdown.classList.contains("displayed")) {
+        menu_list.classList.remove("displayed");        
+        setTimeout(function() {
+            menu_button.classList.remove("clicked");
+            menu_button.title = "Show Menu";
+            dropdown.classList.remove("displayed");
+        }, 200);
+    }
+}
 
 /**
  * Function to save checkbox to stop showing the welcome box
@@ -286,7 +301,7 @@ function homePageStarter(event) {
             if (entry.isIntersecting) display_observer.unobserve(entry.target);
         });
     }, {
-        threshold: .95,
+        threshold: .85,
         rootMargin: "-5%",
     });
 
@@ -332,8 +347,9 @@ function homePageStarter(event) {
 
     // Code for showing / hiding menu functionality
     let o_menu_btn = document.querySelector(".menu-btn");
-    o_menu_btn.addEventListener("click", showDropdown);
-
+    o_menu_btn.addEventListener("click", function(event){ showDropdown(event)} );
+    // Hide dropdown if the document is clicked
+    document.addEventListener("click", closeMenu);
 
     // Buttons to go forward and back through images
     let o_scroll_prev = document.getElementById("scroll-prev");
@@ -623,7 +639,9 @@ function removeOutfits() {
  function projectsPageStarter(event) {
     // Code for showing / hiding menu functionality
     let o_menu_btn = document.querySelector(".menu-btn");
-    o_menu_btn.addEventListener("click", showDropdownProjects);
+    o_menu_btn.addEventListener("click", function(event){ showDropdownProjects(event)} );
+    // Hide dropdown if the document is clicked
+    document.addEventListener("click", function(){ closeDropdownProjects()} );
 
     
     // Intersection Observer for classes that need to add display
@@ -644,7 +662,9 @@ function removeOutfits() {
     });
  }
 
- function showDropdownProjects() {
+ function showDropdownProjects(event) {
+    // Necessary for the document NOT to trigger closeMenu
+    event.stopPropagation();
     let dropdown = document.querySelector(".dropdown");
     let menu_list = document.querySelector(".menu-list");
     let menu_button = document.querySelector(".menu-btn");
@@ -669,19 +689,39 @@ function removeOutfits() {
     }
 }
 
+function closeDropdownProjects(event) {
+    let dropdown = document.querySelector(".dropdown");
+    let menu_list = document.querySelector(".menu-list");
+    let menu_button = document.querySelector(".menu-btn");
+    let bubble_wrapper = document.querySelector(".project-tab-bubble-wrapper");
+    if (dropdown.classList.contains("displayed")) {
+        menu_list.classList.remove("displayed");        
+        setTimeout(function() {
+            menu_button.classList.remove("clicked");
+            menu_button.title = "Show Menu";
+            dropdown.classList.remove("displayed");
+            bubble_wrapper.classList.remove("menu-open");
+        }, 200);
+    }
+}
+
 
 /**
  * Functions specific for initializing the art page
  */
  function artPageStarter(event) {
-    // Code for showing / hiding menu functionality
-    let o_menu_btn = document.querySelector(".menu-btn");
-    o_menu_btn.addEventListener("click", showDropdown);
-    
-    // Code for closing dropdown to filter art
-    document.addEventListener("click", closeArtDropdown);
     // Call function to create the custom dropdown to filter art
     createArtDropdown();
+    // Code for showing / hiding menu functionality
+    let o_menu_btn = document.querySelector(".menu-btn");
+    o_menu_btn.addEventListener("click", function(event){ 
+        showDropdown(event);
+        closeArtDropdown();
+    } );
+    // Hide dropdown if the document is clicked
+    document.addEventListener("click", closeMenu);
+    // Code for closing dropdown to filter art
+    document.addEventListener("click", closeArtDropdown);
 
     let art_previews = document.querySelectorAll(".art-preview-wrapper");
     art_previews.forEach(preview => {
@@ -696,6 +736,8 @@ function removeOutfits() {
  }
 
 function createArtDropdown() {
+    // Grab menu dropdown to close it if clicking on art dropdown
+    let dropdown = document.querySelector(".dropdown");
     // Grab the custom dropdown menu
     let dropdown_top = document.querySelector(".art-dropdown-top");
     let dropdown_options_old = dropdown_top.getElementsByTagName("select")[0];
@@ -738,7 +780,9 @@ function createArtDropdown() {
     dropdown_option_selected.addEventListener("click", function(e) {
         // Prevent document from firing closeArtDropdown
         e.stopPropagation();
-        // Open/Close Dropdown
+        // Close Menu Dropdown if it is open when clicking on the art dropdown
+        if (dropdown.classList.contains("displayed")) { closeMenu(); }
+        // Open/Close Art Dropdown
         this.nextSibling.classList.toggle("hidden");
         // Indicate the dropdown is open/closed to alter down/up arrow
         this.classList.toggle("open");
@@ -793,7 +837,9 @@ function closeFullArt(art_full_back) {
  function aboutPageStarter(event) {
     // Code for showing / hiding menu functionality
     let o_menu_btn = document.querySelector(".menu-btn");
-    o_menu_btn.addEventListener("click", showDropdown);
+    o_menu_btn.addEventListener("click", function(event){ showDropdown(event)} );
+    // Hide dropdown if the document is clicked
+    document.addEventListener("click", closeMenu);
     setInterval(function() { 
         document.querySelector(".about-img-top").classList.toggle("disappear");
     }, 7500);

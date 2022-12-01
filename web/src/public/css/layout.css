@@ -5,7 +5,8 @@
   --accent-color: #A13333;
   --accent-color-light: #ff5252;
   --accent-color-faded: #b74f4f;
-  --accent-color-faded-light: #e58080;
+  --accent-color-faded-light: #cb6363;
+  --accent-color-faded-lightest: #eb7474;
   --cerulean-color: rgb(57, 121, 223);
   --accent-color-darkest: rgb(52, 90, 114);
   --darker-color: rgb(83, 83, 83);
@@ -149,28 +150,43 @@ p, ol li, ul li, blockquote {
 .welcome-section {
   overflow: hidden;
   position: fixed;
-  transform: translateY(150%);
-  width: 90vw;
-  height: 90vh;
-  top: 0;
+  transform: translateY(100vh);
+  width: 950px;
+  top: 50%;
   left: 0;
   right: 0;
-  bottom: 0;
   margin: auto;
-  z-index: 2;
+  z-index: 3;
   border-radius: 1rem;
   box-shadow: 10px black;
   /* MATCH with timeout delay in welcomeBox.js */
   transition: all 1200ms cubic-bezier(0.68, -0.55, 0.27, 1.55);
 }
 
+@media (max-width: 1100px) {
+  .welcome-section {
+    width: 85vw;
+  }
+}
+
+@media (max-width: 900px) {
+  .welcome-section {
+    width: 90vw;
+  }
+}
+
+@media (max-width: 750px) {
+  .welcome-section {
+    width: 95vw;
+  }
+}
+
+
 /**
  * Container for instructions when it is open
  */
 .welcome-section.displayed {
-  /* width: 80%;
-  height: 90vh; */
-  transform: translateY(0);
+  transform: translateY(-50%);
   border-width: 2px;
   overflow-y: auto;
   box-shadow: 0 0 50px black;
@@ -209,10 +225,6 @@ p, ol li, ul li, blockquote {
   line-height: calc(1.5rem + 0.5vw);
 }
 
-#welcome-para p {
-  margin: calc(1rem + 0.25vw) 0 0 0;
-}
-
 .welc-list {
   padding-left: 5%;
 }
@@ -231,6 +243,10 @@ p, ol li, ul li, blockquote {
 
 .accented-text-light {
   color: var(--accent-color-faded-light);
+}
+
+.text-medium {
+  color: var(--medium-color);
 }
 
 .italicized-text {
@@ -272,6 +288,11 @@ p, ol li, ul li, blockquote {
 
   #welcome-para i {
     color: var(--accent-color-light);
+  }
+
+  .welcome-note {
+    text-align: center;
+    font-size: calc(1rem + 0.25vw);
   }
 
 
@@ -607,7 +628,6 @@ p, ol li, ul li, blockquote {
   display: block;
   overflow: hidden;
   border-radius: var(--border-radius);
-  /* height: 50vh; */
   width: 50vw;
   border: 1px solid var(--light-color);
 }
@@ -633,7 +653,6 @@ p, ol li, ul li, blockquote {
 .project-wrapper > img {
   display: block;
   width: 100%;
-  /* aspect-ratio: 2/1; */
   object-fit: cover;
   object-position: center;
   transition: all 250ms ease-in-out;
@@ -698,14 +717,43 @@ p, ol li, ul li, blockquote {
     margin: 0;
   }
 }
+
+.project-wrapper:hover {
+  box-shadow: 0 0 5px white;
+}
+
+.project-wrapper:focus {
+  box-shadow: 0 0 10px white;
+}
+
 /* Code to make project-hover appear */
 .project-wrapper:hover > .project-hover,
 .project-wrapper:focus > .project-hover{
   opacity: 1;
 }
 
-.project-wrapper:hover > img{
+.project-wrapper:hover > img,
+.project-wrapper:focus > img {
   filter: blur(3px) grayscale(1);
+}
+
+.welcome-button-wrapper {
+  --width-var: 80%;
+  width: var(--width-var);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: var(--padding-sm);
+  margin: var(--margin-med) 0;
+  justify-content: center;
+  align-items: center;
+  /* Equation to center: ((1-width)/2)x(1/width)x100% = x_offset Note: width as decimal*/
+  transform: translateX(12.5%); 
+}
+
+@media (max-width: 600px) {
+  .welcome-button-wrapper {
+    grid-template-columns: 1fr;
+  }
 }
 
 .button-wrapper {
@@ -798,14 +846,13 @@ p, ol li, ul li, blockquote {
 
 .btn-up::before,
 .btn-up::after {
-  content: "\f176";
-  font-family: FontAwesome;
+  content: "\141e";
   color: white;
   position: absolute;
   display: flex;
   align-items: center;
   justify-content: center;
-  top: 20%;
+  top: 50%;
   bottom: 0;
   opacity: 0;
   transition: all 200ms ease-in-out;
@@ -823,7 +870,9 @@ p, ol li, ul li, blockquote {
 }
 
 .btn-up:hover::before,
-.btn-up:hover::after {
+.btn-up:hover::after,
+.btn-up:focus::before,
+.btn-up:focus::after {
   opacity: 1;
   color: var(--accent-color-faded);
   animation: bounce-up 2000ms infinite linear 200ms;/* Delay to make transition visible*/
@@ -831,27 +880,27 @@ p, ol li, ul li, blockquote {
 
 @keyframes bounce-up {
   0% {
-    top: 20%;
+    top: 50%;
     text-shadow: none;
     color: var(--accent-color-faded);
   }
   25% {
-    top: -25%;
+    top: 0;
     text-shadow: 0 0 5px var(--accent-color-faded-light);
     color: var(--accent-color-faded-light);
   }
   50% {
-    top: 20%;
+    top: 50%;
     text-shadow: none;
     color: var(--accent-color-faded);
   }
   75% {
-    top: -25%;
+    top: 0%;
     text-shadow: 0 0 5px var(--accent-color-faded-light);
     color: var(--accent-color-faded-light);
   }
   100% {
-    top: 20%;
+    top: 50%;
     text-shadow: none;
     color: var(--accent-color-faded);
   }
@@ -916,39 +965,49 @@ p, ol li, ul li, blockquote {
 .block-text.displayed > span.red {  color: rgb(255, 0, 0);}
 .block-text.displayed > span.accented {  color: var(--accent-color-faded-light);}
 
-.block-text > a {
-  color: transparent;
+/* Prevent link from appearing before the rest of the text */
+.block-text .underline-link-swipe {
+  opacity: 0;
   transition: 0ms ease-in-out var(--block-speed);
+}
+.block-text.displayed .underline-link-swipe {
+  opacity: 1;
+}
+
+.underline-link-swipe {
+  --underline-link-color: var(--accent-color-faded-light);
+  color: var(--underline-link-color);
   text-decoration: none;
   position: relative;
 }
 
-.block-text > a:hover,
-.block-text > a:focus {
+.underline-link-swipe:hover,
+.underline-link-swipe:focus {
   text-decoration: none;
 }
 
-.block-text.displayed > a {
-  color: var(--accent-color-light);
-}
-
-.block-text.displayed > a::before {
+.underline-link-swipe::after {
   content: "";
   position: absolute;
   top: 0;
   bottom: calc(var(--pop-size) * -.5);
   left: 0;
   right: 100%;
-  z-index: -1;
-  border-bottom: calc(var(--pop-size) * .5) solid var(--accent-color-light);
+  z-index: 10;
+  border-bottom: calc(var(--pop-size) * .5) solid var(--underline-link-color);
   transition: 200ms ease-in-out;
 }
 
-.block-text.displayed > a:hover::before,
-.block-text.displayed > a:focus::before {
+.underline-link-swipe:hover::after,
+.underline-link-swipe:focus::after {
   left: 0;
   right: 0;
 }
+
+
+
+
+
 
 .text-card {
   display: flex;
@@ -1055,8 +1114,13 @@ p, ol li, ul li, blockquote {
   font-size: 1.5rem;
 }
 
-.image-card.image-card-cover:hover{
+.image-card.image-card-cover:hover, 
+.image-card.image-card-cover:focus {
   opacity: 1;
+}
+
+.image-card.image-card.image-card-cover:focus {
+  box-shadow: inset 0 0 10px white;
 }
 
 .image-card.image-card-cover > div{
@@ -1094,17 +1158,17 @@ p, ol li, ul li, blockquote {
   border: 1px solid var(--white-half-transparent);
   cursor: pointer;
   padding-bottom: 7.5px;
+  transition: 200ms ease-in-out;
 }
 
-.btn-scroll:hover {
-  background-color: black;
-  color: white;
-  box-shadow: 0 0 5px white;
+.btn-scroll:hover,
+.btn-scroll:focus {
+  color: var(--accent-color-faded-light);
+  box-shadow: 0 0 10px white;
 }
 
 .btn-scroll:active {
   background-color: white;
-  color: black;
 }
 
 .btn-scroll.prev {
@@ -1589,7 +1653,7 @@ label {
 .menu-btn:hover::after,
 .menu-btn:focus::before,
 .menu-btn:focus::after {
-  background-color: var(--accent-color-faded);
+  background-color: var(--accent-color-faded-light);
 }
 
 .menu-btn.clicked::before {
@@ -1640,13 +1704,12 @@ label {
   margin-left: var(--margin-lg);
   margin-right: var(--margin-xl);
   font-size: calc(var(--base-font-size)*.95);
-  transition: all 200ms;
+  transition: all 200ms ease-in-out;
   cursor: pointer;
 }
 
 .menu-list > a:hover {
-  color: white;
-  text-shadow: 0px 0px 5px var(--light-color);
+  color: var(--accent-color-faded-light);
 }
 
 @media (max-width: 900px) {
@@ -1662,6 +1725,7 @@ label {
     grid-template-columns: 1fr;
     grid-row-gap: 3px;
     text-align: center;
+    place-items: center;
   }
 
   .dropdown {
@@ -1697,9 +1761,9 @@ label {
 
 .btn-welcome {
   padding: var(--padding-med);
+  margin: var(--margin-med);
   font-size: var(--btn-font-size-sm);
   cursor: pointer;
-  width: 100%;
   text-align: center;
   position: relative;
   transition: 200ms ease-in-out;
@@ -1732,15 +1796,16 @@ label {
   transition: 500ms ease-in-out;
 }
 
-.btn-welcome:hover {
-  color: var(--accent-color-faded-light);
+.btn-welcome:hover,
+.btn-welcome:focus {
+  color: var(--accent-color-faded-lightest);
 }
 
 .btn-welcome:hover::before,
 .btn-welcome:focus::before {
   top: 0;
   bottom: 0;
-  border-color: var(--accent-color-faded-light);
+  border-color: var(--accent-color-faded-lightest);
 }
 
 .hidden-checkbox-wrapper input[type=checkbox]:checked + .btn-welcome{
@@ -1756,7 +1821,6 @@ label {
 .hidden-checkbox-wrapper input[type=checkbox]:checked + .btn-welcome::before{
   border-left: var(--pop-size) solid var(--light-color);
 }
-
 
 .hidden-checkbox-wrapper input[type=checkbox]:checked + .btn-welcome::after{
   right: 0;
@@ -1792,11 +1856,13 @@ label {
   transition: all 200ms ease-in-out;
 }
 
-.welcome-hover-effect:hover {
+.welcome-hover-effect:hover,
+.welcome-hover-effect:focus {
   animation: block-cycle-text 3s ease-in-out infinite 0s;
 }
 
-.welcome-hover-effect:hover::before {
+.welcome-hover-effect:hover::before,
+.welcome-hover-effect:focus::before {
   animation: block-cycle-block 3s ease-in-out infinite 0s;
   /* bottom: 0; */
 }
@@ -2062,11 +2128,13 @@ label {
   aspect-ratio: 1;
   background: no-repeat center center;
   background-size: cover, 0 0;
+  transition: all 200ms ease-in-out;
 }
 
 .icon-img-btn:hover,
 .icon-img-btn:focus {
   text-decoration: none;
+  transform: scale(1.15);
 }
 
 #github-icon,
@@ -3734,7 +3802,8 @@ label {
 
 .project-tab-wrapper.displayed .project-tab {
   opacity: 1;
-  transform: translateX(5.55%); /* 100x(1/width)x((1-width)/2) */
+  /* Equation to center: ((1-width)/2)x(1/width)x100% = x_offset Note: width as decimal*/
+  transform: translateX(5.55%);
 }
 
 .project-tab-space {
