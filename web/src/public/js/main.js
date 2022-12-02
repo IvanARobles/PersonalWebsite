@@ -282,7 +282,7 @@ function homePageStarter(event) {
     else {
         setTimeout(function() {
             loadingFinish(prevDate, currDate);
-        }, 50);
+        }, 10);
     }
 
     //initialize scroll effect color to green
