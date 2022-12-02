@@ -446,6 +446,7 @@ function resumeLoaded() {
         threshold: .2
     });
     
+    // Observe content wrappers that will float down
     let contents = document.querySelectorAll(".resume-content-wrapper");
     contents.forEach(content => {
         content_observer.observe(content);
@@ -461,7 +462,7 @@ function detectSwipe(event) {
         let distanceX = swipingEndingX - swipingStartingX;
         parallaxSwipe(distanceX);
         swipingBoolean = false;
-    }, 10);
+    }, 100);
 }
 
 function parallaxSwipe(distance) {

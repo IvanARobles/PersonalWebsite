@@ -1159,6 +1159,7 @@ p, ol li, ul li, blockquote {
   background-color: var(--dark-less-transparent);
   border: 1px solid var(--white-half-transparent);
   cursor: pointer;
+  padding: 5px;
   padding-bottom: 7.5px;
   transition: 200ms ease-in-out;
 }
@@ -4242,7 +4243,7 @@ label {
 }
 
 .art-full-wrapper {
-  position: sticky;
+  position: fixed;
   top: 0;
   bottom: 0;
   height: 100vh;
@@ -4276,14 +4277,14 @@ label {
 
 @media (max-width: 800px) {
   .art-full-wrapper > img {
-    max-height: 80%;
+    max-height: 82.5%;
     max-width: 90%;
   }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 600px) {
   .art-full-wrapper > img {
-    max-height: 65%;
+    max-height: 75%;
     max-width: 95%;
   }
 }
