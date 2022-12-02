@@ -459,6 +459,12 @@ p, ol li, ul li, blockquote {
   animation: block-switch-content 8s ease-in-out infinite 0s;
 }
 
+@media (max-width: 500px) {
+  .landing-footer.displayed > #heart::before {
+    font-size: calc(var(--footer-font-size)*3);
+  }
+}
+
 /* The block that removes the word heart */
 .landing-footer.displayed > #heart::after {
   position: absolute;
