@@ -64,22 +64,24 @@
 
   --scroll-text-hue: 0;
 
+  --resume-height: 100vh;
   --resume-section-width: 100vw;
   --resume-header-size: calc(2.25rem + 1vw);
   --resume-content-size: calc(1.5rem + 1.55vw);
   --resume-ground-height: 80px;
-  --resume-jump-height: 150px;
+  /* --resume-jump-height: 150px; */
   --resume-jump-time: 750ms;
-  --resume-character-height: 200px;
+  /* --resume-character-height: 200px; */
+  --resume-character-height: calc(var(--resume-height)/4);
+  --resume-jump-height: calc(var(--resume-character-height)*.75);
   --resume-block-height: calc(var(--resume-character-height) + var(--resume-ground-height) + var(--resume-jump-height) - 1px);
   --resume-jump-one: calc(var(--resume-jump-height)*.8 + var(--resume-ground-height));
   --resume-jump-two: calc(var(--resume-jump-height)*.9 + var(--resume-ground-height));
   --resume-jump-three: calc(var(--resume-jump-height) + var(--resume-ground-height) + 1px);
   --resume-dog-jump-time: 500ms;
-  --resume-dog-jump-height: 85px;
+  --resume-dog-jump-height: calc(var(--resume-character-height)*0.6);
   --resume-dog-jump-one: calc(var(--resume-dog-jump-height)*.8);
   --resume-dog-jump-two: calc(var(--resume-dog-jump-height)*.9);
-  --character-cover-radius: 2.5rem;
 }
 
 *, *::before, *::after {
@@ -2257,13 +2259,16 @@ label {
 
 .parallax-wrapper {
   background-image: linear-gradient(rgb(85, 150, 255), rgb(135, 187, 235), skyblue);
-  height: 100vh;
+  height: var(--resume-height);
+  top: calc((100vh - var(--resume-height))/2);
   width: 100vw;
   position: relative;
   overflow-x: hidden;
   overflow-y: hidden;
   z-index: 0;
   transition: transform 750ms ease-out;
+  border-top: 2px solid white;
+  border-bottom: 1px solid white;
   justify-content: center;
   align-items: center;
   display: flex;
@@ -2273,7 +2278,8 @@ label {
   scrollbar-width: none;  /* Hide Scrollbar for Firefox */
 }
 
-@media (max-width: 500px) {
+/* Allow horizontal scrolling on mobile */
+@media (max-width: 600px) {
   .parallax-wrapper {
     overflow-x: auto;
   }
@@ -2372,14 +2378,28 @@ label {
   background-size: 0 0, cover;
 }
 
-.character-cover {
+.character-wrapper {
   position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  height: var(--resume-height);
+  top: calc((100vh - var(--resume-height))/2);
+  z-index: 10;
+  width: calc(var(--resume-character-height)/2);
+}
+
+/* Update character size and entire world size */
+@media (max-width: 600px) {
+  :root {
+    --resume-height: 80vh
+  }
+}
+
+.character-cover {
+  position: absolute;
   bottom: var(--resume-ground-height);
   height: var(--resume-character-height);
   aspect-ratio: 1/2;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 10;
   cursor: pointer;
   background: no-repeat center center;
   /* -webkit-background-size: cover;
@@ -2396,18 +2416,14 @@ label {
    * Display only the background image corresponding to the current action */
   background-image: var(--right-url), var(--right-walk-url), var(--right-jump-url), var(--left-url), var(--left-walk-url), var(--left-jump-url);
   opacity: 0;
-  transform: translateX(-50%);
   transition: opacity 200ms ease-in-out, transform 200ms ease-in-out;
 }
 
 .character {
-  position: fixed;
+  position: absolute;
   bottom: var(--resume-ground-height);
   height: var(--resume-character-height);
   aspect-ratio: 1/2;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 10;
   cursor: pointer;
   background: no-repeat center center;
   /* -webkit-background-size: cover;
@@ -2706,7 +2722,7 @@ label {
   font-size: 0;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 600px) {
   .resume-ground-instructions.large {
     font-size: 0;
   }
@@ -2759,7 +2775,7 @@ label {
   }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 600px) {
   .sign {
     padding: 5px;
     width: 190px;
@@ -2783,19 +2799,19 @@ label {
 }
 
 .resume-sign-instructions.large {
-  font-size: 2rem;
+  font-size: 1.75rem;
 }
 
 .resume-sign-instructions.small {
   font-size: 0;
 }
 
-@media (max-width: 400px) {
+@media (max-width: 600px) {
   .resume-sign-instructions.large {
     font-size: 0;
   }
   .resume-sign-instructions.small {
-    font-size: 1.25rem;
+    font-size: 1.15rem;
   }
 }
 
@@ -2890,6 +2906,15 @@ label {
   z-index: 1;
 }
 
+@media (max-width: 600px) {
+  .tree {
+    height: 300px;
+  }
+  .tree.close {
+    height: 350px;
+  }
+}
+
 .tree.close.fall {
   background-image: url("../images/resume/tree-close-fall.png");
 }
@@ -2933,12 +2958,6 @@ label {
 }
 
 @media (max-width: 600px) {
-  .tree.close.two.end {
-    display: none;
-  }
-}
-
-@media (max-width: 500px) {
   .tree.close {
     transform: translateX(20vw) translateY(0px) translateZ(-0.2px) scale(1.2);
   }
@@ -2959,6 +2978,9 @@ label {
     display: none;
   }
   .tree.far.two {
+    display: none;
+  }
+  .tree.close.two.end {
     display: none;
   }
 }
@@ -2987,6 +3009,12 @@ label {
 @media (max-width: 800px) {
   :root {
     --resume-section-width: 125vw;
+  }
+}
+
+@media (max-width: 600px) {
+  :root {
+    --resume-section-width: 135vw;
   }
 }
 
@@ -3034,12 +3062,6 @@ label {
   }
   :root {
     --resume-ground-height: 75px;
-    --resume-jump-height: 130px;
-    --resume-character-height: 185px;
-    --resume-block-height: calc(var(--resume-character-height) + var(--resume-ground-height) + var(--resume-jump-height) - 1px);
-    --resume-jump-one: calc(var(--resume-jump-height)*.8 + var(--resume-ground-height));
-    --resume-jump-two: calc(var(--resume-jump-height)*.9 + var(--resume-ground-height));
-    --resume-jump-three: calc(var(--resume-jump-height) + var(--resume-ground-height) + 1px);
   }
 }
 
@@ -3051,12 +3073,6 @@ label {
 
   :root {
     --resume-ground-height: 70px;
-    --resume-jump-height: 125px;
-    --resume-character-height: 170px;
-    --resume-block-height: calc(var(--resume-character-height) + var(--resume-ground-height) + var(--resume-jump-height) - 1px);
-    --resume-jump-one: calc(var(--resume-jump-height)*.8 + var(--resume-ground-height));
-    --resume-jump-two: calc(var(--resume-jump-height)*.9 + var(--resume-ground-height));
-    --resume-jump-three: calc(var(--resume-jump-height) + var(--resume-ground-height) + 1px);
   }
 }
 
@@ -3157,9 +3173,9 @@ label {
   background-size: cover;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 600px) {
   .resume-title {
-    width: 100%;
+    width: 99%;
   }
 }
 
@@ -3197,6 +3213,40 @@ label {
   padding: calc(var(--bolt-gap)*3);
   grid-column-gap: calc(var(--bolt-gap)*2);
   opacity: 0;
+}
+
+@media (max-width: 1400px) {
+  .resume-content-wrapper {
+    width: 67vw;
+  }
+}
+
+@media (max-width: 1200px) {
+  .resume-content-wrapper {
+    width: 75vw;
+  }
+}
+
+@media (max-width: 800px) {
+  .resume-content-wrapper {
+    width: 85vw;
+  }
+}
+
+@media (max-width: 700px) {
+  .resume-content-wrapper {
+    width: 92.5vw;
+    --bolt-gap: 8.5px;
+  }
+}
+
+@media (max-width: 600px) {
+  .resume-content-wrapper {
+    width: 98.5vw;
+    --bolt-gap: 7px;
+    grid-column-gap: calc(var(--bolt-gap)*1.5);
+    padding: calc(var(--bolt-gap)*2.25);
+  }
 }
 
 .resume-content-wrapper.single {
@@ -3289,7 +3339,7 @@ label {
   position: absolute;
   border-radius: 50%;
   aspect-ratio: 1;
-  width: 20px;
+  width: calc(var(--bolt-gap)*2);
   background-color: rgb(153, 153, 153);
   box-shadow: inset -2px -2px 2px rgb(51, 51, 51), inset 2px 2px 2px rgb(234, 234, 234);
   border: 1px solid black;
@@ -3302,30 +3352,6 @@ label {
 
 .resume-content-wrapper::after {
   right: var(--bolt-gap);
-}
-
-@media (max-width: 1400px) {
-  .resume-content-wrapper {
-    width: 67vw;
-  }
-}
-
-@media (max-width: 1200px) {
-  .resume-content-wrapper {
-    width: 75vw;
-  }
-}
-
-@media (max-width: 800px) {
-  .resume-content-wrapper {
-    width: 85vw;
-  }
-}
-
-@media (max-width: 500px) {
-  .resume-content-wrapper {
-    width: 97.5vw;
-  }
 }
 
 .propeller {
@@ -3388,9 +3414,22 @@ label {
   height: auto;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 600px) {
+  #resume-image-ucsd {
+    aspect-ratio: 2;
+  }
+}
+
+@media (max-width: 450px) {
   #resume-image-ucsd {
     aspect-ratio: 1.5;
+  }
+}
+
+@media (max-width: 350px) {
+  #resume-image-ucsd {
+    aspect-ratio: auto;
+    height: 100%;
   }
 }
 
@@ -3454,6 +3493,15 @@ label {
 }
 .resume-education-grid > h3 {
   font-size: calc(var(--resume-content-size)/3);
+}
+
+@media (max-width: 500px) {
+  .resume-education-grid > h1 {
+    font-size: calc(var(--resume-content-size)/2);
+  }
+  .resume-education-grid > h2 {
+    font-size: calc(var(--resume-content-size)/2.75);
+  }
 }
 
 .resume-project-grid {
