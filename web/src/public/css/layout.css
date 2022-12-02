@@ -437,6 +437,7 @@ p, ol li, ul li, blockquote {
   transform: translateY(0%);
 }
 
+/* The word heart */
 .landing-footer.displayed > #heart {
   position: relative;
   color: var(--light-color);
@@ -444,12 +445,13 @@ p, ol li, ul li, blockquote {
   animation: block-switch-text 8s ease-in-out infinite 0s;
 }
 
+/* The heart itself */
 .landing-footer.displayed > #heart::before {
   position: absolute;
   content: '\2665';
   color: var(--accent-color-light);
-  z-index: -1;
-  font-size: calc(var(--footer-font-size)*4);
+  z-index: 1;
+  font-size: calc(var(--footer-font-size)*3.5);
   left: 50%;
   top: 50%;
   transform: translateX(-50%) translateY(-50%) scale(0);
@@ -457,6 +459,7 @@ p, ol li, ul li, blockquote {
   animation: block-switch-content 8s ease-in-out infinite 0s;
 }
 
+/* The block that removes the word heart */
 .landing-footer.displayed > #heart::after {
   position: absolute;
   content: "";
