@@ -234,17 +234,17 @@ function userKeying(event){
 }
        
 
-function loadingFinish() {
+function loadingFinish(prevDate, currDate) {
     let loading_section = document.querySelector(".loading-section");
     loading_section.classList.remove("displayed");
-    welcomeStart();
+    welcomeStart(prevDate, currDate);
 }
 
-function welcomeStart() {
+function welcomeStart(prevDate, currDate) {
     let welcome = document.querySelector("welcome-box");
     let welcomeBoolean = localStorage.getItem("welcomeBoolean");
-    // Show welcome box if user has not selected to never see it again
-    if (welcomeBoolean == null){
+    // Show welcome box, once a day, if user has not selected to never see it again
+    if (welcomeBoolean == null && prevDate != currDate){
         if (CONSOLE_BOOL) {
             console.log("Showing Welcome Box");
         }
@@ -275,14 +275,14 @@ function homePageStarter(event) {
         let loading_duration = 7500; //500 larger than "loading-row-animation" duration in CSS
         document.body.classList.add("loading-open");
         setTimeout(function() {
-            loadingFinish();
+            loadingFinish(prevDate, currDate);
         }, loading_duration);
     } 
-    // Don't trigger loading animation
+    // Don't wait for loading animation
     else {
         setTimeout(function() {
-            loadingFinish();
-        }, 100);
+            loadingFinish(prevDate, currDate);
+        }, 50);
     }
 
     //initialize scroll effect color to green
