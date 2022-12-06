@@ -153,7 +153,6 @@ p, ol li, ul li, blockquote {
   margin: auto;
   z-index: 3;
   border-radius: 1rem;
-  box-shadow: 10px black;
   /* MATCH with timeout delay in welcomeBox.js */
   transition: all 1200ms cubic-bezier(0.68, -0.55, 0.27, 1.55);
 }
@@ -182,9 +181,9 @@ p, ol li, ul li, blockquote {
  */
 .welcome-section.displayed {
   transform: translateY(-50%);
-  border-width: 2px;
+  border-width: 1px;
   overflow-y: auto;
-  box-shadow: 0 0 50px black;
+  box-shadow: 0 0 50px black, inset 0 0 7px var(--white-transparent);
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
 }
@@ -203,6 +202,7 @@ p, ol li, ul li, blockquote {
   margin-bottom: 0;
   padding: 15px 15px 5px 15px;
   font-size: calc(0.5rem + 3vw);
+  letter-spacing: 0.025em;
 }
 
 /**
@@ -218,6 +218,36 @@ p, ol li, ul li, blockquote {
   text-align: left;
   align-items: left;
   line-height: calc(1.5rem + 0.5vw);
+}
+
+.welcome-note {
+  text-align: center;
+  font-size: calc(1rem + 0.25vw);
+}
+
+@media (max-width: 600px) {
+  #welcome-para {
+    padding: 0 7px;
+  }
+
+  #welcome-para > p {
+    font-size: 1rem;
+    margin: 13px 0;
+  }
+  
+  #welcome-para > p.welcome-note {
+    font-size: 0.9rem;
+    margin-top: 0;
+    margin-bottom: 0.25rem;
+  }
+
+  .welcome-head {
+    margin: 0;
+    padding-bottom: 0;
+    padding-top: 17px;
+    letter-spacing: 0.05em;
+  }
+
 }
 
 .welc-list {
@@ -283,11 +313,6 @@ p, ol li, ul li, blockquote {
 
   #welcome-para i {
     color: var(--accent-color-light);
-  }
-
-  .welcome-note {
-    text-align: center;
-    font-size: calc(1rem + 0.25vw);
   }
 
 
@@ -787,6 +812,8 @@ p, ol li, ul li, blockquote {
 @media (max-width: 600px) {
   .welcome-button-wrapper {
     grid-template-columns: 1fr;
+    margin-top: 0;
+    padding-top: 0;
   }
 }
 
@@ -1832,6 +1859,20 @@ label {
   background-color: var(--page-color-lightest);
   color: var(--light-color);
   z-index: 1;
+}
+
+@media (max-width: 600px) {
+  .btn-welcome {
+    padding: 10px 0;
+    width: 200px;
+  }
+}
+
+@media (max-width: 400px) {
+  .btn-welcome {
+    padding: 7px 0;
+    width: 150px;
+  }
 }
 
 .btn-welcome::before {
