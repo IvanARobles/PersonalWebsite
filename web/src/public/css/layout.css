@@ -2217,6 +2217,12 @@ label {
   transition: all 750ms cubic-bezier(0.5,-2.5, 0.5, 1);
 }
 
+@media (max-width: 600px) {
+  .resume-load-grid {
+    width: 20%;
+  }
+}
+
 .resume-load-grid.shrink {
   scale: 0;
 }
@@ -2230,6 +2236,12 @@ label {
   aspect-ratio: 1/1;
   scale: 0;
   animation: square-load-animation var(--resume-load-duration) infinite ease-in-out;
+}
+
+@media (max-width: 600px) {
+  .resume-load-cell {
+    border-radius: 3px;
+  }
 }
 
 .resume-load-cell.empty {
