@@ -2270,7 +2270,7 @@ label {
 .parallax-wrapper {
   background-image: linear-gradient(rgb(85, 150, 255), rgb(135, 187, 235), skyblue);
   height: var(--resume-height);
-  top: calc((100vh - var(--resume-height))/2);
+  top: calc((100vh - var(--resume-height))/2.5);
   width: 100vw;
   position: fixed;
   overflow-x: hidden;
@@ -2393,7 +2393,7 @@ label {
   left: 50%;
   transform: translateX(-50%);
   height: var(--resume-height);
-  top: calc((100vh - var(--resume-height))/2);
+  top: calc((100vh - var(--resume-height))/2.5);
   z-index: 10;
   width: calc(var(--resume-character-height)/2);
   overflow-y: hidden;
