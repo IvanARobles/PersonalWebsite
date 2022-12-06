@@ -1,7 +1,7 @@
 import { WelcomeBox } from "./welcomeBox.js";
 import { EventBus } from "./eventBus.js";
 
-const CONSOLE_BOOL = true;
+const CONSOLE_BOOL = false;
 let characterJumpingBoolean = false;
 let scrollTimer = -1;
 const characterOutfits = ["education", "projects", "skills", "contact"];
@@ -662,7 +662,7 @@ function removeOutfits() {
             bubble.classList.toggle("displayed", entry.isIntersecting);
         });
     }, {
-        threshold: .4,
+        threshold: .15,
     });
 
     let wrappers = document.querySelectorAll(".project-tab-wrapper");

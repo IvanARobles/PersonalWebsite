@@ -66,7 +66,8 @@
 
   --resume-height: 100vh;
   --resume-section-width: 100vw;
-  --resume-header-size: calc(2.25rem + 1vw);
+  /* --resume-header-size: calc(2.25rem + 1vw); */
+  --resume-header-size: calc(1.25rem + 1.75vw);
   --resume-content-size: calc(1.5rem + 1.55vw);
   --resume-ground-height: 80px;
   /* --resume-jump-height: 150px; */
@@ -3072,23 +3073,37 @@ label {
   border-bottom: 3px solid rgb(59, 44, 0);
   border-right: 3px solid rgb(59, 44, 0);
   width: 300px;
-  height: 100px;
+  height: 95px;
+}
+
+@media (max-width: 1200px) {
+  .resume-header-block {
+    width: 250px;
+    height: 80px;
+  }
 }
 
 @media (max-width: 900px) {
   .resume-header-block {
-    width: 250px;
-    height: 85px;
+    width: 200px;
+    height: 65px;
   }
   :root {
     --resume-ground-height: 75px;
   }
 }
 
+@media (max-width: 700px) {
+  .resume-header-block {
+    width: 175px;
+    height: 57.5px;
+  }
+}
+
 @media (max-width: 500px) {
   .resume-header-block {
-    width: 200px;
-    height: 70px;
+    width: 150px;
+    height: 50px;
   }
 
   :root {
@@ -3818,16 +3833,18 @@ label {
   background-size: cover;
   background-image: url("../images/projects-back-waves.png");
   width: 100vw;
-  height: 150%;
+  height: 200%;
 }
 
 .project-tab {
   position: sticky;
   top: 0;
   bottom: 0;
-  height: 66.67%;
+  height: 50%;
   width: 90%;
-  transform: translateX(15%);
+  /* transform: translateX(15%); */
+  /* Equation to center: ((1-width)/2)x(1/width)x100% = x_offset Note: width as decimal*/
+  transform: translateX(5.55%);
   z-index: 1;
   opacity: 0;
   transition: all 400ms ease-in-out;
@@ -3836,13 +3853,6 @@ label {
   grid-template-columns: 1fr 1fr;
   grid-template-areas: "image titles" "content content";
   place-items: center;
-}
-
-@media (max-width: 800px) {
-  .project-tab {
-    grid-template-areas: "titles titles" "image image" "content content";
-    padding: 0;
-  }
 }
 
 .project-tab > ul {
@@ -3874,12 +3884,26 @@ label {
 
 .project-tab-wrapper.displayed .project-tab {
   opacity: 1;
-  /* Equation to center: ((1-width)/2)x(1/width)x100% = x_offset Note: width as decimal*/
-  transform: translateX(5.55%);
 }
 
 .project-tab-space {
-  height: 20%;
+  height: 50%;
+}
+
+@media (max-width: 800px) {
+  .project-tab-wrapper {
+    height: 150%;
+  }
+
+  .project-tab {
+    grid-template-areas: "titles titles" "image image" "content content";
+    padding: 0;
+    height: 66.67%;
+  }
+
+  .project-tab-space {
+    height: 70%;
+  }
 }
 
 .project-tab-img {
