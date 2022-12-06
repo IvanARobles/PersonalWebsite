@@ -2402,7 +2402,16 @@ label {
 /* Update character size and entire world size */
 @media (max-width: 600px) {
   :root {
-    --resume-height: 80vh
+    --resume-height: 76vh;
+    --resume-character-height: calc(var(--resume-height)/4.5);
+    --resume-jump-height: calc(var(--resume-character-height)*.65);
+    --resume-block-height: calc(var(--resume-character-height) + var(--resume-ground-height) + var(--resume-jump-height) - 1px);
+    --resume-jump-one: calc(var(--resume-jump-height)*.8 + var(--resume-ground-height));
+    --resume-jump-two: calc(var(--resume-jump-height)*.9 + var(--resume-ground-height));
+    --resume-jump-three: calc(var(--resume-jump-height) + var(--resume-ground-height) + 1px);
+    --resume-dog-jump-height: calc(var(--resume-character-height)*0.5);
+    --resume-dog-jump-one: calc(var(--resume-dog-jump-height)*.8);
+    --resume-dog-jump-two: calc(var(--resume-dog-jump-height)*.9);
   }
 }
 
