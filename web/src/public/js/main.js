@@ -456,20 +456,26 @@ function resumeLoaded() {
 }
 
 function detectSwipe(event) {
+    let parallax = document.querySelector(".parallax-wrapper");
     swipingStartingX = event.changedTouches[0].screenX;
+    // Function to make the page move
+    setTimeout(function() {
+        swipingEndingX = event.changedTouches[0].screenX;
+        let distanceX = swipingEndingX - swipingStartingX;
+        parallax.scrollLeft += (distanceX*3);
+    }, 5);
     if (swipingBoolean) return;
     swipingBoolean = true;
+    // Function to trigger walking animation/direction
     setTimeout(function() {
         swipingEndingX = event.changedTouches[0].screenX;
         let distanceX = swipingEndingX - swipingStartingX;
         parallaxSwipe(distanceX);
         swipingBoolean = false;
-    }, 10);
+    }, 100);
 }
 
 function parallaxSwipe(distance) {
-    let parallax = document.querySelector(".parallax-wrapper");
-    parallax.scrollLeft += (distance*2.95);
     let character = document.querySelector(".character");
     let character_cover = document.querySelector(".character-cover");
     if ((distance < 0) && character.classList.contains("right")) {
