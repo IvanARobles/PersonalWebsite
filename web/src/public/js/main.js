@@ -463,7 +463,7 @@ function detectSwipe(event) {
         swipingEndingX = event.changedTouches[0].screenX;
         let distanceX = swipingEndingX - swipingStartingX;
         parallax.scrollLeft += (distanceX*0.5);
-    }, 100);
+    }, 50);
     if (swipingBoolean) return;
     swipingBoolean = true;
     // Function to trigger walking animation/direction
