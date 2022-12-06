@@ -139,7 +139,7 @@
      * Function to show task list display from the main user screen
      */
     showWelcomeBox() {
-        document.body.classList.add("welcome-open");
+        document.body.classList.add("modal-open");
         this.querySelector("#welcome").classList.add("displayed");
         this.querySelector("#welcome-title").style.display = "block";
         this.querySelector("#welcome-para").style.display = "block";
@@ -156,7 +156,7 @@
      * Function to close task list display from the main user screen
      */
     closeWelcome() {
-        document.body.classList.remove("welcome-open");
+        document.body.classList.remove("modal-open");
         this.querySelector("#welcome").classList.remove("displayed");
         let welc_title = this.querySelector("#welcome-title");
         let welc_para = this.querySelector("#welcome-para");

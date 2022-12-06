@@ -63,6 +63,7 @@
   --resume-header-font: Helvetica;
 
   --scroll-text-hue: 0;
+  --body-modal-offset: 0px;
 
   --resume-height: 100vh;
   --resume-section-width: 100vw;
@@ -105,27 +106,12 @@ body::-webkit-scrollbar {
 }
 
 /* Prevent scrolling when the welcome box is open */
-body.welcome-open {
+body.modal-open {
   bottom: 0;
   left: 0;
   position: fixed;
   right: 0;
-  top: 0;
-}
-
-/* Prevent scrolling during loading animation */
-body.loading-open {
-  height: 100vh;
-  overflow-y: hidden;
-}
-
-/* Prevent scrolling during loading animation */
-body.art-display-open {
-  bottom: 0;
-  left: 0;
-  position: fixed;
-  right: 0;
-  top: 0;
+  top: var(--body-modal-offset, 0);
 }
 
 p, ol li, ul li, blockquote {

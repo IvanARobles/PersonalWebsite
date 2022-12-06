@@ -63,8 +63,8 @@ function closeMenu() {
  * Function to start the main page animations
  */
  function welcomeAnimations(event) {
-    //enable scrolling by removing loading-open class from body
-    document.body.classList.remove("loading-open");
+    //enable scrolling by removing modal open class from body
+    document.body.classList.remove("modal-open");
     if (CONSOLE_BOOL) {
         console.log("welcome animations starting");
     }
@@ -273,7 +273,7 @@ function homePageStarter(event) {
     //Trigger loading animation only once per day
     if (prevDate != currDate) {
         let loading_duration = 7500; //500 larger than "loading-row-animation" duration in CSS
-        document.body.classList.add("loading-open");
+        document.body.classList.add("modal-open");
         setTimeout(function() {
             loadingFinish(prevDate, currDate);
         }, loading_duration);
@@ -388,7 +388,9 @@ function displayScrollingImageArt() {
             let art_full_id = card.id.split("-")[0] + "-full-wrapper";
             let art_full_wrapper = document.getElementById(art_full_id);
             art_full_wrapper.classList.add("displayed");
-            document.body.classList.add("art-display-open");
+            let fromTop = window.scrollY*-1 + "px";
+            document.body.style.setProperty("--body-modal-offset", fromTop);
+            document.body.classList.add("modal-open");
         }
     });
 }
@@ -397,7 +399,7 @@ function displayScrollingImageArt() {
  * Functions specific for initializing the home page
  */
  function resumePageStarter(event) {
-    document.body.classList.add("loading-open");
+    document.body.classList.add("modal-open");
     //Making the loading animation grid disappear
     setTimeout(function() {
         loadingResumeShrink();
@@ -420,7 +422,7 @@ function loadingResumeDisappear() {
     loading_section.classList.remove("displayed");
     let loading_grid = document.querySelector(".resume-load-grid");
     loading_grid.style.display = "none";
-    document.body.classList.remove("loading-open");
+    document.body.classList.remove("modal-open");
     //After the loading section rows have appeared plus a pause
     setTimeout(function() {
         resumeLoaded();
@@ -829,14 +831,19 @@ function displayFullArt(art_preview) {
     let art_full_id = art_preview.id.split("-")[0] + "-full-wrapper";
     let art_full_wrapper = document.getElementById(art_full_id);
     art_full_wrapper.classList.add("displayed");
-    document.body.classList.add("art-display-open");
+    let fromTop = window.scrollY*-1 + "px";
+    document.body.style.setProperty("--body-modal-offset", fromTop);
+    document.body.classList.add("modal-open");
 }
 
 function closeFullArt(art_full_back) {
     let art_full_wrapper_id = art_full_back.id.split("-")[0] + "-" + art_full_back.id.split("-")[1] + "-" + art_full_back.id.split("-")[2];
     let art_full_wrapper = document.getElementById(art_full_wrapper_id);
     art_full_wrapper.classList.remove("displayed");
-    document.body.classList.remove("art-display-open");
+    let scrollDown = (document.body.style.getPropertyValue("--body-modal-offset").slice(0, -2))*-1;
+    document.body.classList.remove("modal-open");
+    window.scroll({ top: scrollDown });
+    // document.body.style.setProperty("--body-modal-offset", 0);
 }
 
 
