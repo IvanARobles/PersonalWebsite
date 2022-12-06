@@ -462,7 +462,7 @@ function detectSwipe(event) {
     setTimeout(function() {
         swipingEndingX = event.changedTouches[0].screenX;
         let distanceX = swipingEndingX - swipingStartingX;
-        parallax.scrollLeft += (distanceX*0.5);
+        parallax.scrollLeft += (distanceX*0.75);
     }, 50);
     if (swipingBoolean) return;
     swipingBoolean = true;
