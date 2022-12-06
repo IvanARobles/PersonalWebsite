@@ -2272,7 +2272,7 @@ label {
   height: var(--resume-height);
   top: calc((100vh - var(--resume-height))/2);
   width: 100vw;
-  position: relative;
+  position: fixed;
   overflow-x: hidden;
   overflow-y: hidden;
   z-index: 0;
@@ -2396,6 +2396,7 @@ label {
   top: calc((100vh - var(--resume-height))/2);
   z-index: 10;
   width: calc(var(--resume-character-height)/2);
+  overflow-y: hidden;
 }
 
 /* Update character size and entire world size */
