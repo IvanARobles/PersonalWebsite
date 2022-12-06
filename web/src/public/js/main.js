@@ -7,6 +7,8 @@ let scrollTimer = -1;
 const characterOutfits = ["education", "projects", "skills", "contact"];
 let swipingStartingX = 0;
 let swipingEndingX = 0;
+let swipingStartingY = 0;
+let swipingEndingY = 0;
 let swipingBoolean = false;
 
 
@@ -341,8 +343,10 @@ function homePageStarter(event) {
 
     let welcome_modal = document.getElementById("welcome");
     welcome_modal.addEventListener("wheel", welcomeScroll);
+    welcome_modal.addEventListener("touchmove", welcomeSwipe); 
     let welcome_blocker = document.getElementById("welcome-blocker");
     welcome_blocker.addEventListener("wheel", welcomeScroll);
+    welcome_blocker.addEventListener("touchmove", welcomeSwipe); 
     window.addEventListener("keyup", userKeying);
 
     // Code for showing / hiding menu functionality
@@ -380,6 +384,18 @@ function homePageStarter(event) {
     
 }
 
+function welcomeSwipe(event) {
+    let currentHue = document.body.style.getPropertyValue("--scroll-text-hue");
+    swipingStartingY = event.changedTouches[0].screenY;
+    // Let time pass to calculate swipe distance
+    setTimeout(function() {
+        swipingEndingY = event.changedTouches[0].screenY;
+        let scroll_amount = swipingEndingY - swipingStartingY;
+        let newHue = (+currentHue + +scroll_amount)%360;
+        document.body.style.setProperty("--scroll-text-hue", newHue);
+
+    }, 50);
+}
 
 function displayScrollingImageArt() {
     let image_cards = document.querySelectorAll(".image-card");
