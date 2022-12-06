@@ -1,7 +1,7 @@
 import { WelcomeBox } from "./welcomeBox.js";
 import { EventBus } from "./eventBus.js";
 
-const CONSOLE_BOOL = false;
+const CONSOLE_BOOL = true;
 let characterJumpingBoolean = false;
 let scrollTimer = -1;
 const characterOutfits = ["education", "projects", "skills", "contact"];
@@ -431,10 +431,12 @@ function resumeLoaded() {
     window.addEventListener("keyup", userKeyResume);
     let character_cover = document.querySelector(".character-cover");
     character_cover.addEventListener("click", characterJump);
+    // let parallax = document.querySelector(".parallax-wrapper");
+    // parallax.addEventListener("wheel", console.log("parallax wheeled"))
     document.addEventListener("wheel", parallaxScroll);
     let remove_outfits_btn = document.querySelector(".resume-outfit-btn");
     remove_outfits_btn.addEventListener("click", removeOutfits);
-    document.addEventListener('touchmove', detectSwipe); 
+    document.addEventListener("touchmove", detectSwipe); 
 
     // Intersection Observer for classes that need to add display
     let content_observer = new IntersectionObserver(entries => {
@@ -462,10 +464,12 @@ function detectSwipe(event) {
         let distanceX = swipingEndingX - swipingStartingX;
         parallaxSwipe(distanceX);
         swipingBoolean = false;
-    }, 100);
+    }, 10);
 }
 
 function parallaxSwipe(distance) {
+    let parallax = document.querySelector(".parallax-wrapper");
+    parallax.scrollLeft += (distance*2.95);
     let character = document.querySelector(".character");
     let character_cover = document.querySelector(".character-cover");
     if ((distance < 0) && character.classList.contains("right")) {
@@ -487,7 +491,7 @@ function parallaxSwipe(distance) {
     scrollTimer = window.setTimeout(function() {
         character.classList.remove("walk");
         character_cover.classList.remove("walk");
-        if (CONSOLE_BOOL) { console.log("done scrolling"); }
+        if (CONSOLE_BOOL) { console.log("done swiping"); }
     }, 300);
 }
 

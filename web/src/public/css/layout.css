@@ -2289,11 +2289,11 @@ label {
 }
 
 /* Allow horizontal scrolling on mobile */
-@media (max-width: 600px) {
+/* @media (max-width: 600px) {
   .parallax-wrapper {
     overflow-x: auto;
   }
-}
+} */
 
 .resume-home-btn {
   position: absolute;
