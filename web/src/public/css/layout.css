@@ -3890,6 +3890,7 @@ label {
   height: 50%;
 }
 
+/* Layouts and sizes for projects page on mobile */
 @media (max-width: 800px) {
   .project-tab-wrapper {
     height: 150%;
@@ -3902,7 +3903,7 @@ label {
   }
 
   .project-tab-space {
-    height: 70%;
+    height: 80%;
   }
 }
 
