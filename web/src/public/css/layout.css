@@ -3612,6 +3612,17 @@ label {
   background-image: url("../images/projects/project3-1.png");
 }
 
+#resume-image-boardgames {
+  background: no-repeat center top;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  overflow: hidden;
+  background-image: url("../images/projects/project4-1.png");
+}
+
+
 .resume-content-text {
   width: 100%;
   height: 100%;
