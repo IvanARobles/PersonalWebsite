@@ -4098,6 +4098,16 @@ label {
   background-image: url("../images/projects/project3-2.png");
 }
 
+#project-tab-image-boardgames {
+  background: no-repeat center top;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  overflow: hidden;
+  background-image: url("../images/projects/project4-1.png");
+}
+
 /* ---------- CSS specific to art.html ---------- */
 
 .art-intro-wrapper {
